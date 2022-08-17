@@ -12,6 +12,7 @@
   box-shadow: 0 2px 2px #0003;
   height: 16px;
   overflow-x: hidden;
+  z-index: 1;
 }
 
 .bar {

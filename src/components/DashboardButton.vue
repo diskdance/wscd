@@ -6,6 +6,7 @@
 
 <style scoped lang="less">
 button {
+  color: #202122;
   border-radius: 2px;
   font-weight: 700;
   border: 1px solid #A2A9B1;
