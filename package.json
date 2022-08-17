@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "vite",
     "merge-i18n": "git submodule update && ts-node-esm ./scripts/merge-i18n.ts",
-    "build": "vue-tsc --noEmit && pnpm run merge-i18n && vite build",
+    "build": "pnpm run merge-i18n && vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .js,.vue,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.vue,.ts,.tsx --fix"
