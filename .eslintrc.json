@@ -1,0 +1,42 @@
+{
+  "root": true,
+  "extends": [
+    "airbnb-base",
+    "airbnb-typescript/base",
+    "plugin:vue/vue3-essential"
+  ],
+  "rules": {
+    "import/no-extraneous-dependencies": [
+      "off",
+      {
+        "devDependencies": false,
+        "optionalDependencies": true,
+        "peerDependencies": true
+      }
+    ],
+    "no-await-in-loop": "off",
+    "no-constant-condition": [
+      "error",
+      {
+        "checkLoops": false
+      }
+    ],
+    "no-plusplus": "off",
+    "no-bitwise": "off",
+    "no-empty": [
+      "error",
+      {
+        "allowEmptyCatch": true
+      }
+    ]
+  },
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    "project": "./tsconfig.eslint.json",
+    "sourceType": "module",
+    "extraFileExtensions": [
+      ".vue"
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+:root {
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+
+#app {
+  max-width: 1024px;
+  margin: 0 auto;
+
+  @media screen and (max-width:1024px) {
+    margin: 0 10px;
+  }
+}
+
+a {
+  color: #36c;
+  text-decoration: none;
+
+  &:visited {
+    color: #6b4ba1;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: #2a4b8d;
+    text-decoration: underline;
+  }
+}

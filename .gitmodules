@@ -1,0 +1,3 @@
+[submodule "wikimedia-messages"]
+	path = wikimedia-messages
+	url = https://github.com/wikimedia/mediawiki-extensions-WikimediaMessages
