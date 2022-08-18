@@ -1,8 +1,9 @@
 /* eslint-disable no-console */
 import fs from 'fs/promises';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
-const dirname = new URL('.', import.meta.url).pathname;
+const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const I18N_DIR = path.join(dirname, '../i18n/');
 const WIKIMEDIA_MSG_DIR = path.join(dirname, '../wikimedia-messages/i18n/wikimediaprojectnames/');
