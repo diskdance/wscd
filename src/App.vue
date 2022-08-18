@@ -85,10 +85,10 @@ async function prefetchAndCheck(fetcher: () => Promise<{ default: unknown }>) {
     <main>
       <div class="button-container">
         <DashboardButton @click="prefetchAndCheck(() => import('./assets/sites-std.json'))"
-          :disabled="checkStatus === CheckStatus.CHECKING">
+          :disabled="[CheckStatus.CHECKING, CheckStatus.PREFETCHING].includes(checkStatus)">
           {{ $i18n('btn-std-chk') }}</DashboardButton>
         <DashboardButton @click="prefetchAndCheck(() => import('./assets/sites-all.json'))"
-          :disabled="checkStatus === CheckStatus.CHECKING">
+          :disabled="[CheckStatus.CHECKING, CheckStatus.PREFETCHING].includes(checkStatus)">
           {{ $i18n('btn-ext-chk') }}</DashboardButton>
       </div>
       <ProgressiveBar class="bar-waiting" v-if="checkStatus === CheckStatus.PREFETCHING">
