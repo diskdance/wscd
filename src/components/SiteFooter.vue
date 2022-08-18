@@ -5,8 +5,10 @@ const VUE_APP_VERSION = APP_VERSION;
 
 <template>
   <footer>
-    <a>{{ $i18n('footer-code') }}</a>
-    <a>{{ $i18n('footer-license') }}</a>
+    <a target="_blank" href="https://github.com/diskdance/wscd">{{ $i18n('footer-code') }}</a>
+    <a target="_blank" href="https://github.com/diskdance/wscd/blob/master/LICENSE">{{
+        $i18n('footer-license')
+    }}</a>
     <span class="version">wscd {{ VUE_APP_VERSION }}</span>
   </footer>
 </template>
