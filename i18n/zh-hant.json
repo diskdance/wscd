@@ -1,6 +1,6 @@
 {
   "btn-std-chk": "標準檢查",
-  "btn-ext-chk": "擴充檢查",
+  "btn-ext-chk": "延伸檢查",
   "card-err-head": "發生錯誤",
   "card-err-desc": "此錯誤可能由於無法取得執行檢查所必需的資源導致。請檢查您的網路環境。",
   "card-about-head": "關於本工具",
