@@ -4,7 +4,6 @@ import { BlockStatus, DomainCheckStatus, DomainDataView } from '../types/view-mo
 
 defineProps<{
   data: Map<string, DomainDataView>,
-  isGloballyBlocked: boolean,
 }>();
 </script>
 
@@ -35,9 +34,6 @@ export default defineComponent({
         case BlockStatus.BLOCKED:
           return this.$i18n('blk-yes');
         case BlockStatus.NOT_BLOCKED:
-          if (this.isGloballyBlocked) {
-            return this.$i18n('blk-yes');
-          }
           return this.$i18n('blk-no');
         case BlockStatus.NOT_A_WIKI:
           return this.$i18n('blk-non-wiki');

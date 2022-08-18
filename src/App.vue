@@ -21,7 +21,6 @@ enum CheckStatus {
 
 const checkStatus = ref(CheckStatus.NOT_CHECKED);
 const checkData = ref(new Map<string, DomainDataView>());
-const isGloballyBlocked = ref(false);
 
 function transformRawSiteList(rawSiteList: RawSiteList): Array<[string, boolean]> {
   return rawSiteList.map((item) => (typeof item === 'string' ? [item, true] : item));
@@ -72,7 +71,6 @@ async function prefetchAndCheck(fetcher: () => Promise<{ default: unknown }>) {
     checkStatus.value = CheckStatus.PREFETCHING;
     checkData.value.clear();
     const { default: rawList } = await fetcher();
-    isGloballyBlocked.value = await ConnectivityChecker.checkGlobalBlock();
     // Must await to catch all errors
     await check(transformRawSiteList(rawList as RawSiteList));
   } catch {
@@ -109,7 +107,7 @@ async function prefetchAndCheck(fetcher: () => Promise<{ default: unknown }>) {
           </span>
         </template>
       </DashboardCard>
-      <DashboardTable :data="checkData" :isGloballyBlocked="isGloballyBlocked"
+      <DashboardTable :data="checkData"
         v-if="checkStatus === CheckStatus.CHECKING || checkStatus == CheckStatus.ENDED">
       </DashboardTable>
     </main>

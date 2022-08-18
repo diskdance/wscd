@@ -1,5 +1,5 @@
 <template>
-  <div class="block">
+  <div class="block" role="progressbar" aria-valuemin="0" aria-valuemax="100">
     <div class="bar"></div>
   </div>
 </template>
@@ -13,6 +13,8 @@
   height: 16px;
   overflow-x: hidden;
   z-index: 1;
+  position: relative;
+  max-width: none;
 }
 
 .bar {

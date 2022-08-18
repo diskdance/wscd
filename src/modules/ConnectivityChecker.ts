@@ -35,7 +35,7 @@ type SiteList = Array<[string, boolean]>;
 const CONCURRENCY = 15;
 const TIMEOUT_MS = 30 * 1000;
 const IP_ENDPOINT = 'https://login.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&meta=userinfo&origin=*';
-const HEADERS = new Headers({ 'Api-User-Agent': `wscd/${APP_VERSION}` });
+const FETCH_OPT = { method: 'GET', headers: new Headers({ 'Api-User-Agent': `wscd/${APP_VERSION}` }) };
 
 class ConnectivityChecker {
   private readonly siteList: SiteList;
@@ -56,7 +56,7 @@ class ConnectivityChecker {
   }
 
   public static async checkGlobalBlock(): Promise<boolean> {
-    const ip: string = await fetch(IP_ENDPOINT, { method: 'GET', headers: HEADERS })
+    const ip: string = await fetch(IP_ENDPOINT, FETCH_OPT)
       .then((resp) => resp.json())
       .then((res: MwQueryUserInfoApiResult) => {
         if (res.batchcomplete && res.query.userinfo.anon) {
@@ -67,7 +67,7 @@ class ConnectivityChecker {
 
     const isGloballyBlocked: boolean = await fetch(
       `https://login.wikimedia.org/w/api.php?action=query&list=globalblocks&bgip=${ip}&bgprop=address&format=json&formatversion=2&origin=*`,
-      { method: 'GET', headers: HEADERS },
+      FETCH_OPT,
     ).then((resp) => resp.json()).then((res: MwQueryGlobalBlocksApiResult) => {
       if (res.batchcomplete) {
         return res.query.globalblocks.length > 0;
@@ -88,36 +88,45 @@ class ConnectivityChecker {
           isSuccessful: false,
         };
 
-        const work = Promise.race([
-          resolveAfter(TIMEOUT_MS),
-          isWiki
-            ? fetch(
-              `https://${domain}/w/api.php?action=query&format=json&formatversion=2&meta=userinfo&uiprop=blockinfo&origin=*`,
-              { method: 'GET', headers: HEADERS },
-            )
-              .then((resp) => resp.json())
-              .then((respJson: MwQueryUserInfoApiResult) => {
-                if (respJson.batchcomplete) {
-                  if ('blockid' in respJson.query.userinfo) {
-                    domainData.isBlocked = true;
-                  } else {
-                    domainData.isBlocked = false;
+        const fetchPromise = isWiki
+          ? fetch(
+            `https://${domain}/w/api.php?action=query&format=json&formatversion=2&meta=userinfo&uiprop=blockinfo&origin=*`,
+            FETCH_OPT,
+          )
+            .then((resp) => resp.json())
+            .then(async (respJson: MwQueryUserInfoApiResult) => {
+              if (respJson.batchcomplete) {
+                if ('blockid' in respJson.query.userinfo) {
+                  domainData.isBlocked = true;
+                } else {
+                  domainData.isBlocked = false;
+
+                  // Check global blocks as uiprop=blockinfo doesn't acknowledge global blocks
+                  const ip = respJson.query.userinfo.name;
+                  const gbRespJson: MwQueryGlobalBlocksApiResult = await fetch(
+                    `https://${domain}/w/api.php?action=query&list=globalblocks&bgip=${ip}&bgprop=address&format=json&formatversion=2&origin=*`,
+                    FETCH_OPT,
+                  ).then((resp) => resp.json());
+                  if (gbRespJson.batchcomplete) {
+                    domainData.isBlocked = gbRespJson.query.globalblocks.length > 0;
                   }
                 }
-              })
-            : fetch(
-              `https://${domain}/favicon.ico?wscd=${APP_VERSION}&nocache=${Date.now()}`,
-              { method: 'HEAD', mode: 'no-cors' },
-            ),
-        ]);
+              }
+            })
+          : fetch(
+            `https://${domain}/favicon.ico?wscd=${APP_VERSION}&nocache=${Date.now()}`,
+            { method: 'HEAD', mode: 'no-cors' },
+          );
 
-        return work
-          .then(() => {
-            domainData.isSuccessful = true;
-            domainData.ping = Math.trunc(performance.now() - startTime);
-          })
-          .catch(() => { domainData.isSuccessful = false; })
-          .then(() => { this.perDomainFinished(domainData); });
+        return Promise.race([
+          resolveAfter(TIMEOUT_MS),
+          fetchPromise
+            .then(() => {
+              domainData.isSuccessful = true;
+              domainData.ping = Math.trunc(performance.now() - startTime);
+            })
+            .catch(() => { domainData.isSuccessful = false; })
+            .then(() => { this.perDomainFinished(domainData); })]);
       });
     });
 
