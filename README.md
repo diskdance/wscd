@@ -9,6 +9,7 @@ This tool allows:
 
 ## Usage
 **Standard check**: Check projects which have high popularity (e.g. English Wikipedia) or are known to be blocked (e.g. Chinese Wikipedia)
+
 **Extended check**: Check all WMF projects
 
 ## License
