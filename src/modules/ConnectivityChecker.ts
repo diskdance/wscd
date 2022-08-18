@@ -34,7 +34,6 @@ type SiteList = Array<[string, boolean]>;
 
 const CONCURRENCY = 15;
 const TIMEOUT_MS = 30 * 1000;
-const IP_ENDPOINT = 'https://login.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&meta=userinfo&origin=*';
 const FETCH_OPT = { method: 'GET', headers: new Headers({ 'Api-User-Agent': `wscd/${APP_VERSION}` }) };
 
 class ConnectivityChecker {
@@ -53,29 +52,6 @@ class ConnectivityChecker {
     this.siteList = siteList;
     this.perDomainFinished = perDomainFinished;
     this.taskDispatcher = new TaskDispatcher(CONCURRENCY);
-  }
-
-  public static async checkGlobalBlock(): Promise<boolean> {
-    const ip: string = await fetch(IP_ENDPOINT, FETCH_OPT)
-      .then((resp) => resp.json())
-      .then((res: MwQueryUserInfoApiResult) => {
-        if (res.batchcomplete && res.query.userinfo.anon) {
-          return res.query.userinfo.name;
-        }
-        throw new Error('Invalid response when getting IP!');
-      });
-
-    const isGloballyBlocked: boolean = await fetch(
-      `https://login.wikimedia.org/w/api.php?action=query&list=globalblocks&bgip=${ip}&bgprop=address&format=json&formatversion=2&origin=*`,
-      FETCH_OPT,
-    ).then((resp) => resp.json()).then((res: MwQueryGlobalBlocksApiResult) => {
-      if (res.batchcomplete) {
-        return res.query.globalblocks.length > 0;
-      }
-      throw new Error('Invalid response when getting global block data!');
-    });
-
-    return isGloballyBlocked;
   }
 
   public async check(): Promise<unknown> {
