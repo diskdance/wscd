@@ -71,15 +71,30 @@ export default defineComponent({
       </thead>
       <tbody>
         <tr v-for="[domain, { status, ping, blockStatus }] in data" :key="domain">
-          <td>{{ getName(domain) }}</td>
           <td>
-            <a target="_blank" rel="noopener noreferrer" :href="`https://${domain}/`">
-              {{ domain }}
-            </a>
+            <span aria-hidden="true" class="mobile-header">{{ $i18n('tbl-h-name') }}</span>
+            <span class="content">{{ getName(domain) }}</span>
           </td>
-          <td>{{ getStatus(status) }}</td>
-          <td>{{ getBlockStatus(blockStatus) }}</td>
-          <td>{{ getConnectivity(ping) }}</td>
+          <td>
+            <span aria-hidden="true" class="mobile-header">{{ $i18n('tbl-h-domains') }}</span>
+            <span class="content">
+              <a target="_blank" rel="noopener noreferrer" :href="`https://${domain}/`">
+                {{ domain }}
+              </a>
+            </span>
+          </td>
+          <td>
+            <span aria-hidden="true" class="mobile-header">{{ $i18n('tbl-h-available') }}</span>
+            <span class="content">{{ getStatus(status) }}</span>
+          </td>
+          <td>
+            <span aria-hidden="true" class="mobile-header">{{ $i18n('tbl-h-block') }}</span>
+            <span class="content">{{ getBlockStatus(blockStatus) }}</span>
+          </td>
+          <td>
+            <span aria-hidden="true" class="mobile-header">{{ $i18n('tbl-h-conn') }}</span>
+            <span class="content">{{ getConnectivity(ping) }}</span>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -117,6 +132,38 @@ export default defineComponent({
     td,
     th {
       padding: 10px;
+    }
+
+    .mobile-header {
+      display: none;
+    }
+
+    @media screen and (max-width: 750px) {
+
+      /* Hide table header but not display:none for a11y */
+      thead {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+
+      table,
+      thead,
+      tbody,
+      th,
+      td,
+      tr {
+        display: block;
+      }
+
+      td .content {
+        float: right;
+      }
+
+      .mobile-header {
+        display: inline-block;
+        font-weight: 700;
+      }
     }
   }
 }
