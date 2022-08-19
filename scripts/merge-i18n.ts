@@ -13,6 +13,8 @@ const KEY_MAPPING: [RegExp, string][] = [
   [/^project-localized-name-mediawikiwiki$/, 'mediawiki.org'],
   [/^project-localized-name-sourceswiki$/, 'wikisource.org'],
   [/^project-localized-name-otrs_wikiwiki$/, 'vrt-wiki.wikimedia.org'],
+  [/^project-localized-name-be_x_oldwiki$/, 'be-tarask.wikipedia.org'],
+  [/^project-localized-name-etwikimedia$/, 'ee.wikimedia.org'],
   [/^project-localized-name-(\w+)wikimedia$/, '$1.wikimedia.org'],
   [/^project-localized-name-(\w+)wiktionary$/, '$1.wiktionary.org'],
   [/^project-localized-name-(\w+)wikivoyage$/, '$1.wikivoyage.org'],
