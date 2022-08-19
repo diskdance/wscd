@@ -1,6 +1,6 @@
 <script setup lang="ts">
-/* global APP_VERSION */
 const VUE_APP_VERSION = APP_VERSION;
+const VUE_GIT_HASH = GIT_HASH;
 </script>
 
 <template>
@@ -9,7 +9,7 @@ const VUE_APP_VERSION = APP_VERSION;
     <a target="_blank" href="https://github.com/diskdance/wscd/blob/master/LICENSE">{{
         $i18n('footer-license')
     }}</a>
-    <span class="version">wscd {{ VUE_APP_VERSION }}</span>
+    <span class="version">wscd {{ VUE_APP_VERSION }} ({{ VUE_GIT_HASH }})</span>
   </footer>
 </template>
 

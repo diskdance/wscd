@@ -15,3 +15,5 @@ declare module 'vue-banana-i18n' {
 }
 
 const APP_VERSION: string;
+
+const GIT_HASH: string;

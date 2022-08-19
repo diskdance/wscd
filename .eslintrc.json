@@ -5,6 +5,10 @@
     "airbnb-typescript/base",
     "plugin:vue/vue3-essential"
   ],
+  "globals": {
+    "APP_VERSION": "readonly",
+    "GIT_HASH": "readonly"
+  },
   "rules": {
     "import/no-extraneous-dependencies": [
       "off",
