@@ -20,7 +20,8 @@
   "blk-no": "✔️ Not blocked",
   "blk-unknown": "❔ Unknown",
   "blk-non-wiki": "✔️ Not a wiki",
-  "checking": "🕒 Checking...",
+  "pending": "🕒 Waiting...",
+  "checking": "🔍 Checking...",
   "rtt-excellent": "⚡ Excellent",
   "rtt-good": "🚀 Good",
   "rtt-bad": "🐌 Not good"

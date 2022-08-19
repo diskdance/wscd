@@ -37,6 +37,8 @@ const FETCH_OPT = { method: 'GET', headers: new Headers({ 'Api-User-Agent': `wsc
 class ConnectivityChecker {
   private readonly siteList: SiteList;
 
+  private readonly perDomainCheckStarted: (domain: string) => void;
+
   private readonly perDomainFinished: (data: DomainData) => void;
 
   private readonly taskDispatcher: TaskDispatcher;
@@ -44,10 +46,16 @@ class ConnectivityChecker {
   /**
    * Instantiate a {@link ConnectivityChecker} object.
    * @param siteList a list of sites to be checked
+   * @param perDomainCheckStarted a callback which is called when a single domain test is started
    * @param perDomainFinished a callback which is called when a single domain test is completed
    */
-  public constructor(siteList: SiteList, perDomainFinished: (data: DomainData) => void) {
+  public constructor(
+    siteList: SiteList,
+    perDomainCheckStarted: (domain: string) => void,
+    perDomainFinished: (data: DomainData) => void,
+  ) {
     this.siteList = siteList;
+    this.perDomainCheckStarted = perDomainCheckStarted;
     this.perDomainFinished = perDomainFinished;
     this.taskDispatcher = new TaskDispatcher(CONCURRENCY);
   }
@@ -61,6 +69,8 @@ class ConnectivityChecker {
           isWiki,
           isSuccessful: false,
         };
+
+        this.perDomainCheckStarted(domain);
 
         const fetchPromise = isWiki
           ? fetch(

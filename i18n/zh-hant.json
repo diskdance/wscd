@@ -4,7 +4,7 @@
   "card-err-head": "發生錯誤",
   "card-err-desc": "此錯誤可能由於無法取得執行檢查所必需的資源導致。請檢查您的網路環境。",
   "card-about-head": "關於本工具",
-  "card-about-desc": "<p>維基媒體伺服器連通性面板可幫助您檢查您的網路環境是否可以連接與編輯維基媒體專案。</p><p>若無法連接，則可能由網路組態出錯、企業網路審計或政府網路審查導致。</p><p>IP封鎖則可能由於您正在使用代理及VPN服務。為防止破壞，維基媒體專案阻止了來自代理IP的編輯。您可以為您的帳號[https://zh.wikipedia.org/wiki/Wikipedia:IP%E5%B0%81%E7%A6%81%E4%BE%8B%E5%A4%96 申請IP封鎖豁免權]以防止此類令人不悅的事情再次發生。</p>",
+  "card-about-desc": "<p>維基媒體伺服器連通性面板可幫助您檢查您的網路環境是否可以連接與編輯維基媒體專案。</p><p>若無法連接，則可能由網路組態出錯、企業網路審計或政府網路審查導致。</p><p>IP封鎖則可能由於您正在使用代理及VPN服務。為防止破壞，維基媒體專案阻止了來自代理IP的編輯。您可以為您的帳號[https://zh.wikipedia.org/wiki/Wikipedia:IP%E5%B0%81%E7%A6%81%E4%BE%8B%E5%A4%96 申請IP封鎖例外權]以防止此類令人不悅的事情再次發生。</p>",
   "tbl-h-name": "名稱",
   "tbl-h-domains": "域名",
   "tbl-h-available": "可存取？",
@@ -20,7 +20,8 @@
   "blk-no": "✔️ 未被封鎖",
   "blk-unknown": "❔ 未知",
   "blk-non-wiki": "✔️ 非Wiki",
-  "checking": "🕒 檢查中……",
+  "pending": "🕒 等待中……",
+  "checking": "🔍 檢查中……",
   "rtt-excellent": "⚡ 極佳",
   "rtt-good": "🚀 良好",
   "rtt-bad": "🐌 不佳"

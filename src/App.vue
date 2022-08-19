@@ -41,6 +41,11 @@ async function check(siteList: Array<[string, boolean]>) {
   });
   const checker = new ConnectivityChecker(
     siteList,
+    (domain) => {
+      // dataView cannot be undefined in this case
+      const dataView = checkData.value.get(domain) as DomainDataView;
+      dataView.status = DomainCheckStatus.CHECKING;
+    },
     (data) => {
       // dataView cannot be undefined in this case
       const dataView = checkData.value.get(data.domain) as DomainDataView;

@@ -22,8 +22,10 @@ export default defineComponent({
           return this.$i18n('avl-no');
         case DomainCheckStatus.SUCCESS:
           return this.$i18n('avl-yes');
-        default:
+        case DomainCheckStatus.CHECKING:
           return this.$i18n('checking');
+        default:
+          return this.$i18n('pending');
       }
     },
     getBlockStatus(blockStatus: BlockStatus | undefined): string {

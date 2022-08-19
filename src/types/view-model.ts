@@ -1,5 +1,6 @@
 enum DomainCheckStatus {
   PENDING,
+  CHECKING,
   SUCCESS,
   FAILURE,
 }
