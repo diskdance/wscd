@@ -63,14 +63,13 @@ class ConnectivityChecker {
   public async check(): Promise<unknown> {
     this.siteList.forEach(([domain, isWiki]) => {
       this.taskDispatcher.enqueue(() => {
-        const startTime = performance.now();
         const domainData: DomainData = {
           domain,
           isWiki,
           isSuccessful: false,
         };
-
         this.perDomainCheckStarted(domain);
+        const startTime = performance.now();
 
         const fetchPromise = isWiki
           ? fetch(
@@ -78,25 +77,12 @@ class ConnectivityChecker {
             FETCH_OPT,
           )
             .then((resp) => resp.json())
-            .then(async (respJson: MwQueryUserInfoApiResult) => {
-              if (respJson.query !== undefined) {
-                if ('blockid' in respJson.query.userinfo) {
-                  domainData.isBlocked = true;
-                } else {
-                  domainData.isBlocked = false;
-
-                  // Check global blocks as uiprop=blockinfo doesn't acknowledge global blocks
-                  const ip = respJson.query.userinfo.name;
-                  const gbRespJson: MwQueryGlobalBlocksApiResult = await fetch(
-                    `https://${domain}/w/api.php?action=query&list=globalblocks&bgip=${ip}&bgprop=address&format=json&formatversion=2&origin=*`,
-                    FETCH_OPT,
-                  ).then((resp) => resp.json());
-
-                  if (gbRespJson.query !== undefined) {
-                    domainData.isBlocked = gbRespJson.query.globalblocks.length > 0;
-                  }
-                }
+            .then((respJson: MwQueryUserInfoApiResult) => {
+              if (respJson.query === undefined) {
+                return null;
               }
+              domainData.isBlocked = 'blockid' in respJson.query.userinfo;
+              return respJson.query.userinfo.name;
             })
           : fetch(
             `https://${domain}/favicon.ico?wscd=${APP_VERSION}&nocache=${Date.now()}`,
@@ -106,9 +92,23 @@ class ConnectivityChecker {
         return Promise.race([
           resolveAfter(TIMEOUT_MS),
           fetchPromise
-            .then(() => {
-              domainData.isSuccessful = true;
+            .then(async (ip) => {
               domainData.ping = Math.trunc(performance.now() - startTime);
+              domainData.isSuccessful = true;
+
+              if (typeof ip === 'string' && !domainData.isBlocked) {
+                // Check global blocks as uiprop=blockinfo doesn't acknowledge global blocks
+                try {
+                  const gbRespJson: MwQueryGlobalBlocksApiResult = await fetch(
+                    `https://${domain}/w/api.php?action=query&list=globalblocks&bgip=${ip}&bgprop=address&format=json&formatversion=2&origin=*`,
+                    FETCH_OPT,
+                  ).then((resp) => resp.json());
+
+                  if (gbRespJson.query !== undefined) {
+                    domainData.isBlocked = gbRespJson.query.globalblocks.length > 0;
+                  }
+                } catch { }
+              }
             })
             .catch(() => { domainData.isSuccessful = false; })
             .then(() => { this.perDomainFinished(domainData); })]);
