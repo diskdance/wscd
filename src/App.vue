@@ -49,7 +49,7 @@ async function check(siteList: Array<[string, boolean]>) {
       if (!data.isSuccessful) {
         dataView.blockStatus = BlockStatus.UNKNOWN;
       } else if (data.isWiki) {
-        if ('isBlocked' in data) {
+        if (data.isBlocked !== undefined) {
           if (data.isBlocked) {
             dataView.blockStatus = BlockStatus.BLOCKED;
           } else {

@@ -10,8 +10,7 @@ interface DomainData {
 }
 
 interface MwQueryUserInfoApiResult {
-  batchcomplete: boolean,
-  query: {
+  query?: {
     userinfo: {
       id: number,
       name: string,
@@ -22,8 +21,7 @@ interface MwQueryUserInfoApiResult {
 }
 
 interface MwQueryGlobalBlocksApiResult {
-  batchcomplete: boolean,
-  query: {
+  query?: {
     globalblocks: Array<{
       address: string,
     }>
@@ -71,7 +69,7 @@ class ConnectivityChecker {
           )
             .then((resp) => resp.json())
             .then(async (respJson: MwQueryUserInfoApiResult) => {
-              if (respJson.batchcomplete) {
+              if (respJson.query !== undefined) {
                 if ('blockid' in respJson.query.userinfo) {
                   domainData.isBlocked = true;
                 } else {
@@ -83,7 +81,8 @@ class ConnectivityChecker {
                     `https://${domain}/w/api.php?action=query&list=globalblocks&bgip=${ip}&bgprop=address&format=json&formatversion=2&origin=*`,
                     FETCH_OPT,
                   ).then((resp) => resp.json());
-                  if (gbRespJson.batchcomplete) {
+
+                  if (gbRespJson.query !== undefined) {
                     domainData.isBlocked = gbRespJson.query.globalblocks.length > 0;
                   }
                 }
