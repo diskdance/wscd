@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import { createI18n } from 'vue-banana-i18n';
+import Banana from 'banana-i18n';
 
 import './styles/reset.less';
 import './styles/style.less';
@@ -12,17 +12,14 @@ import { getMessages, getCurrentLang } from './modules/lang';
 
 (async () => {
   const app = createApp(App);
-  const lang = getCurrentLang();
-  const messages = await getMessages(lang);
-  const i18nPlugin = createI18n({
-    messages,
-    locale: lang,
-    wikilinks: true,
-  });
 
-  // For a11y support
-  document.documentElement.lang = lang in messages ? navigator.language : 'en';
+  const locale = getCurrentLang();
+  const messages = await getMessages(locale);
+  const banana = new Banana(locale, { messages, wikilinks: true });
 
-  app.use(i18nPlugin);
+  document.title = banana.i18n('title');
+  document.documentElement.lang = locale in messages ? navigator.language : 'en'; // For a11y support
+
+  app.config.globalProperties.$i18n = banana.i18n.bind(banana);
   app.mount('#app');
 })();

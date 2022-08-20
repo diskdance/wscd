@@ -6,6 +6,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^5.33.0
   '@typescript-eslint/parser': ^5.33.0
   '@vitejs/plugin-vue': ^3.0.3
+  banana-i18n: ^2.3.3
   eslint: ^8.22.0
   eslint-config-airbnb-base: ^15.0.0
   eslint-config-airbnb-typescript: ^17.0.0
@@ -16,11 +17,11 @@ specifiers:
   typescript: ^4.6.4
   vite: ^3.0.7
   vue: ^3.2.37
-  vue-banana-i18n: ^2.0.2
   vue-tsc: ^0.39.5
 
 dependencies:
   '@fontsource/inter': 4.5.12
+  banana-i18n: 2.3.3
   vue: 3.2.37
 
 devDependencies:
@@ -37,7 +38,6 @@ devDependencies:
   ts-node: 10.9.1_vugoqbkjnxc3odpmeek2omb3o4
   typescript: 4.7.4
   vite: 3.0.7_less@4.1.3
-  vue-banana-i18n: 2.0.2
   vue-tsc: 0.39.5_typescript@4.7.4
 
 packages:
@@ -520,7 +520,7 @@ packages:
 
   /banana-i18n/2.3.3:
     resolution: {integrity: sha512-Z19xWLpqXsropMAFbjQALZi5U908mXEK0vWhr2Apo9JwXFxJws4CSta4Ouas/L7D5DjObL+ZKFeLAKR2peXLbg==}
-    dev: true
+    dev: false
 
   /boolbase/1.0.0:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
@@ -2167,12 +2167,6 @@ packages:
       rollup: 2.77.3
     optionalDependencies:
       fsevents: 2.3.2
-    dev: true
-
-  /vue-banana-i18n/2.0.2:
-    resolution: {integrity: sha512-KUKPd3n7mmrmY0Gp3GcqDZRKZ5r4eVIUv8lrq0w0SOXIHEqqaPR+s4Zr77/TO122RgRB4OZH0t3/c+8SWD3tvQ==}
-    dependencies:
-      banana-i18n: 2.3.3
     dev: true
 
   /vue-eslint-parser/9.0.3_eslint@8.22.0:

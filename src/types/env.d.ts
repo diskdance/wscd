@@ -8,12 +8,6 @@ declare module '*.vue' {
   export default component;
 }
 
-declare module 'vue-banana-i18n' {
-  export function createI18n(options: {
-    messages?: Record<string, Record<string, string>>, locale?: string, wikilinks?: boolean
-  });
-}
-
 const APP_VERSION: string;
 
 const GIT_HASH: string;
