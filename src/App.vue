@@ -8,7 +8,6 @@ import ConnectivityChecker from './modules/ConnectivityChecker';
 import DashboardTable from './components/DashboardTable.vue';
 import { DomainDataView, DomainCheckStatus, BlockStatus } from './types/view-model';
 import ProgressiveBar from './components/ProgressiveBar.vue';
-import { hookWarning, unhookWarning } from './modules/unloadWarning';
 
 type RawSiteList = Array<string | [string, boolean]>;
 
@@ -75,15 +74,12 @@ async function check(siteList: Array<[string, boolean]>) {
 async function prefetchAndCheck(fetcher: () => Promise<{ default: unknown }>) {
   try {
     checkStatus.value = CheckStatus.PREFETCHING;
-    hookWarning();
     checkData.value.clear();
     const { default: rawList } = await fetcher();
     // Must await to catch all errors
     await check(transformRawSiteList(rawList as RawSiteList));
   } catch {
     handleError();
-  } finally {
-    unhookWarning();
   }
 }
 </script>
