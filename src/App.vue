@@ -42,12 +42,12 @@ async function check(siteList: Array<[string, boolean]>) {
     siteList,
     (domain) => {
       // dataView cannot be undefined in this case
-      const dataView = checkData.value.get(domain) as DomainDataView;
+      const dataView = checkData.value.get(domain)!;
       dataView.status = DomainCheckStatus.CHECKING;
     },
     (data) => {
       // dataView cannot be undefined in this case
-      const dataView = checkData.value.get(data.domain) as DomainDataView;
+      const dataView = checkData.value.get(data.domain)!;
       dataView.status = data.isSuccessful ? DomainCheckStatus.SUCCESS : DomainCheckStatus.FAILURE;
       dataView.ping = data.ping;
       if (!data.isSuccessful) {

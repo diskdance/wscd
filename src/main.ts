@@ -20,6 +20,7 @@ import { getMessages, getCurrentLang } from './modules/lang';
   document.title = banana.i18n('title');
   document.documentElement.lang = locale in messages ? navigator.language : 'en'; // For a11y support
 
+  app.provide('banana', banana);
   app.config.globalProperties.$i18n = banana.i18n.bind(banana);
   app.mount('#app');
 })();
