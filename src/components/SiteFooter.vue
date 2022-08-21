@@ -10,11 +10,14 @@ const VUE_GIT_HASH = GIT_HASH;
         $i18n('footer-license')
     }}</a>
     <span class="version">wscd {{ VUE_APP_VERSION }} ({{ VUE_GIT_HASH }})</span>
+    <img class="badge" src="../assets/toolforge.svg" alt="Powered by Toolforge">
   </footer>
 </template>
 
 <style scoped lang="less">
 footer {
+  display: flex;
+  align-items: center;
   margin: 30px 0 10px;
   padding-top: 8px;
   border-top: 1px solid #cdcdcd;
@@ -26,6 +29,12 @@ a {
 }
 
 .version {
-  float: right;
+  flex-grow: 1;
+}
+
+.badge {
+  margin-right: 0;
+  height: 30px;
+  width: 90px;
 }
 </style>
