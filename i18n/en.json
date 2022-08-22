@@ -25,5 +25,6 @@
   "checking": "🔍 Checking...",
   "rtt-excellent": "⚡ Excellent",
   "rtt-good": "🚀 Good",
-  "rtt-bad": "🐌 Not good"
+  "rtt-bad": "🐌 Not good",
+  "rtt-title": "$1 ms"
 }

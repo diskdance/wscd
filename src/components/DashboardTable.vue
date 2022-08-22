@@ -95,7 +95,10 @@ function getConnectivity(ping: number | undefined): string {
           </td>
           <td>
             <span aria-hidden="true" class="mobile-header">{{ $i18n('tbl-h-conn') }}</span>
-            <span class="content">{{ getConnectivity(ping) }}</span>
+            <span class="content"
+              :title="ping === undefined ? undefined : $i18n('rtt-title', ping)">
+              {{ getConnectivity(ping) }}
+            </span>
           </td>
         </tr>
       </tbody>
