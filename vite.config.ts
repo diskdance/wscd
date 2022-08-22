@@ -9,4 +9,7 @@ export default defineConfig({
     APP_VERSION: JSON.stringify(process.env.npm_package_version),
     GIT_HASH: JSON.stringify(execSync('git rev-parse --short HEAD').toString().trim()),
   },
+  build: {
+    sourcemap: true,
+  },
 });
