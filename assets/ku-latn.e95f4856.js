@@ -1,1 +1,2 @@
 const a={"name-af.wikipedia.org":"W\xEEk\xEEpediyaya afr\xEEkans\xEE","name-ar.wikipedia.org":"W\xEEk\xEEpediyaya ereb\xEE","name-ar.wikibooks.org":"W\xEEk\xEEpirt\xFBka ereb\xEE","name-ar.wiktionary.org":"W\xEEk\xEEferhenga ereb\xEE","name-en.wikipedia.org":"W\xEEk\xEEpediyaya \xEEngil\xEEz\xEE","name-en.wikibooks.org":"W\xEEk\xEEpirt\xFBka \xEEngil\xEEz\xEE","name-ku.wikipedia.org":"W\xEEk\xEEpediyaya Kurd\xEE","name-ku.wiktionary.org":"W\xEEk\xEEferhenga kurd\xEE","name-wikidata.org":"W\xEEk\xEEdane"};export{a as default};
+//# sourceMappingURL=ku-latn.e95f4856.js.map
