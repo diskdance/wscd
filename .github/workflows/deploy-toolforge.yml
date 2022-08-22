@@ -1,0 +1,46 @@
+name: Deploy to Toolforge
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  deploy-toolforge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7.6.0
+      - name: Install & Build
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm run build
+      - name: Copy build file to production env
+        uses: appleboy/scp-action@v0.1.3
+        with:
+          host: login.toolforge.org
+          username: ${{ secrets.TOOLFORGE_USERNAME }}
+          key: ${{ secrets.TOOLFORGE_KEY }}
+          source: './dist'
+          target: '~/.'
+      - name: Deploy
+        uses: appleboy/ssh-action@v0.1.5
+        with:
+          host: login.toolforge.org
+          username: ${{ secrets.TOOLFORGE_USERNAME }}
+          key: ${{ secrets.TOOLFORGE_KEY }}
+          script: |
+            rm -rf /data/project/wscd/public_html/* &&
+            cp -r ~/dist/. /data/project/wscd/public_html &&
+            rm -rf ~/dist &&
+            become wscd bash -c "take public_html && chmod -R g+w public_html"
