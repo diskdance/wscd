@@ -28,7 +28,7 @@ footer {
   color: #4e4e4e;
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 401px) {
 
   a,
   .badge {
