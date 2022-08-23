@@ -15,6 +15,9 @@ const KEY_MAPPING: [RegExp, string][] = [
   [/^project-localized-name-otrs_wikiwiki$/, 'vrt-wiki.wikimedia.org'],
   [/^project-localized-name-be_x_oldwiki$/, 'be-tarask.wikipedia.org'],
   [/^project-localized-name-etwikimedia$/, 'ee.wikimedia.org'],
+  [/^project-localized-name-labswiki$/, 'wikitech.wikimedia.org'],
+  [/^project-localized-name-testwikidatawiki$/, 'test.wikidata.org'],
+  [/^project-localized-name-chapcomwiki$/, 'affcom.wikimedia.org'],
   [/^project-localized-name-(\w+)wikimedia$/, '$1.wikimedia.org'],
   [/^project-localized-name-(\w+)wiktionary$/, '$1.wiktionary.org'],
   [/^project-localized-name-(\w+)wikivoyage$/, '$1.wikivoyage.org'],
@@ -23,14 +26,13 @@ const KEY_MAPPING: [RegExp, string][] = [
   [/^project-localized-name-(\w+)wikiquote$/, '$1.wikiquote.org'],
   [/^project-localized-name-(\w+)wikisource$/, '$1.wikisource.org'],
   [/^project-localized-name-(\w+)wikiversity$/, '$1.wikiversity.org'],
-  [/^project-localized-name-(\w{2,3}(?:_\w{1,4}){0,2}|sysop_it|simple|zh_classical|thankyou|nostalgia)wiki$/, '$1.wikipedia.org'],
+  [/^project-localized-name-(\w{2,3}(?:_\w{1,4}){0,2}|sysop_it|simple|zh_classical|thankyou|nostalgia|test|test2)wiki$/, '$1.wikipedia.org'],
   [/^project-localized-name-(\w+)wiki$/, '$1.wikimedia.org'],
 ];
 
 function transformWikimediaMessageKeys(data: Record<string, string>) {
   return Object.fromEntries(
     Object.entries(data).map(([key, item]) => {
-      /** @type {string} */
       let transformedKey = KEY_MAPPING.reduce(
         (prevKey, [regex, replacement]) => prevKey.replace(regex, replacement),
         key,

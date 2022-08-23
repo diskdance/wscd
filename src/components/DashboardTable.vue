@@ -10,7 +10,7 @@ defineProps<{
 const banana = inject<Banana>('banana')!;
 
 function getName(domain: string): string {
-  const transformedDomain = domain.replace(/(www|m)\./g, '');
+  const transformedDomain = domain.replace(/^(www|m)\./g, '').replace(/\.(www|m)\./g, '.');
   const key = `name-${transformedDomain}`;
   const translation = banana.i18n(key);
   return translation === key ? banana.i18n('name-key-missing') : translation;
