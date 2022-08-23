@@ -32,7 +32,7 @@ type SiteList = Array<[string, boolean]>;
 
 const CONCURRENCY = 15;
 const TIMEOUT_MS = 30 * 1000;
-const FETCH_OPT = { method: 'GET', headers: new Headers({ 'Api-User-Agent': `wscd/${APP_VERSION}` }) };
+const FETCH_OPT = { method: 'GET', headers: { 'Api-User-Agent': `wscd/${APP_VERSION}` } };
 
 class ConnectivityChecker {
   private readonly siteList: SiteList;
@@ -48,16 +48,18 @@ class ConnectivityChecker {
    * @param siteList a list of sites to be checked
    * @param perDomainCheckStarted a callback which is called when a single domain test is started
    * @param perDomainFinished a callback which is called when a single domain test is completed
+   * @param concurrency number of domain checks to run at a single time
    */
   public constructor(
     siteList: SiteList,
     perDomainCheckStarted: (domain: string) => void,
     perDomainFinished: (data: DomainData) => void,
+    concurrency = CONCURRENCY,
   ) {
     this.siteList = siteList;
     this.perDomainCheckStarted = perDomainCheckStarted;
     this.perDomainFinished = perDomainFinished;
-    this.taskDispatcher = new TaskDispatcher(CONCURRENCY);
+    this.taskDispatcher = new TaskDispatcher(concurrency);
   }
 
   public async check(): Promise<unknown> {
