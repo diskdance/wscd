@@ -40,7 +40,11 @@ jobs:
           username: ${{ secrets.TOOLFORGE_USERNAME }}
           key: ${{ secrets.TOOLFORGE_KEY }}
           script: |
-            rm -rf /data/project/wscd/public_html/* &&
+            xargs rm -r < /data/project/wscd/purge_list.txt &&
+            pushd dist &&
+            rm /data/project/wscd/purge_list.txt &&
+            printf '/data/project/wscd/public_html/%s\n' * > /data/project/wscd/purge_list.txt &&
+            popd &&
             cp -r ~/dist/. /data/project/wscd/public_html &&
             rm -rf ~/dist &&
-            become wscd bash -c "take public_html && chmod -R g+w public_html"
+            become wscd bash -c "take purge_list.txt public_html && chmod -R g+w purge_list.txt public_html"
