@@ -1,62 +1,62 @@
-<script setup lang="ts">
-import Banana from 'banana-i18n';
-import { inject } from 'vue';
+<script lang="ts">
+import { defineComponent, PropType } from 'vue';
 import { BlockStatus, DomainCheckStatus, DomainDataView } from '../types/view-model';
 
-defineProps<{
-  data: Map<string, DomainDataView>,
-}>();
+export default defineComponent({
+  props: {
+    data: Object as PropType<Map<string, DomainDataView>>,
+  },
+  methods: {
+    getName(domain: string): string {
+      const transformedDomain = domain.replace(/^(www|m)\./g, '').replace(/\.(www|m)\./g, '.');
+      const key = `name-${transformedDomain}`;
+      const translation = this.$i18n(key);
+      return translation === key ? this.$i18n('name-key-missing') : translation;
+    },
 
-const banana = inject<Banana>('banana')!;
+    getStatus(status: DomainCheckStatus): string {
+      switch (status) {
+        case DomainCheckStatus.FAILURE:
+          return this.$i18n('avl-no');
+        case DomainCheckStatus.SUCCESS:
+          return this.$i18n('avl-yes');
+        case DomainCheckStatus.CHECKING:
+          return this.$i18n('checking');
+        default:
+          return this.$i18n('pending');
+      }
+    },
 
-function getName(domain: string): string {
-  const transformedDomain = domain.replace(/^(www|m)\./g, '').replace(/\.(www|m)\./g, '.');
-  const key = `name-${transformedDomain}`;
-  const translation = banana.i18n(key);
-  return translation === key ? banana.i18n('name-key-missing') : translation;
-}
+    getBlockStatus(blockStatus: BlockStatus | undefined): string {
+      if (blockStatus === undefined) {
+        return '';
+      }
+      switch (blockStatus) {
+        case BlockStatus.BLOCKED:
+          return this.$i18n('blk-yes');
+        case BlockStatus.NOT_BLOCKED:
+          return this.$i18n('blk-no');
+        case BlockStatus.NOT_A_WIKI:
+          return this.$i18n('blk-non-wiki');
+        default:
+          return this.$i18n('blk-unknown');
+      }
+    },
 
-function getStatus(status: DomainCheckStatus): string {
-  switch (status) {
-    case DomainCheckStatus.FAILURE:
-      return banana.i18n('avl-no');
-    case DomainCheckStatus.SUCCESS:
-      return banana.i18n('avl-yes');
-    case DomainCheckStatus.CHECKING:
-      return banana.i18n('checking');
-    default:
-      return banana.i18n('pending');
-  }
-}
-
-function getBlockStatus(blockStatus: BlockStatus | undefined): string {
-  if (blockStatus === undefined) {
-    return '';
-  }
-  switch (blockStatus) {
-    case BlockStatus.BLOCKED:
-      return banana.i18n('blk-yes');
-    case BlockStatus.NOT_BLOCKED:
-      return banana.i18n('blk-no');
-    case BlockStatus.NOT_A_WIKI:
-      return banana.i18n('blk-non-wiki');
-    default:
-      return banana.i18n('blk-unknown');
-  }
-}
-
-function getConnectivity(ping: number | undefined): string {
-  if (ping === undefined) {
-    return '';
-  }
-  if (ping <= 500) {
-    return banana.i18n('rtt-excellent');
-  }
-  if (ping > 500 && ping <= 1000) {
-    return banana.i18n('rtt-good');
-  }
-  return banana.i18n('rtt-bad');
-}
+    getConnectivity(ping: number | undefined): string {
+      if (ping === undefined) {
+        return '';
+      }
+      if (ping <= 500) {
+        return this.$i18n('rtt-excellent');
+      }
+      if (ping > 500 && ping <= 1000) {
+        return this.$i18n('rtt-good');
+      }
+      return this.$i18n('rtt-bad');
+    },
+  },
+});
 </script>
 
 <template>
