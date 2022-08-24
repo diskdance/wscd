@@ -41,8 +41,8 @@ jobs:
           key: ${{ secrets.TOOLFORGE_KEY }}
           script: |
             xargs rm -r < /data/project/wscd/purge_list.txt &&
-            pushd dist &&
             rm /data/project/wscd/purge_list.txt &&
+            pushd dist &&
             printf '/data/project/wscd/public_html/%s\n' * > /data/project/wscd/purge_list.txt &&
             popd &&
             cp -r ~/dist/. /data/project/wscd/public_html &&
