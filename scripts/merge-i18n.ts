@@ -58,23 +58,27 @@ const filesI18n = await fs.readdir(I18N_DIR);
 
 await Promise.all([
   ...wikimediaMessageFiles.map(async (filename) => {
-    const filePath = path.join(WIKIMEDIA_MSG_DIR, filename);
+    if (filename !== 'qqq.json') {
+      const filePath = path.join(WIKIMEDIA_MSG_DIR, filename);
 
-    const data: Record<string, string> = JSON.parse((await fs.readFile(filePath)).toString());
-    delete data['@metadata'];
-    const transformedData = transformWikimediaMessageKeys(data);
+      const data: Record<string, string> = JSON.parse((await fs.readFile(filePath)).toString());
+      delete data['@metadata'];
+      const transformedData = transformWikimediaMessageKeys(data);
 
-    localeRegistry[filename] = localeRegistry[filename] ?? {};
-    Object.assign(localeRegistry[filename], transformedData);
+      localeRegistry[filename] = localeRegistry[filename] ?? {};
+      Object.assign(localeRegistry[filename], transformedData);
+    }
   }),
   ...filesI18n.map(async (filename) => {
-    const filePath = path.join(I18N_DIR, filename);
+    if (filename !== 'qqq.json') {
+      const filePath = path.join(I18N_DIR, filename);
 
-    const data: Record<string, string> = JSON.parse((await fs.readFile(filePath)).toString());
-    delete data['@metadata'];
+      const data: Record<string, string> = JSON.parse((await fs.readFile(filePath)).toString());
+      delete data['@metadata'];
 
-    localeRegistry[filename] = localeRegistry[filename] ?? {};
-    Object.assign(localeRegistry[filename], data);
+      localeRegistry[filename] = localeRegistry[filename] ?? {};
+      Object.assign(localeRegistry[filename], data);
+    }
   }),
 ]);
 
