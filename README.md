@@ -12,5 +12,9 @@ This tool allows:
 
 **Extended check**: Check all WMF projects
 
+## Todo
+- [ ] RTL support (PRs are welcomed)
+- [ ] Performance issue of large tables
+
 ## License
 The wscd is licensed under the MIT License. See `LICENSE` for more info.
