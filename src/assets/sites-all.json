@@ -1477,6 +1477,10 @@
   "wikisource.org",
   "m.wikisource.org",
   [
+    "upload.wikimedia.org",
+    false
+  ],
+  [
     "wikimediafoundation.org",
     false
   ],
