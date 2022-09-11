@@ -1,6 +1,8 @@
 [
   "zh.wikipedia.org",
   "zh.m.wikipedia.org",
+  "en.wikipedia.org",
+  "en.m.wikipedia.org",
   "zh.wiktionary.org",
   "zh.m.wiktionary.org",
   "zh.wikibooks.org",
@@ -15,8 +17,6 @@
   "zh.m.wikiversity.org",
   "zh.wikivoyage.org",
   "zh.m.wikivoyage.org",
-  "en.wikipedia.org",
-  "en.m.wikipedia.org",
   "en.wikinews.org",
   "en.m.wikinews.org",
   "en.wiktionary.org",
@@ -38,5 +38,9 @@
   "www.wikidata.org",
   "m.wikidata.org",
   "meta.wikimedia.org",
-  "meta.m.wikimedia.org"
+  "meta.m.wikimedia.org",
+  [
+    "upload.wikimedia.org",
+    false
+  ]
 ]
