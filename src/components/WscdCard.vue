@@ -5,13 +5,13 @@ defineProps<{
 </script>
 
 <template>
-  <div :class="['card', type]">
-    <div class="icon"></div>
-    <div class="text">
-      <div class="header">
+  <div :class="['card', `card--${type}`]">
+    <div class="card__icon"></div>
+    <div class="card__text">
+      <div class="card__header">
         <slot name="header" />
       </div>
-      <div class="main">
+      <div class="card__main">
         <slot />
       </div>
     </div>
@@ -28,34 +28,34 @@ defineProps<{
   width: 90%;
   margin: 0 auto;
 
-  &.error {
-    border: 1px solid #D33;
+  &__icon {
+    background: url(../assets/notice.svg) no-repeat center;
+    width: 1.42857143em;
+    height: 1.42857143em;
+  }
+
+  &__text {
+    flex: 1 1;
+    margin-left: 10px;
+  }
+
+  &__header {
+    font-weight: 700;
+    margin-bottom: 0.75em;
+  }
+
+  &__main {
+    :deep(p) {
+      margin-bottom: 0.375em;
+    }
   }
 }
 
-.icon {
-  background: url(../assets/notice.svg) no-repeat center;
-  width: 1.42857143em;
-  height: 1.42857143em;
+.card--error {
+  border: 1px solid #D33;
 
-  .error & {
+  .card__icon {
     background-image: url(../assets/error.svg);
-  }
-}
-
-.text {
-  flex: 1 1;
-  margin-left: 10px;
-}
-
-.header {
-  font-weight: 700;
-  margin-bottom: 0.75em;
-}
-
-.main {
-  :deep(p) {
-    margin-bottom: 0.375em;
   }
 }
 </style>

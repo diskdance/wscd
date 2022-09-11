@@ -61,7 +61,7 @@ export default defineComponent({
 
 <template>
   <div class="table-container">
-    <table>
+    <table class="table">
       <thead>
         <tr>
           <th>{{ $i18n('tbl-h-name') }}</th>
@@ -74,28 +74,30 @@ export default defineComponent({
       <tbody>
         <tr v-for="[domain, { status, ping, blockStatus }] in data" :key="domain">
           <td>
-            <span aria-hidden="true" class="mobile-header">{{ $i18n('tbl-h-name') }}</span>
-            <span class="content">{{ getName(domain) }}</span>
+            <span aria-hidden="true" class="table__mobile-header">{{ $i18n('tbl-h-name') }}</span>
+            <span class="table__content">{{ getName(domain) }}</span>
           </td>
           <td>
-            <span aria-hidden="true" class="mobile-header">{{ $i18n('tbl-h-domains') }}</span>
-            <span class="content">
+            <span aria-hidden="true" class="table__mobile-header">{{ $i18n('tbl-h-domains')
+            }}</span>
+            <span class="table__content">
               <a target="_blank" rel="noopener noreferrer" :href="`https://${domain}/`">
                 {{ domain }}
               </a>
             </span>
           </td>
           <td>
-            <span aria-hidden="true" class="mobile-header">{{ $i18n('tbl-h-available') }}</span>
-            <span class="content">{{ getStatus(status) }}</span>
+            <span aria-hidden="true" class="table__mobile-header">{{ $i18n('tbl-h-available')
+            }}</span>
+            <span class="table__content">{{ getStatus(status) }}</span>
           </td>
           <td>
-            <span aria-hidden="true" class="mobile-header">{{ $i18n('tbl-h-block') }}</span>
-            <span class="content">{{ getBlockStatus(blockStatus) }}</span>
+            <span aria-hidden="true" class="table__mobile-header">{{ $i18n('tbl-h-block') }}</span>
+            <span class="table__content">{{ getBlockStatus(blockStatus) }}</span>
           </td>
           <td>
-            <span aria-hidden="true" class="mobile-header">{{ $i18n('tbl-h-conn') }}</span>
-            <span class="content"
+            <span aria-hidden="true" class="table__mobile-header">{{ $i18n('tbl-h-conn') }}</span>
+            <span class="table__content"
               :title="ping === undefined ? undefined : $i18n('rtt-title', ping)">
               {{ getConnectivity(ping) }}
             </span>
@@ -110,7 +112,7 @@ export default defineComponent({
 .table-container {
   overflow-x: auto;
 
-  table {
+  .table {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
@@ -139,7 +141,7 @@ export default defineComponent({
       padding: 10px;
     }
 
-    .mobile-header {
+    &__mobile-header {
       display: none;
     }
 
@@ -161,11 +163,11 @@ export default defineComponent({
         display: block;
       }
 
-      td .content {
+      &__content {
         float: right;
       }
 
-      .mobile-header {
+      &__mobile-header {
         display: inline-block;
         font-weight: 700;
       }

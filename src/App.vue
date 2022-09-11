@@ -85,10 +85,10 @@ async function prefetchAndCheck(fetcher: () => Promise<{ default: unknown }>) {
 </script>
 
 <template>
-  <div class="container">
-    <SiteHeader></SiteHeader>
-    <main>
-      <div class="button-container">
+  <div class="site-view">
+    <SiteHeader class="site-view__header"></SiteHeader>
+    <main class="site-view__main">
+      <div class="main__button-container">
         <WscdButton @click="prefetchAndCheck(() => import('./assets/sites-std.json'))"
           :disabled="[CheckStatus.CHECKING, CheckStatus.PREFETCHING].includes(checkStatus)">
           {{ $i18n('btn-std-chk') }}</WscdButton>
@@ -96,7 +96,8 @@ async function prefetchAndCheck(fetcher: () => Promise<{ default: unknown }>) {
           :disabled="[CheckStatus.CHECKING, CheckStatus.PREFETCHING].includes(checkStatus)">
           {{ $i18n('btn-ext-chk') }}</WscdButton>
       </div>
-      <WscdProgressiveBar class="bar-waiting" v-if="checkStatus === CheckStatus.PREFETCHING">
+      <WscdProgressiveBar class="main__waiting-indicator"
+        v-if="checkStatus === CheckStatus.PREFETCHING">
       </WscdProgressiveBar>
       <WscdCard v-if="checkStatus === CheckStatus.ENDED_ERROR" type="error">
         <template #header>{{ $i18n('card-err-head') }}</template>
@@ -119,23 +120,30 @@ async function prefetchAndCheck(fetcher: () => Promise<{ default: unknown }>) {
     <SiteFooter></SiteFooter>
   </div>
 </template>
+
 <style scoped lang="less">
-.container {
+.site-view {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  max-width: 1024px;
+  margin: 0 auto;
+
+  @media screen and (max-width: 1024px) {
+    margin: 0 10px;
+  }
 }
 
-main {
+.site-view__main {
   flex-grow: 1;
 }
 
-.bar-waiting {
+.main__waiting-indicator {
   width: 80%;
   margin: 0 auto;
 }
 
-.button-container {
+.main__button-container {
   padding: 40px 0;
   display: flex;
   align-items: center;
