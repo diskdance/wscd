@@ -1,27 +1,24 @@
 <template>
   <header class="site-header">
-    <div class="site-header__title">Wikimedia Server Connectivity Dashboard</div>
+    <div class="site-header__title">wscd</div>
     <div class="site-header__desc">{{ $i18n('header-slogan') }}</div>
   </header>
 </template>
 
 <style scoped lang="less">
 .site-header {
-  border-bottom: 1px solid #cdcdcd;
-  text-align: center;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  padding: 20px 0;
-  line-height: 1.2;
+  margin: 1em 5%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 
   &__title {
-    user-select: none;
-    word-spacing: 9999px;
-    font-variant: small-caps;
-    font-size: 120%;
+    font-weight: 700;
+    flex: 1;
+    min-width: 50%
   }
 
   &__desc {
-    margin-top: 10px;
     font-size: 80%;
     color: #54595d;
   }

@@ -5,13 +5,13 @@ defineProps<{
 </script>
 
 <template>
-  <div :class="['card', `card--${type}`]">
-    <div class="card__icon"></div>
-    <div class="card__text">
-      <div class="card__header">
+  <div :class="['site-card', type ? `site-card--${type}` : '']">
+    <div class="site-card__icon"></div>
+    <div class="site-card__text">
+      <div class="site-card__header">
         <slot name="header" />
       </div>
-      <div class="card__main">
+      <div class="site-card__main">
         <slot />
       </div>
     </div>
@@ -19,7 +19,7 @@ defineProps<{
 </template>
 
 <style scoped lang="less">
-.card {
+.site-card {
   display: flex;
   align-items: flex-start;
   background-color: #f9f9f9;
@@ -51,10 +51,10 @@ defineProps<{
   }
 }
 
-.card--error {
+.site-card--error {
   border: 1px solid #D33;
 
-  .card__icon {
+  .site-card__icon {
     background-image: url(../assets/error.svg);
   }
 }
