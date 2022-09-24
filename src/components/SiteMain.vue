@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import SiteButton from './SiteButton.vue';
+import { DomainDataView, DomainCheckStatus, BlockStatus } from '../types/view-model';
+
 import SiteCard from './SiteCard.vue';
 import ConnectivityChecker from '../modules/ConnectivityChecker';
 import DataTable from './DataTable.vue';
-import { DomainDataView, DomainCheckStatus, BlockStatus } from '../types/view-model';
-import WscdProgressiveBar from './WscdProgressiveBar.vue';
 import RoundButton from './RoundButton.vue';
 import CheckTypeField from './CheckTypeField.vue';
 
@@ -89,21 +88,21 @@ async function prefetchAndCheck(prefetchAll: boolean) {
 
 <template>
   <main class="site-main">
+
     <div class="site-main__check-panel">
       <RoundButton class="check-panel__button" @click="prefetchAndCheck(isExtendedCheck)">Check
       </RoundButton>
-      <CheckTypeField v-model="isExtendedCheck" class="check-panel__ct-field">
-      </CheckTypeField>
+
+      <CheckTypeField class="check-panel__ct-field" v-model="isExtendedCheck"></CheckTypeField>
     </div>
-    <WscdProgressiveBar class="site-main__waiting-indicator"
-      v-if="checkStatus === CheckStatus.PREFETCHING">
-    </WscdProgressiveBar>
+
     <SiteCard v-if="checkStatus === CheckStatus.ENDED_ERROR" type="error">
       <template #header>{{ $i18n('card-err-head') }}</template>
       <template #default>
         {{ $i18n('card-err-desc') }}
       </template>
     </SiteCard>
+
     <SiteCard class="site-main__info-card" v-if="checkStatus === CheckStatus.NOT_CHECKED">
       <template #header>{{ $i18n('card-about-head') }}</template>
       <template #default>
@@ -112,6 +111,7 @@ async function prefetchAndCheck(prefetchAll: boolean) {
         </span>
       </template>
     </SiteCard>
+
     <DataTable :data="checkData"
       v-if="[CheckStatus.CHECKING, CheckStatus.ENDED].includes(checkStatus)">
     </DataTable>

@@ -11,13 +11,13 @@
   border-radius: 100%;
   transition-property: background-color, box-shadow;
   transition-duration: .1s;
-  outline: 0;
+  transition-timing-function: ease-out;
   font-weight: 700;
   font-size: 2em;
   user-select: none;
   color: #fff;
   padding: max(7.5%, 1em);
-  box-shadow: 0 30px 40px #a2a9b1;
+  box-shadow: 0 20px 40px #a2a9b1;
 
   &:before {
     content: '';
@@ -28,15 +28,18 @@
 
   &:hover {
     background-color: #1976D2;
+    box-shadow: 0 30px 40px #a2a9b1;
   }
 
   &:focus:not(:active) {
-    background-color: #2979FF;
+    outline: 0;
+    background-color: #447ff5;
+    box-shadow: 0 30px 40px #a2a9b1;
   }
 
   &:active {
     background-color: #2a4b8d;
-    box-shadow: 0 30px 40px 2px #72777d;
+    box-shadow: 0 40px 40px #72777d;
   }
 }
 </style>

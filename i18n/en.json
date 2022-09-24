@@ -66,5 +66,9 @@
   "rtt-excellent": "⚡ Excellent",
   "rtt-good": "🚀 Good",
   "rtt-bad": "🐌 Not good",
-  "rtt-title": "$1 ms"
+  "rtt-title": "$1 ms",
+  "ct-field-ext-check": "Check all sites",
+  "ct-field-type": "Check type",
+  "ct-field-std": "Popular sites",
+  "ct-field-ext": "All sites"
 }

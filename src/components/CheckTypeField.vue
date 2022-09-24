@@ -1,21 +1,26 @@
 <script setup lang="ts">
-defineProps<{
+import { wrapModel } from '../modules/utils';
+import ToggleSwitch from './ToggleSwitch.vue';
+
+const props = defineProps<{
   modelValue: boolean,
 }>();
 
-const emit = defineEmits<{
-  (event: 'change'): void,
-  (event: 'update', id: number): void,
-}>();
+const emit = defineEmits(['update:modelValue']);
 
+const modelValue = wrapModel('modelValue', props, emit);
 </script>
 
 <template>
   <div class="ct-field">
-    <div class="ct-field__type">Check type</div>
+    <div class="ct-field__type">{{ $i18n('ct-field-type') }}</div>
     <div class="ct-field__value">
-      <span class="ct-field__std-check" @click="isExtendedCheck=true">Standard check</span>
-      <span class="ct-field__ext-check">Extended check</span>
+      <span :class="['type-label', 'type-label--left', { 'type-label--active': !modelValue }]">{{
+      $i18n('ct-field-std') }}</span>
+      <ToggleSwitch class="ct-field__toggle" v-model="modelValue"
+        :aria-label="$i18n('ct-field-ext-check')"></ToggleSwitch>
+      <span :class="['type-label', 'type-label--right', { 'type-label--active': modelValue }]">{{
+      $i18n('ct-field-ext') }}</span>
     </div>
   </div>
 </template>
@@ -26,8 +31,34 @@ const emit = defineEmits<{
 
   &__type {
     text-align: center;
-    color: #4e4e4e;
     margin-bottom: 0.5em;
+    color: #4e4e4e;
+  }
+
+  &__value {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__toggle {
+    transform: scale(.9);
+    margin: auto 12px;
+  }
+
+  .type-label {
+    opacity: 0.5;
+
+    /* Make toggle centered */
+    min-width: 20vw;
+
+    &--active {
+      opacity: 1;
+    }
+
+    &--left {
+      text-align: right;
+    }
   }
 }
 </style>
