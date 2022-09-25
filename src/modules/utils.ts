@@ -7,17 +7,17 @@ function resolveAfter(ms: number) {
 /**
  * Return a computed property that returns the corresponding prop value when is accessed
  * and fires an event when is set. Used with v-model.
- * @param name name of the prop
  * @param props props field of a component
  * @param emit emit function of a component
+ * @param name name of the prop
  * @return wrapped computer property
  */
-function wrapModel<T extends string, U>(
-  name: T,
-  props: Record<T, U> & Record<string, unknown>,
-  emit: (event: `update:${T}`, value: U, ...otherArgs: unknown[]) => void,
+function wrapModel<T extends string, P extends Record<T, unknown>>(
+  props: P,
+  emit: (event: `update:${T}`, value: P[T]) => void,
+  name: T = 'modelValue' as T,
 )
-  : WritableComputedRef<U> {
+  : WritableComputedRef<P[T]> {
   return computed({
     get() {
       return props[name];

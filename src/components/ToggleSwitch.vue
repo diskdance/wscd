@@ -1,4 +1,5 @@
-<script setup lang="ts">import { wrapModel } from '../modules/utils';
+<script setup lang="ts">
+import { wrapModel } from '../modules/utils';
 
 const props = defineProps<{
   modelValue: boolean
@@ -7,7 +8,7 @@ const props = defineProps<{
 
 const emit = defineEmits(['update:modelValue']);
 
-const modelValue = wrapModel('modelValue', props, emit);
+const modelValue = wrapModel(props, emit);
 </script>
 
 <template>

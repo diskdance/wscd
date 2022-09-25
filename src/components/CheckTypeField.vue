@@ -8,7 +8,7 @@ const props = defineProps<{
 
 const emit = defineEmits(['update:modelValue']);
 
-const modelValue = wrapModel('modelValue', props, emit);
+const modelValue = wrapModel(props, emit);
 </script>
 
 <template>
