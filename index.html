@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wikimedia Server Connectivity Dashboard</title>
-  </head>
-  <body>
-    <noscript>Whoops! This app requires JavaScript to function, please enable JavaScript, or switch
-      to a modern browser.</noscript>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-    <script nomodule>
-    document.body.insertAdjacentText('afterbegin',
-      'Whoa! Your browser is not supported by this app, consider switch to a modern browser!');
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wikimedia Server Connectivity Dashboard</title>
+</head>
+
+<body>
+  <noscript>Whoops, JavaScript is required for this app!</noscript>
+  <div id="legacy-notice" hidden>Whoa! Your browser is too old to run this app, please switch to a
+    modern one!</div>
+  <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+  <script nomodule>
+    document.getElementById('legacy-notice').hidden = false;
   </script>
-  </body>
+</body>
+
 </html>
