@@ -109,6 +109,8 @@ export default defineComponent({
 </template>
 
 <style scoped lang="less">
+@import '../styles/mixins.less';
+
 .table-container {
   overflow-x: auto;
 
@@ -145,7 +147,7 @@ export default defineComponent({
       display: none;
     }
 
-    @media screen and (max-width: 750px) {
+    @media screen and (max-width: @site-width-narrow) {
 
       /* Hide table header but not display:none for a11y */
       thead {

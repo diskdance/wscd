@@ -1,3 +1,5 @@
+@import 'mixins.less';
+
 :root {
   font-family: 'Inter', Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -6,11 +8,11 @@
 div,
 span,
 p {
-  color: #202122;
+  color: @color-text;
 }
 
 a {
-  color: #36c;
+  color: @color-major;
   text-decoration: none;
 
   &:visited {

@@ -118,7 +118,9 @@ async function prefetchAndCheck(prefetchAll: boolean) {
   </main>
 </template>
 
-<style lang="less">
+<style scoped lang="less">
+@import '../styles/mixins.less';
+
 .site-main {
   display: flex;
   flex-direction: column;
@@ -142,7 +144,7 @@ async function prefetchAndCheck(prefetchAll: boolean) {
     }
   }
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: @site-width-narrow) {
     &__info-card {
       display: none !important;
     }

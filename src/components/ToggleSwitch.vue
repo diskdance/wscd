@@ -21,55 +21,111 @@ const modelValue = wrapModel(props, emit);
   </div>
 </template>
 
-<style lang="less">
+<style scoped lang="less">
+@import '../styles/mixins.less';
+@height: 32px;
+@width: 52px;
+@border-width: 2px;
+@thumb-unselected-width: 16px;
+@thumb-selected-width: 24px;
+@thumb-active-width: 28px;
+
+@color-inactive: #72777d;
+
+@indicator-radius: 20px;
+@indicator-focus-color: #1C1B1F;
+@indicator-focus-opacity: 8%;
+@indicator-active-opacity: 16%;
+
+.indicator-shadow(@radius, @opacity) {
+  box-shadow: 0px 0px 0px @radius fade(@indicator-focus-color, @opacity);
+}
+
+@selector-thumb: .toggle-switch__switch .toggle-switch__thumb;
+
 .toggle-switch {
+  /* Enable 3D acceleration */
+  transform: translateZ(0);
+  position: relative;
+
+  &__switch {
+    .transition-ease-out-normal();
+    transition-property: background-color, border;
+    position: relative;
+    border: @border-width solid @color-inactive;
+    border-radius: 9999px;
+    width: @width;
+    height: @height;
+
+    .toggle-switch__thumb {
+      .transition-ease-out-normal();
+      transition-property: background-color, left, width, height, top, box-shadow;
+      position: absolute;
+      background-color: @color-inactive;
+      border-radius: 100%;
+      width: @thumb-unselected-width;
+      height: $width;
+      top: (@height / 2 - @border-width - $height / 2);
+      left: $top;
+    }
+  }
+
   &__input {
     cursor: pointer;
     position: absolute;
     z-index: 2;
     opacity: 0;
-    width: 52px;
-    height: 32px;
-  }
+    width: @width;
+    height: @height;
 
-  &__switch {
-    transition-property: background-color, border;
-    transition-duration: .15s;
-    transition-timing-function: ease-out;
-    border: 2px solid #72777d;
-    border-radius: 9999px;
-    overflow: hidden;
-    width: 52px;
-    height: 32px;
-  }
+    &:hover,
+    &:focus {
+      +@{selector-thumb} {
+        .indicator-shadow((@indicator-radius - @thumb-unselected-width / 2),
+          @indicator-focus-opacity);
+        background-color: #49454E;
+      }
+    }
 
-  &__thumb {
-    transition-property: left, width, height, top, bottom;
-    transition-duration: .15s;
-    transition-timing-function: ease-out;
-    position: relative;
-    background-color: #72777d;
-    border-radius: 100%;
-    width: 16px;
-    height: 16px;
-    left: 6px;
-    top: 6px;
-    bottom: 6px;
-  }
+    &:checked {
+      &+.toggle-switch__switch {
+        background-color: @color-major;
+        border-color: @color-major;
 
-  &__input:checked+&__switch {
-    background-color: #36c;
-    border-color: #36c;
+        .toggle-switch__thumb {
+          background-color: #fff;
+          width: @thumb-selected-width;
+          height: $width;
+          top: (@height / 2 - @border-width - $height / 2);
+          left: @width - @border-width * 2 - $top - $width;
+        }
+      }
 
-    .toggle-switch__thumb {
-      background-color: #fff;
-      left: 22px;
-      width: 24px;
-      height: 24px;
-      top: 2px;
-      bottom: 2px;
+      &:hover,
+      &:focus {
+        +@{selector-thumb} {
+          .indicator-shadow((@indicator-radius - @thumb-selected-width / 2),
+            @indicator-focus-opacity);
+          background-color: #eaf3ff;
+        }
+      }
+
+      &:active+@{selector-thumb} {
+        .indicator-shadow((@indicator-radius - @thumb-active-width / 2),
+          @indicator-active-opacity);
+        @active-top: (@height / 2 - @border-width - @thumb-active-width / 2);
+        left: @width - @border-width * 2 - @active-top - @thumb-active-width;
+      }
+    }
+
+    &:active+@{selector-thumb} {
+      .indicator-shadow((@indicator-radius - @thumb-active-width / 2),
+        @indicator-active-opacity);
+      width: @thumb-active-width;
+      height: $width;
+      top: (@height / 2 - @border-width - $height / 2);
+      left: $top;
     }
   }
-
 }
 </style>

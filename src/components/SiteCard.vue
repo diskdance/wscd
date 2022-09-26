@@ -19,6 +19,8 @@ defineProps<{
 </template>
 
 <style scoped lang="less">
+@import '../styles/mixins.less';
+
 .site-card {
   display: flex;
   align-items: flex-start;
@@ -52,7 +54,7 @@ defineProps<{
 }
 
 .site-card--error {
-  border: 1px solid #D33;
+  border: 1px solid @color-error;
 
   .site-card__icon {
     background-image: url(../assets/error.svg);

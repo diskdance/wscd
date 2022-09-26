@@ -32,7 +32,6 @@ const modelValue = wrapModel(props, emit);
   &__type {
     text-align: center;
     margin-bottom: 0.5em;
-    color: #4e4e4e;
   }
 
   &__value {
@@ -50,7 +49,7 @@ const modelValue = wrapModel(props, emit);
     opacity: 0.5;
 
     /* Make toggle centered */
-    min-width: 20vw;
+    min-width: min(256px, 20vw);
 
     &--active {
       opacity: 1;

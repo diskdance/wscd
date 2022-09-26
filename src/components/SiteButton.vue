@@ -5,6 +5,8 @@
 </template>
 
 <style scoped lang="less">
+@import '../styles/mixins.less';
+
 button {
   color: #202122;
   border-radius: 2px;
@@ -27,8 +29,8 @@ button {
     }
 
     &:focus:not(:active) {
-      border-color: #36c;
-      box-shadow: inset 0 0 0 1px #36c;
+      border-color: @color-major;
+      box-shadow: inset 0 0 0 1px @color-major;
     }
   }
 

@@ -4,10 +4,12 @@
   </button>
 </template>
 
-<style lang="less">
+<style scoped lang="less">
+@import '../styles/mixins.less';
+
 .round-button {
   border: 0;
-  background-color: #36c;
+  background-color: @color-major;
   border-radius: 100%;
   transition-property: background-color, box-shadow;
   transition-duration: .1s;
@@ -19,6 +21,7 @@
   padding: max(7.5%, 1em);
   box-shadow: 0 20px 40px #a2a9b1;
 
+  /** Make it circular */
   &:before {
     content: '';
     display: inline-block;
