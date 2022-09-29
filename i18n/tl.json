@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"GinawaSaHapon"
+			"GinawaSaHapon",
+			"Jojit fb"
 		]
 	},
 	"name-wikitech-static.wikimedia.org": "Wikitech (Backup)",
@@ -54,7 +55,7 @@
 	"tbl-h-domains": "Mga domain",
 	"tbl-h-available": "Available?",
 	"tbl-h-conn": "Koneksyon",
-	"tbl-h-block": "Mae-edit?",
+	"tbl-h-block": "Mababago?",
 	"footer-code": "Source code",
 	"footer-license": "Lisensiya",
 	"header-slogan": "Gaano ka kaya kalayo mula sa libreng kaalaman?",
@@ -62,7 +63,7 @@
 	"avl-yes": "✔️ Available",
 	"avl-no": "❌ Di available",
 	"blk-yes": "🚫 Nakaharang",
-	"blk-no": "✔️ Mae-edit",
+	"blk-no": "✔️ Mababago",
 	"blk-unknown": "❔ Di-alam",
 	"blk-non-wiki": "✔️ Hindi wiki",
 	"pending": "🕒 Hinihintay...",
