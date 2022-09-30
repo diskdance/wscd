@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"GinawaSaHapon"
+			"GinawaSaHapon",
+			"Jojit fb"
 		]
 	},
 	"name-wikitech-static.wikimedia.org": "Wikitech (Backup)",
@@ -48,5 +49,27 @@
 	"btn-ext-chk": "Pinaigting na check",
 	"card-err-head": "Nagka-error",
 	"card-err-desc": "Baka dahil hindi ma-download ang mga kinakailangang mahahalagang resource para maisagawa ang check. Pakitingnan ang koneksyon mo sa network.",
-	"card-about-head": "Patungkol sa kagamitang ito"
+	"card-about-head": "Patungkol sa kagamitang ito",
+	"card-about-desc": "<p>Tinutulugan ka ng Wikimedia Server Connectivity Dashboard na matingnan kung mabibisita mo ba at mae-edit ang mga proyekto ng Wikimedia mula sa network mo.</p><p>Posibleng maganap ang mga pagkaantala sa koneksyon dahil sa mga pumalyang network, patakaran sa network ng kumpanya, o dahil sa pagsesensor ng pamahalaan.</p><p>Posibleng dahil sa paggamit mo sa isang proxy o VPN service kaya hinaharang ang IP mo. Para mapigilan ang bandalismo, hinaharangan ng mga proyekto ng Wikimedia ang mga proxy na IP mula sa pag-eedjt. Pwede kang [https://en.wikipedia.org/wiki/Wikipedia:IP_block_exemption humiling ng exemption] para sa account mo para maiwasan ang ganitong pagkaantala.</p>",
+	"tbl-h-name": "Mga pangalan",
+	"tbl-h-domains": "Mga domain",
+	"tbl-h-available": "Available?",
+	"tbl-h-conn": "Koneksyon",
+	"tbl-h-block": "Mababago?",
+	"footer-code": "Source code",
+	"footer-license": "Lisensiya",
+	"header-slogan": "Gaano ka kaya kalayo mula sa libreng kaalaman?",
+	"name-key-missing": "(di-alam)",
+	"avl-yes": "✔️ Available",
+	"avl-no": "❌ Di available",
+	"blk-yes": "🚫 Nakaharang",
+	"blk-no": "✔️ Mababago",
+	"blk-unknown": "❔ Di-alam",
+	"blk-non-wiki": "✔️ Hindi wiki",
+	"pending": "🕒 Hinihintay...",
+	"checking": "🔍 Tinitingnan...",
+	"rtt-excellent": "⚡ Mahusay",
+	"rtt-good": "🚀 Maayos",
+	"rtt-bad": "🐌 Hindi maayos",
+	"rtt-title": "$1 ms"
 }
