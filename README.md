@@ -19,5 +19,7 @@ This tool allows:
 - [ ] RTL support (PRs are welcomed)
 - [ ] Performance issue of large tables
 
-## License
+## Credits
 The tool is licensed under the MIT License. See `LICENSE` for more info.
+
+The favicon is based on Twitter [Twemoji](https://github.com/twitter/twemoji/blob/master/assets/svg/1f4f6.svg) ([CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/)).

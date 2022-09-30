@@ -20,6 +20,7 @@
   color: #fff;
   padding: max(7.5%, 1em);
   box-shadow: 0 20px 40px #a2a9b1;
+  cursor: pointer;
 
   /** Make it circular */
   &:before {
