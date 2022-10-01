@@ -28,14 +28,14 @@ interface MwQueryGlobalBlocksApiResult {
   }
 }
 
-type SiteList = Array<[string, boolean]>;
+type DomainList = Array<[string, boolean]>;
 
 const CONCURRENCY = 15;
 const TIMEOUT_MS = 30 * 1000;
 const FETCH_OPT = { method: 'GET', headers: { 'Api-User-Agent': `wscd/${APP_VERSION}` } };
 
 class ConnectivityChecker {
-  private readonly siteList: SiteList;
+  private readonly domainList: DomainList;
 
   private readonly perDomainCheckStarted: (domain: string) => void;
 
@@ -45,25 +45,25 @@ class ConnectivityChecker {
 
   /**
    * Instantiate a {@link ConnectivityChecker} object.
-   * @param siteList a list of sites to be checked
+   * @param domainList a list of sites to be checked
    * @param perDomainCheckStarted a callback which is called when a single domain test is started
    * @param perDomainFinished a callback which is called when a single domain test is completed
    * @param concurrency number of domain checks to run at a single time
    */
   public constructor(
-    siteList: SiteList,
+    domainList: DomainList,
     perDomainCheckStarted: (domain: string) => void,
     perDomainFinished: (data: DomainData) => void,
     concurrency = CONCURRENCY,
   ) {
-    this.siteList = siteList;
+    this.domainList = domainList;
     this.perDomainCheckStarted = perDomainCheckStarted;
     this.perDomainFinished = perDomainFinished;
     this.taskDispatcher = new TaskDispatcher(concurrency);
   }
 
   public async check(): Promise<unknown> {
-    this.siteList.forEach(([domain, isWiki]) => {
+    this.domainList.forEach(([domain, isWiki]) => {
       this.taskDispatcher.enqueue(() => {
         const domainData: DomainData = {
           domain,

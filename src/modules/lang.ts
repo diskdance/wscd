@@ -1,3 +1,6 @@
+import { MessageSource } from 'banana-i18n';
+import EnMessageSource from '../../i18n-merged/en.json';
+
 const MAPPINGS: Record<string, string> = {
   zh: 'zh-hans',
   'zh-cn': 'zh-hans',
@@ -18,22 +21,23 @@ function getCurrentLang(): string {
   return lang;
 }
 
-async function getMessages(lang: string): Promise<Record<string, Record<string, string>>> {
-  const result: Record<string, Record<string, string>> = {
-    en: (await import('../../i18n-merged/en.json')).default,
+async function getI18nInfo(): Promise<{ lang: string, messageSource: MessageSource }> {
+  const lang = getCurrentLang();
+  const messageSource: Record<string, Record<string, string>> = {
+    en: EnMessageSource,
   };
-  if (lang !== 'en') {
-    try {
-      let bananaInPreferredLang: Record<string, string>;
+
+  let selectedLang = 'en';
+  if (!lang.startsWith('en')) {
+    for (const currentLang of [lang, lang.split('-')[0]]) {
       try {
-        bananaInPreferredLang = (await import(`../../i18n-merged/${lang}.json`)).default;
-      } catch {
-        bananaInPreferredLang = (await import(`../../i18n-merged/${lang.split('-')[0]}.json`)).default;
-      }
-      result[lang] = bananaInPreferredLang;
-    } catch { }
+        messageSource[currentLang] = (await import(`../../i18n-merged/${currentLang}.json`)).default;
+        selectedLang = currentLang;
+        break;
+      } catch { }
+    }
   }
-  return result;
+  return { lang: selectedLang, messageSource };
 }
 
-export { getCurrentLang, getMessages };
+export default getI18nInfo;

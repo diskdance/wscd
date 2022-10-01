@@ -12,7 +12,7 @@ function resolveAfter(ms: number) {
  * @param name name of the prop
  * @return wrapped computer property
  */
-function wrapModel<T extends string, P extends Record<T, unknown>>(
+function useModelWrapper<T extends string, P extends Record<T, unknown>>(
   props: P,
   emit: (event: `update:${T}`, value: P[T]) => void,
   name: T = 'modelValue' as T,
@@ -28,4 +28,4 @@ function wrapModel<T extends string, P extends Record<T, unknown>>(
   });
 }
 
-export { resolveAfter, wrapModel };
+export { resolveAfter, useModelWrapper };

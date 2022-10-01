@@ -1,13 +1,12 @@
 <script lang="ts">
-import { defineComponent, PropType } from 'vue';
-import { BlockStatus, DomainCheckStatus, DomainDataView } from '../types/view-model';
+import { defineComponent } from 'vue';
+import store, { DomainBlockingResult, DomainConnectivityResult } from '../modules/store';
 
 export default defineComponent({
-  props: {
-    data: {
-      type: Object as PropType<Map<string, DomainDataView>>,
-      required: true,
-    },
+  data() {
+    return {
+      domainDataView: store.domainDataView,
+    };
   },
   methods: {
     getName(domain: string): string {
@@ -17,29 +16,29 @@ export default defineComponent({
       return translation === key ? this.$i18n('name-key-missing') : translation;
     },
 
-    getStatus(status: DomainCheckStatus): string {
+    getStatus(status: DomainConnectivityResult): string {
       switch (status) {
-        case DomainCheckStatus.FAILURE:
+        case DomainConnectivityResult.FAILURE:
           return this.$i18n('avl-no');
-        case DomainCheckStatus.SUCCESS:
+        case DomainConnectivityResult.SUCCESS:
           return this.$i18n('avl-yes');
-        case DomainCheckStatus.CHECKING:
+        case DomainConnectivityResult.CHECKING:
           return this.$i18n('checking');
         default:
           return this.$i18n('pending');
       }
     },
 
-    getBlockStatus(blockStatus: BlockStatus | undefined): string {
+    getDomainBlockingResult(blockStatus: DomainBlockingResult | undefined): string {
       if (blockStatus === undefined) {
         return '';
       }
       switch (blockStatus) {
-        case BlockStatus.BLOCKED:
+        case DomainBlockingResult.BLOCKED:
           return this.$i18n('blk-yes');
-        case BlockStatus.NOT_BLOCKED:
+        case DomainBlockingResult.NOT_BLOCKED:
           return this.$i18n('blk-no');
-        case BlockStatus.NOT_A_WIKI:
+        case DomainBlockingResult.NOT_A_WIKI:
           return this.$i18n('blk-non-wiki');
         default:
           return this.$i18n('blk-unknown');
@@ -75,7 +74,7 @@ export default defineComponent({
         </tr>
       </thead>
       <tbody>
-        <tr v-for="[domain, { status, ping, blockStatus }] in data" :key="domain">
+        <tr v-for="[domain, { connectivity: status, ping, blocking: blockStatus }] in domainDataView" :key="domain">
           <td>
             <span aria-hidden="true" class="table__mobile-header">{{ $i18n('tbl-h-name') }}</span>
             <span class="table__content">{{ getName(domain) }}</span>
@@ -96,7 +95,7 @@ export default defineComponent({
           </td>
           <td>
             <span aria-hidden="true" class="table__mobile-header">{{ $i18n('tbl-h-block') }}</span>
-            <span class="table__content">{{ getBlockStatus(blockStatus) }}</span>
+            <span class="table__content">{{ getDomainBlockingResult(blockStatus) }}</span>
           </td>
           <td>
             <span aria-hidden="true" class="table__mobile-header">{{ $i18n('tbl-h-conn') }}</span>

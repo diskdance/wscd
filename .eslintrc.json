@@ -32,7 +32,8 @@
       {
         "allowEmptyCatch": true
       }
-    ]
+    ],
+    "no-restricted-syntax": "off"
   },
   "parser": "vue-eslint-parser",
   "parserOptions": {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { wrapModel } from '../modules/utils';
+import { useModelWrapper } from '../modules/utils';
 import ToggleSwitch from './ToggleSwitch.vue';
 
 const props = defineProps<{
@@ -8,7 +8,7 @@ const props = defineProps<{
 
 const emit = defineEmits(['update:modelValue']);
 
-const modelValue = wrapModel(props, emit);
+const modelValue = useModelWrapper(props, emit);
 </script>
 
 <template>
