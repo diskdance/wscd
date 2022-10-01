@@ -22,16 +22,12 @@ defineProps<{
 @import '../styles/mixins.less';
 
 .site-card {
+  .card-normal();
   display: flex;
   align-items: flex-start;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  padding: 20px;
-  width: 90%;
-  margin: 0 auto;
 
   &__icon {
-    background: url(../assets/notice.svg) no-repeat center;
+    background: data-uri('../assets/notice.svg') no-repeat center;
     width: 1.42857143em;
     height: 1.42857143em;
   }
@@ -46,10 +42,8 @@ defineProps<{
     margin-bottom: 0.75em;
   }
 
-  &__main {
-    :deep(p) {
-      margin-bottom: 0.375em;
-    }
+  &__main ::v-deep(p) {
+    margin-bottom: 0.375em;
   }
 }
 
@@ -57,7 +51,7 @@ defineProps<{
   border: 1px solid @color-error;
 
   .site-card__icon {
-    background-image: url(../assets/error.svg);
+    background-image: data-uri('../assets/error.svg');
   }
 }
 </style>

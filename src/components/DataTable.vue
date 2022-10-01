@@ -4,7 +4,10 @@ import { BlockStatus, DomainCheckStatus, DomainDataView } from '../types/view-mo
 
 export default defineComponent({
   props: {
-    data: Object as PropType<Map<string, DomainDataView>>,
+    data: {
+      type: Object as PropType<Map<string, DomainDataView>>,
+      required: true,
+    },
   },
   methods: {
     getName(domain: string): string {

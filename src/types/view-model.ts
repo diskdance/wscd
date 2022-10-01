@@ -12,6 +12,14 @@ enum BlockStatus {
   NOT_A_WIKI,
 }
 
+enum CheckStatus {
+  NOT_CHECKED,
+  PREFETCHING,
+  CHECKING,
+  ENDED,
+  ENDED_ERROR,
+}
+
 interface DomainDataView {
   status: DomainCheckStatus,
   blockStatus?: BlockStatus,
@@ -19,4 +27,4 @@ interface DomainDataView {
 }
 
 export type { DomainDataView };
-export { DomainCheckStatus, BlockStatus };
+export { DomainCheckStatus, BlockStatus, CheckStatus };

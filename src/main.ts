@@ -18,7 +18,7 @@ import { getMessages, getCurrentLang } from './modules/lang';
   const banana = new Banana(locale, { messages, wikilinks: true });
 
   document.title = banana.i18n('title');
-  document.documentElement.lang = locale in messages ? navigator.language : 'en'; // For a11y support
+  document.documentElement.lang = locale in messages ? locale : 'en'; // For a11y support
 
   app.config.globalProperties.$i18n = banana.i18n.bind(banana);
   app.mount('#app');

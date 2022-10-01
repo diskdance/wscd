@@ -1,22 +1,17 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { DomainDataView, DomainCheckStatus, BlockStatus } from '../types/view-model';
+import {
+  DomainDataView, DomainCheckStatus, BlockStatus, CheckStatus,
+} from '../types/view-model';
 
 import SiteCard from './SiteCard.vue';
 import ConnectivityChecker from '../modules/ConnectivityChecker';
 import DataTable from './DataTable.vue';
 import RoundButton from './RoundButton.vue';
 import CheckTypeField from './CheckTypeField.vue';
+import SummaryCard from './SummaryCard.vue';
 
 type RawSiteList = Array<string | [string, boolean]>;
-
-enum CheckStatus {
-  NOT_CHECKED,
-  PREFETCHING,
-  CHECKING,
-  ENDED,
-  ENDED_ERROR,
-}
 
 const isExtendedCheck = ref(false);
 const checkStatus = ref(CheckStatus.NOT_CHECKED);
@@ -89,12 +84,15 @@ async function prefetchAndCheck(prefetchAll: boolean) {
 <template>
   <main class="site-main">
 
-    <div class="site-main__check-panel">
+    <div class="site-main__check-panel" v-if="checkStatus === CheckStatus.NOT_CHECKED">
       <RoundButton class="check-panel__button" @click="prefetchAndCheck(isExtendedCheck)">Check
       </RoundButton>
 
       <CheckTypeField class="check-panel__ct-field" v-model="isExtendedCheck"></CheckTypeField>
     </div>
+
+    <SummaryCard :data="checkData" :status="checkStatus" class="site-main__summary-card"
+      v-if="[CheckStatus.CHECKING, CheckStatus.ENDED].includes(checkStatus)"></SummaryCard>
 
     <SiteCard v-if="checkStatus === CheckStatus.ENDED_ERROR" type="error">
       <template #header>{{ $i18n('card-err-head') }}</template>
