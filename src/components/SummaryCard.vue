@@ -129,7 +129,7 @@ const currentCheckingDomain = computed(() => (
           <SiteButton @click="isTableExpanded = !isTableExpanded">{{
           $i18n(isTableExpanded ? 'sc-btn-hide' : 'sc-btn-show')
           }}</SiteButton>
-          <SiteButton>{{ $i18n('sc-btn-dl') }}</SiteButton>
+          <!-- <SiteButton>{{ $i18n('sc-btn-dl') }}</SiteButton> -->
         </div>
       </div>
 
