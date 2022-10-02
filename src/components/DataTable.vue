@@ -74,7 +74,9 @@ export default defineComponent({
         </tr>
       </thead>
       <tbody>
-        <tr v-for="[domain, { connectivity: status, ping, blocking: blockStatus }] in domainDataView" :key="domain">
+        <tr
+          v-for="[domain, { connectivity: status, ping, blocking: blockStatus }] in domainDataView"
+          :key="domain">
           <td>
             <span aria-hidden="true" class="table__mobile-header">{{ $i18n('tbl-h-name') }}</span>
             <span class="table__content">{{ getName(domain) }}</span>
@@ -121,12 +123,11 @@ export default defineComponent({
     margin-right: auto;
     width: 100%;
     line-height: 1.25;
-
-    &,
-    & thead {
-      border: 1px solid #cdcdcd;
-      border-collapse: collapse;
-    }
+    border: 1px solid #cdcdcd;
+    border-radius: 8px;
+    border-spacing: 0;
+    border-collapse: separate;
+    overflow: hidden;
 
     thead {
       font-weight: bold;
@@ -136,7 +137,7 @@ export default defineComponent({
       text-align: left;
     }
 
-    tr:nth-child(2n) {
+    tbody tr:nth-child(2n-1) {
       background-color: #f2f2f2;
     }
 

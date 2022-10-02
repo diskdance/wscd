@@ -84,31 +84,36 @@ async function prepareAndCheck(prefetchAll: boolean) {
 <template>
   <main class="site-main">
 
-    <div class="site-main__check-panel" v-if="store.checkStatus === CheckStatus.NOT_RUN">
-      <RoundButton class="check-panel__button" @click="prepareAndCheck(isExtendedCheck)">Check
-      </RoundButton>
+    <Transition name="site-main" mode="out-in">
+      <div class="site-main__check-panel"
+        v-if="[CheckStatus.NOT_RUN, CheckStatus.PREPARING].includes(store.checkStatus)">
+        <RoundButton class="check-panel__button" @click="prepareAndCheck(isExtendedCheck)">Check
+        </RoundButton>
 
-      <CheckTypeField class="check-panel__ct-field" v-model="isExtendedCheck"></CheckTypeField>
+        <CheckTypeField class="check-panel__ct-field" v-model="isExtendedCheck"></CheckTypeField>
 
-      <SiteCard class="check-panel__info-card">
-        <template #header>{{ $i18n('card-about-head') }}</template>
+        <SiteCard class="check-panel__info-card">
+          <template #header>{{ $i18n('card-about-head') }}</template>
+          <template #default>
+            <!-- HTML is sanitized by banana-i18n -->
+            <span v-html="$i18n('card-about-desc')">
+            </span>
+          </template>
+        </SiteCard>
+      </div>
+
+      <SummaryCard class="site-main__summary-card" v-model:isTableExpanded="isTableExpanded"
+        v-else-if="[CheckStatus.RUNNING, CheckStatus.ENDED].includes(store.checkStatus)">
+      </SummaryCard>
+
+      <SiteCard class="site-main__error-card"
+        v-else-if="store.checkStatus === CheckStatus.ENDED_ERROR" type="error">
+        <template #header>{{ $i18n('card-err-head') }}</template>
         <template #default>
-          <!-- HTML is sanitized by banana-i18n -->
-          <span v-html="$i18n('card-about-desc')">
-          </span>
+          {{ $i18n('card-err-desc') }}
         </template>
       </SiteCard>
-    </div>
-
-    <SummaryCard class="site-main__summary-card" v-model:isTableExpanded="isTableExpanded"
-      v-if="[CheckStatus.RUNNING, CheckStatus.ENDED].includes(store.checkStatus)"></SummaryCard>
-
-    <SiteCard v-if="store.checkStatus === CheckStatus.ENDED_ERROR" type="error">
-      <template #header>{{ $i18n('card-err-head') }}</template>
-      <template #default>
-        {{ $i18n('card-err-desc') }}
-      </template>
-    </SiteCard>
+    </Transition>
 
     <Transition name="site-main__data-table">
       <DataTable class="site-main__data-table" v-if="isTableExpanded"></DataTable>
@@ -153,7 +158,8 @@ async function prepareAndCheck(prefetchAll: boolean) {
     }
   }
 
-  &__summary-card {
+  &__summary-card,
+  &__error-card {
     margin: 5em auto;
 
     @media screen and (max-width: @site-width-narrow) {
@@ -178,6 +184,22 @@ async function prepareAndCheck(prefetchAll: boolean) {
       opacity: 0;
       transform: translateY(30px);
     }
+  }
+
+  &-enter-active,
+  &-leave-active {
+    .transition-ease-out-normal();
+    transition-property: opacity, transform;
+  }
+
+  &-enter-from {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+
+  &-leave-to {
+    opacity: 0;
+    transform: translateY(-50%);
   }
 }
 </style>

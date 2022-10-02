@@ -15,18 +15,57 @@ const emit = defineEmits(['update:isTableExpanded']);
 
 const isTableExpanded = useModelWrapper(props, emit, 'isTableExpanded');
 
-const hasProblem = computed(() => [...store.domainDataView.values()].some(
-  (dataView) => dataView.connectivity === DomainConnectivityResult.FAILURE
-    || dataView.blocking === DomainBlockingResult.BLOCKED,
-));
-
-const checkedSitesCount = computed(() => [...store.domainDataView.values()]
-  .filter((dataView) => dataView.connectivity !== DomainConnectivityResult.CHECKING
-    && dataView.connectivity !== DomainConnectivityResult.PENDING).length);
-
 function reloadWindow() {
   window.location.reload();
 }
+
+function getDomainsFriendlyDesc(domains: string[]): string {
+  if (domains.length === 0) {
+    return 'none';
+  }
+  return `${domains[0]}${domains.length >= 2 ? ` and ${domains.length - 1} more` : ''}`;
+}
+
+const inaccessibleDomains = computed(
+  () => [...store.domainDataView.entries()]
+    .filter(
+      ([, dataView]) => dataView.connectivity === DomainConnectivityResult.FAILURE,
+    )
+    .map(([item]) => item),
+);
+
+const blockedDomains = computed(
+  () => [...store.domainDataView.entries()]
+    .filter(
+      ([, dataView]) => dataView.blocking === DomainBlockingResult.BLOCKED,
+    )
+    .map(([item]) => item),
+);
+
+const inaccessibleDomainsDesc = computed(
+  () => getDomainsFriendlyDesc(inaccessibleDomains.value),
+);
+
+const blockedDomainsDesc = computed(
+  () => getDomainsFriendlyDesc(blockedDomains.value),
+);
+
+const hasProblem = computed(
+  () => inaccessibleDomains.value.length + blockedDomains.value.length !== 0,
+);
+
+const checkedDomainsCount = computed(() => [...store.domainDataView.values()]
+  .filter(
+    (dataView) => dataView.connectivity !== DomainConnectivityResult.CHECKING
+      && dataView.connectivity !== DomainConnectivityResult.PENDING,
+  ).length);
+
+const currentCheckingDomain = computed(() => (
+  [...store.domainDataView.entries()]
+    .reverse()
+    .find(([, dataView]) => dataView.connectivity === DomainConnectivityResult.CHECKING)
+  || ['']
+)[0]);
 
 </script>
 
@@ -37,15 +76,20 @@ function reloadWindow() {
       <div class="summary-card__main summary-card__main--running"
         v-if="store.checkStatus === CheckStatus.RUNNING">
         <ProgressBar class="summary-card__progressbar"
-          :value="checkedSitesCount / store.domainDataView.size * 100">
+          :value="checkedDomainsCount / store.domainDataView.size * 100">
         </ProgressBar>
-        <h2 class="summary-card__heading">{{ `${hasProblem ? 'Some issues detected' : 'Checking'}
-        (${checkedSitesCount}/${store.domainDataView.size})...` }}</h2>
-        <div class="summary-card__content">Depending on your network condition, this may take up to
-          several minutes.</div>
+        <h2 class="summary-card__heading">{{ `${hasProblem ? 'Some issues detected. ' :
+        ''}Checking
+        (${checkedDomainsCount}/${store.domainDataView.size})...` }}</h2>
+        <div class="summary-card__content">
+          <p>Depending on your network condition, this may take up to several minutes.</p>
+          <p>Currently checking: {{ currentCheckingDomain }}</p>
+          <p>Inaccessible domains: {{ inaccessibleDomainsDesc }}</p>
+          <p>Uneditable domains: {{ blockedDomainsDesc }}</p>
+        </div>
         <div class="summary-card__action">
-          <SiteButton @click="isTableExpanded = !isTableExpanded">{{isTableExpanded ? 'Hide data' :
-          'Show data'}}</SiteButton>
+          <SiteButton @click="isTableExpanded = !isTableExpanded">{{ isTableExpanded ? 'Hide data' :
+          'Show data' }}</SiteButton>
         </div>
       </div>
 
@@ -53,26 +97,28 @@ function reloadWindow() {
         <h2 class="summary-card__heading">{{ hasProblem ? 'Some issues detected'
         : 'No issues detected' }}
         </h2>
-        <div class="summary-card__content">
+        <div class="summary-card__content" v-if="hasProblem">
           <p>Your network might have some problems affecting your experience on Wikimedia sites.</p>
-          <p>You cannot access: zh.wikipedia.org and 2 more</p>
-          <p>You cannot edit: en.wikipedia.org and 8 more</p>
+          <p>You cannot access: {{ inaccessibleDomainsDesc }}</p>
+          <p>You cannot edit: {{ blockedDomainsDesc }}</p>
           <h3>Why did this happen?</h3>
           <p>First of all: It is not your fault!</p>
-          <p>For connection disruption, this may due to faulty networks, company
-            network policies or government censorship.</p>
+          <p>For connection disruption, this may be due to faulty networks, company network policies
+            or government censorship.</p>
           <p>For IP blocks, this may be because you are using a proxy or VPN service. Using such
-            services would change your IP address to theirs, and Wikimedia projects
-            blocked proxy IPs from editing to prevent vandalism.</p>
+            services would change your IP address to theirs, which Wikimedia projects may block from
+            editing to prevent vandalism.</p>
           <h3>What should I do?</h3>
-          <p>You can try to use proxies or VPN services to connect. </p>
-          <p>However, editing from these services are forbidden. You can request IP block exemption
-            for
-            your account to edit under proxies.</p>
+          <p>Try to use proxies or VPN services to connect.</p>
+          <p>To address IP blocks, please request IP block exemption for your account to get
+            bypassed.</p>
+        </div>
+        <div class="summary-card__content summary-card__content--no-problem" v-else>
+          <p>Congratulations, you are free as a bird!</p>
         </div>
         <div class="summary-card__action">
-          <SiteButton @click="isTableExpanded = !isTableExpanded">{{isTableExpanded ? 'Hide data' :
-          'Show data'}}</SiteButton>
+          <SiteButton @click="isTableExpanded = !isTableExpanded">{{ isTableExpanded ? 'Hide data' :
+          'Show data' }}</SiteButton>
           <SiteButton>Download data</SiteButton>
           <SiteButton @click="reloadWindow()">Rerun check</SiteButton>
         </div>
