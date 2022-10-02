@@ -39,6 +39,7 @@ defineProps<{
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  white-space: nowrap;
 
   &__indicator {
     position: absolute;
@@ -47,7 +48,7 @@ defineProps<{
   }
 
   /** Make it circular */
-  &:before {
+  &::before {
     content: '';
     display: inline-block;
     vertical-align: middle;

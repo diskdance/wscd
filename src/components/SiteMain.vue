@@ -146,7 +146,6 @@ async function prepareAndCheck(prefetchAll: boolean) {
 
     .check-panel__button {
       margin-top: 2em;
-      white-space: nowrap;
     }
 
     .check-panel__ct-field {
