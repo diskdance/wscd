@@ -1,4 +1,6 @@
 # Wikimedia Server Connectivity Dashboard
+[Live site](https://wscd.toolforge.org) ([mirror](https://diskdance.github.io/wscd))
+
 This is a web tool which helps you identify whether you can view and edit projects of Wikimedia from your network.
 
 ## Objective
