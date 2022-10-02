@@ -110,7 +110,7 @@ const currentCheckingDomain = computed(() => (
             editing to prevent vandalism.</p>
           <h3>What should I do?</h3>
           <p>Try to use proxies or VPN services to connect.</p>
-          <p>To address IP blocks, please request IP block exemption for your account to get
+          <p>To address IP blocks, please request IP block exemption rights for your account to get
             bypassed.</p>
         </div>
         <div class="summary-card__content summary-card__content--no-problem" v-else>

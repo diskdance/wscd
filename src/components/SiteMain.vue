@@ -87,8 +87,9 @@ async function prepareAndCheck(prefetchAll: boolean) {
     <Transition name="site-main" mode="out-in">
       <div class="site-main__check-panel"
         v-if="[CheckStatus.NOT_RUN, CheckStatus.PREPARING].includes(store.checkStatus)">
-        <RoundButton class="check-panel__button" @click="prepareAndCheck(isExtendedCheck)">Check
-        </RoundButton>
+        <RoundButton class="check-panel__button" @click="prepareAndCheck(isExtendedCheck)"
+          :disabled="store.checkStatus === CheckStatus.PREPARING"
+          :waiting="store.checkStatus === CheckStatus.PREPARING">Check</RoundButton>
 
         <CheckTypeField class="check-panel__ct-field" v-model="isExtendedCheck"></CheckTypeField>
 

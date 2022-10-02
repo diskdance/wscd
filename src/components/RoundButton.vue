@@ -1,26 +1,49 @@
+<script setup lang="ts">
+import ProgressIndicator from './ProgressIndicator.vue';
+
+defineProps<{
+  waiting: boolean,
+}>();
+</script>
+
 <template>
   <button class="round-button">
     <slot />
+    <ProgressIndicator class="round-button__indicator" v-if="waiting"></ProgressIndicator>
   </button>
 </template>
 
 <style scoped lang="less">
 @import '../styles/mixins.less';
 
+@shadow-color-normal: #a2a9b1;
+@shadow-color-heavy: #72777d;
+
+.button-shadow(@offset-y, @color) {
+  box-shadow: 0 @offset-y 40px @color;
+}
+
 .round-button {
+  .transition-ease-out-fast();
+  .button-shadow(20px, @shadow-color-normal);
+  transition-property: background-color, box-shadow;
   border: 0;
   background-color: @color-major;
   border-radius: 100%;
-  transition-property: background-color, box-shadow;
-  transition-duration: .1s;
-  transition-timing-function: ease-out;
   font-weight: 700;
   font-size: 2em;
   user-select: none;
   color: #fff;
   padding: max(7.5%, 1em);
-  box-shadow: 0 20px 40px #a2a9b1;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  &__indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 
   /** Make it circular */
   &:before {
@@ -31,19 +54,20 @@
   }
 
   &:hover {
+    .button-shadow(30px, @shadow-color-normal);
     background-color: #1976D2;
-    box-shadow: 0 30px 40px #a2a9b1;
   }
 
   &:focus:not(:active) {
+    .button-shadow(30px, @shadow-color-normal);
     outline: 0;
     background-color: #447ff5;
-    box-shadow: 0 30px 40px #a2a9b1;
+
   }
 
   &:active {
+    .button-shadow(40px, @shadow-color-heavy);
     background-color: #2a4b8d;
-    box-shadow: 0 40px 40px #72777d;
   }
 }
 </style>
