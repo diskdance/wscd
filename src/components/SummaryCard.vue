@@ -187,7 +187,7 @@ const currentCheckingDomain = computed(() => (
     flex-wrap: wrap;
 
     >* {
-      margin: 4px;
+      margin: 8px;
     }
   }
 
