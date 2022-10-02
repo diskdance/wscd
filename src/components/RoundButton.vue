@@ -2,7 +2,7 @@
 import ProgressIndicator from './ProgressIndicator.vue';
 
 defineProps<{
-  waiting: boolean,
+  waiting?: boolean,
 }>();
 </script>
 
@@ -15,9 +15,6 @@ defineProps<{
 
 <style scoped lang="less">
 @import '../styles/mixins.less';
-
-@shadow-color-normal: #a2a9b1;
-@shadow-color-heavy: #72777d;
 
 .button-shadow(@offset-y, @color) {
   box-shadow: 0 @offset-y 40px @color;

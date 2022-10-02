@@ -6,6 +6,8 @@
 </template>
 
 <style scoped lang="less">
+@import '../styles/mixins.less';
+
 .site-header {
   margin: 1em 5%;
   display: flex;
@@ -20,7 +22,7 @@
 
   &__desc {
     font-size: 80%;
-    color: #54595d;
+    color: @color-text-secondary;
   }
 }
 </style>

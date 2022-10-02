@@ -1,5 +1,11 @@
+<script setup lang="ts">
+defineProps<{
+  major?: boolean,
+}>();
+</script>
+
 <template>
-  <button>
+  <button :class="[ 'site-button', { 'site-button--major': major } ]">
     <slot />
   </button>
 </template>
@@ -7,37 +13,63 @@
 <style scoped lang="less">
 @import '../styles/mixins.less';
 
-button {
-  color: #202122;
-  border-radius: 2px;
-  font-weight: 700;
-  border: 1px solid #A2A9B1;
-  background: #f8f9fa;
-  padding: 0 0.75em;
-  min-height: 32px;
-  transition-property: background-color, color, border-color, box-shadow;
-  transition-duration: .1s;
-  outline: 1px solid transparent;
+@normal-fg: #202122;
+@normal-bg: #bedfff;
+@normal-bg-hover: #95ccff;
+@normal-bg-active: #4ea8ff;
 
-  &:enabled {
+@major-fg: #fff;
+@major-bg: @color-major;
+@major-bg-hover: #3677de;
+@major-bg-active: #2a4b8d;
+
+.shadow() {
+  box-shadow: 0px 1px 3px fade(#000, 30%);
+}
+
+.site-button {
+  .transition-ease-out-fast();
+  transition-property: background-color, box-shadow;
+  font-weight: 700;
+  color: @normal-fg;
+  background-color: @normal-bg;
+  border: 0;
+  border-radius: 9999px;
+  padding: 0 16px;
+  min-height: 40px;
+  outline: 0;
+  user-select: none;
+
+  &:hover {
+    .shadow();
+    background-color: @normal-bg-hover;
+  }
+
+  &:active {
+    .shadow();
+    background-color: @normal-bg-active;
+  }
+
+  &:focus:not(:active) {
+    background-color: @normal-bg-hover;
+  }
+
+  &--major {
+    color: @major-fg;
+    background-color: @major-bg;
+
     &:hover {
-      background-color: #fff;
+      background-color: @major-bg-hover;
+
     }
 
     &:active {
-      background-color: #c8ccd1;
+      background-color: @major-bg-active;
     }
 
     &:focus:not(:active) {
-      border-color: @color-major;
-      box-shadow: inset 0 0 0 1px @color-major;
+      background-color: @major-bg-hover;
     }
-  }
-
-  &:disabled {
-    border-color: transparent;
-    background-color: #c8ccd1;
-    color: #fff;
   }
 }
 </style>

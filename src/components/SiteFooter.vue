@@ -19,13 +19,15 @@ const VUE_GIT_HASH = GIT_HASH;
 </template>
 
 <style scoped lang="less">
+@import '../styles/mixins.less';
+
 .site-footer {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap-reverse;
   margin: 30px 0 10px;
-  border-top: 1px solid #cdcdcd;
+  border-top: 1px solid @border-color;
   font-size: 0.8em;
 
   &__text {
@@ -44,10 +46,11 @@ const VUE_GIT_HASH = GIT_HASH;
   }
 
   &__version {
-    color: #4e4e4e;
+    color: @color-text-secondary;
   }
 
   &__badge {
+    .svg-invent-on-dark();
     margin-top: 10px;
     flex: 1;
     display: block;

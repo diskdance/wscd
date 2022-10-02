@@ -1,9 +1,71 @@
+@color-bg: var(--color-bg);
 @color-major: #36c;
 @color-error: #D33;
-@color-text: #202122;
+@color-text: var(--color-text);
+@color-text-inverted: var(--color-bg);
+@color-link: var(--color-link);
+@color-link-visited: var(--color-link-visited);
+@color-link-active: var(--color-link-active);
+@color-text-secondary: var(--color-text-secondary);
+@color-card-bg: var(--color-card-bg);
 
 @site-width-wide: 1024px;
 @site-width-narrow: 750px;
+
+@shadow-color-normal: var(--shadow-color-normal);
+@shadow-color-heavy: var(--shadow-color-heavy);
+
+@table-color-alt: var(--table-color-alt);
+@border-color: var(--border-color);
+
+@switch-color-inactive: var(--switch-color-inactive);
+@switch-color-hover: var(--switch-color-hover);
+@switch-color-indicator-focus: var(--switch-color-indicator-focus);
+@switch-color-indicator-active: var(--switch-color-indicator-active);
+@switch-indicator-focus-opacity: 8%;
+@switch-indicator-active-opacity: 16%;
+
+:root {
+  --color-bg: #fff;
+  --color-text: #202122;
+  --color-link: @color-major;
+  --color-link-visited: #6b4ba1;
+  --color-link-active: #2a4b8d;
+  --color-text-secondary: #4e4e4e;
+  --color-card-bg: #f9f9f9;
+
+  --shadow-color-normal: #a2a9b1;
+  --shadow-color-heavy: #72777d;
+
+  --table-color-alt: #f2f2f2;
+  --border-color: #cdcdcd;
+
+  --switch-color-inactive: #79747E;
+  --switch-color-hover: #49454E;
+  --switch-color-indicator-focus: fade(#1C1B1F, @switch-indicator-focus-opacity);
+  --switch-color-indicator-active: fade(#1C1B1F, @switch-indicator-active-opacity);
+
+  @media (prefers-color-scheme: dark) {
+    --color-bg: #202122;
+    --color-text: #fff;
+    --color-link: #6bb8ff;
+    --color-link-visited: #c58af9;
+    --color-link-active: #3677de;
+    --color-text-secondary: #cdcdcd;
+    --color-card-bg: #343434;
+
+    --shadow-color-normal: #000;
+    --shadow-color-heavy: #000;
+
+    --table-color-alt: #343434;
+    --border-color: #858585;
+
+    --switch-color-inactive: #938F99;
+    --switch-color-hover: #CAC4D0;
+    --switch-color-indicator-focus: fade(#E6E1E5, @switch-indicator-focus-opacity);
+    --switch-color-indicator-active: fade(#E6E1E5, @switch-indicator-active-opacity);
+  }
+}
 
 .transition-ease-out-fast() {
   transition-duration: .1s;
@@ -16,9 +78,15 @@
 }
 
 .card-normal() {
-  background-color: #f9f9f9;
+  background-color: @color-card-bg;
   border-radius: 8px;
   padding: 20px;
   width: 90%;
   margin: 0 auto;
+}
+
+.svg-invent-on-dark() {
+  @media (prefers-color-scheme: dark) {
+    filter: invert(100%) grayscale(100%);
+  }
 }

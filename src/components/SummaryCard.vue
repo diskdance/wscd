@@ -98,7 +98,8 @@ const currentCheckingDomain = computed(() => (
           <p>{{ $i18n('sc-blocked', blockedDomainsDesc) }}</p>
         </div>
         <div class="summary-card__action">
-          <SiteButton @click="isTableExpanded = !isTableExpanded">{{ $i18n(isTableExpanded
+          <SiteButton :major="true" @click="isTableExpanded = !isTableExpanded">{{
+          $i18n(isTableExpanded
           ? 'sc-btn-hide' : 'sc-btn-show') }}</SiteButton>
         </div>
       </div>
@@ -123,11 +124,12 @@ const currentCheckingDomain = computed(() => (
           <p>{{ $i18n('sc-end-b-np') }}</p>
         </div>
         <div class="summary-card__action">
+          <SiteButton :major="true" @click="reloadWindow()">{{ $i18n('sc-btn-recheck') }}
+          </SiteButton>
           <SiteButton @click="isTableExpanded = !isTableExpanded">{{
           $i18n(isTableExpanded ? 'sc-btn-hide' : 'sc-btn-show')
           }}</SiteButton>
           <SiteButton>{{ $i18n('sc-btn-dl') }}</SiteButton>
-          <SiteButton @click="reloadWindow()">{{ $i18n('sc-btn-recheck') }}</SiteButton>
         </div>
       </div>
 

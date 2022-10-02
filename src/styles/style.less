@@ -3,6 +3,7 @@
 :root {
   font-family: 'Inter', Helvetica, Arial, sans-serif;
   font-size: 16px;
+  background-color: @color-bg;
 }
 
 div,
@@ -12,11 +13,11 @@ p {
 }
 
 a {
-  color: @color-major;
+  color: @color-link;
   text-decoration: none;
 
   &:visited {
-    color: #6b4ba1;
+    color: @color-link-visited;
   }
 
   &:hover {
@@ -24,7 +25,7 @@ a {
   }
 
   &:active {
-    color: #2a4b8d;
+    color: @color-link-active;
     text-decoration: underline;
   }
 }

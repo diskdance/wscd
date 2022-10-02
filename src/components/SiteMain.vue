@@ -149,11 +149,11 @@ async function prepareAndCheck(prefetchAll: boolean) {
     }
 
     .check-panel__ct-field {
-      margin: 5em 0 0;
+      margin-top: 5em;
     }
 
     .check-panel__info-card {
-      margin-top: 2em;
+      margin-top: 5em;
 
       @media screen and (max-width: @site-width-narrow) {
         display: none !important;

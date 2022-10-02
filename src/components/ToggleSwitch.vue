@@ -30,15 +30,15 @@ const modelValue = useModelWrapper(props, emit);
 @thumb-selected-width: 24px;
 @thumb-active-width: 28px;
 
-@color-inactive: #72777d;
+@color-inactive: @switch-color-inactive;
+@color-hover: @switch-color-hover;
+@color-enabled-inactive: #fff;
+@color-enabled-hover: #eaf3ff;
 
 @indicator-radius: 20px;
-@indicator-focus-color: #1C1B1F;
-@indicator-focus-opacity: 8%;
-@indicator-active-opacity: 16%;
 
-.indicator-shadow(@radius, @opacity) {
-  box-shadow: 0px 0px 0px @radius fade(@indicator-focus-color, @opacity);
+.indicator-shadow(@radius, @color) {
+  box-shadow: 0px 0px 0px @radius @color;
 }
 
 @selector-thumb: .toggle-switch__switch .toggle-switch__thumb;
@@ -82,8 +82,8 @@ const modelValue = useModelWrapper(props, emit);
     &:focus {
       +@{selector-thumb} {
         .indicator-shadow((@indicator-radius - @thumb-unselected-width / 2),
-          @indicator-focus-opacity);
-        background-color: #49454E;
+          @switch-color-indicator-focus);
+        background-color: @color-hover;
       }
     }
 
@@ -93,7 +93,7 @@ const modelValue = useModelWrapper(props, emit);
         border-color: @color-major;
 
         .toggle-switch__thumb {
-          background-color: #fff;
+          background-color: @color-enabled-inactive;
           width: @thumb-selected-width;
           height: $width;
           top: (@height / 2 - @border-width - $height / 2);
@@ -105,14 +105,14 @@ const modelValue = useModelWrapper(props, emit);
       &:focus {
         +@{selector-thumb} {
           .indicator-shadow((@indicator-radius - @thumb-selected-width / 2),
-            @indicator-focus-opacity);
-          background-color: #eaf3ff;
+            @switch-color-indicator-focus);
+          background-color: @color-enabled-hover;
         }
       }
 
       &:active+@{selector-thumb} {
         .indicator-shadow((@indicator-radius - @thumb-active-width / 2),
-          @indicator-active-opacity);
+          @switch-color-indicator-active);
         @active-top: (@height / 2 - @border-width - @thumb-active-width / 2);
         left: @width - @border-width * 2 - @active-top - @thumb-active-width;
       }
@@ -120,7 +120,7 @@ const modelValue = useModelWrapper(props, emit);
 
     &:active+@{selector-thumb} {
       .indicator-shadow((@indicator-radius - @thumb-active-width / 2),
-        @indicator-active-opacity);
+        @switch-color-indicator-active);
       width: @thumb-active-width;
       height: $width;
       top: (@height / 2 - @border-width - $height / 2);

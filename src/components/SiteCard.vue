@@ -27,6 +27,7 @@ defineProps<{
   align-items: flex-start;
 
   &__icon {
+    .svg-invent-on-dark();
     background: data-uri('../assets/notice.svg') no-repeat center;
     width: 1.42857143em;
     height: 1.42857143em;
