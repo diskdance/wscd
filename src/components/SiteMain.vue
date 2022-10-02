@@ -89,16 +89,18 @@ async function prepareAndCheck(prefetchAll: boolean) {
         v-if="[CheckStatus.NOT_RUN, CheckStatus.PREPARING].includes(store.checkStatus)">
         <RoundButton class="check-panel__button" @click="prepareAndCheck(isExtendedCheck)"
           :disabled="store.checkStatus === CheckStatus.PREPARING"
-          :waiting="store.checkStatus === CheckStatus.PREPARING">Check</RoundButton>
+          :waiting="store.checkStatus === CheckStatus.PREPARING">{{ $i18n('btn-chk') }}
+        </RoundButton>
 
         <CheckTypeField class="check-panel__ct-field" v-model="isExtendedCheck"></CheckTypeField>
 
         <SiteCard class="check-panel__info-card">
           <template #header>{{ $i18n('card-about-head') }}</template>
           <template #default>
-            <!-- HTML is sanitized by banana-i18n -->
-            <span v-html="$i18n('card-about-desc')">
-            </span>
+            <p>{{ $i18n('card-about-desc-1') }}</p>
+            <p>{{ $i18n('card-about-desc-2') }}</p>
+            <!-- Sanitization done by banana-i18n -->
+            <p v-html="$i18n('card-about-desc-3')"></p>
           </template>
         </SiteCard>
       </div>
@@ -144,6 +146,7 @@ async function prepareAndCheck(prefetchAll: boolean) {
 
     .check-panel__button {
       margin-top: 2em;
+      white-space: nowrap;
     }
 
     .check-panel__ct-field {

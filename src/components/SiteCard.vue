@@ -42,7 +42,7 @@ defineProps<{
     margin-bottom: 0.75em;
   }
 
-  &__main ::v-deep(p) {
+  &__main :slotted(p) {
     margin-bottom: 0.375em;
   }
 }

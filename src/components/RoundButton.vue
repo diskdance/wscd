@@ -30,6 +30,7 @@ defineProps<{
   border: 0;
   background-color: @color-major;
   border-radius: 100%;
+  text-transform: uppercase;
   font-weight: 700;
   font-size: 2em;
   user-select: none;

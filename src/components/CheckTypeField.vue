@@ -26,6 +26,8 @@ const modelValue = useModelWrapper(props, emit);
 </template>
 
 <style scoped lang="less">
+@import '../styles/mixins.less';
+
 .ct-field {
   font-size: 0.9em;
 
@@ -46,6 +48,8 @@ const modelValue = useModelWrapper(props, emit);
   }
 
   .type-label {
+    .transition-ease-out-fast();
+    transition-property: opacity;
     opacity: 0.5;
 
     /* Make toggle centered */

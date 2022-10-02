@@ -20,5 +20,6 @@ import getI18nInfo from './modules/lang';
   document.documentElement.lang = lang; // For a11y support
 
   app.config.globalProperties.$i18n = banana.i18n.bind(banana);
+  app.provide('banana', banana);
   app.mount('#app');
 })();

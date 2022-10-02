@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, inject } from 'vue';
+import Banana from 'banana-i18n';
 import store, {
   CheckStatus, DomainConnectivityResult, DomainBlockingResult,
 } from '../modules/store';
@@ -13,6 +14,8 @@ const props = defineProps<{
 
 const emit = defineEmits(['update:isTableExpanded']);
 
+const banana = inject<Banana>('banana')!;
+
 const isTableExpanded = useModelWrapper(props, emit, 'isTableExpanded');
 
 function reloadWindow() {
@@ -21,9 +24,12 @@ function reloadWindow() {
 
 function getDomainsFriendlyDesc(domains: string[]): string {
   if (domains.length === 0) {
-    return 'none';
+    return banana.i18n('sc-domain-desc-none');
   }
-  return `${domains[0]}${domains.length >= 2 ? ` and ${domains.length - 1} more` : ''}`;
+  if (domains.length === 1) {
+    return domains[0];
+  }
+  return banana.i18n('sc-domain-desc', domains[0], domains.length - 1);
 }
 
 const inaccessibleDomains = computed(
@@ -78,49 +84,50 @@ const currentCheckingDomain = computed(() => (
         <ProgressBar class="summary-card__progressbar"
           :value="checkedDomainsCount / store.domainDataView.size * 100">
         </ProgressBar>
-        <h2 class="summary-card__heading">{{ `${hasProblem ? 'Some issues detected. ' :
-        ''}Checking
-        (${checkedDomainsCount}/${store.domainDataView.size})...` }}</h2>
+        <h2 class="summary-card__heading">
+          {{ $i18n(
+          hasProblem ? 'sc-chk-h-err' : 'sc-chk-h',
+          checkedDomainsCount,
+          store.domainDataView.size
+          ) }}
+        </h2>
         <div class="summary-card__content">
-          <p>Depending on your network condition, this may take up to several minutes.</p>
-          <p>Currently checking: {{ currentCheckingDomain }}</p>
-          <p>Inaccessible domains: {{ inaccessibleDomainsDesc }}</p>
-          <p>Uneditable domains: {{ blockedDomainsDesc }}</p>
+          <p>{{ $i18n('sc-chk-desc') }}</p>
+          <p>{{ $i18n('sc-chk-cur', currentCheckingDomain) }}</p>
+          <p>{{ $i18n('sc-inaccessible', inaccessibleDomainsDesc) }}</p>
+          <p>{{ $i18n('sc-blocked', blockedDomainsDesc) }}</p>
         </div>
         <div class="summary-card__action">
-          <SiteButton @click="isTableExpanded = !isTableExpanded">{{ isTableExpanded ? 'Hide data' :
-          'Show data' }}</SiteButton>
+          <SiteButton @click="isTableExpanded = !isTableExpanded">{{ $i18n(isTableExpanded
+          ? 'sc-btn-hide' : 'sc-btn-show') }}</SiteButton>
         </div>
       </div>
 
       <div class="summary-card__main summary-card__main--ended" v-else>
-        <h2 class="summary-card__heading">{{ hasProblem ? 'Some issues detected'
-        : 'No issues detected' }}
+        <h2 class="summary-card__heading">{{ $i18n(hasProblem ? 'sc-end-h-err' : 'sc-end-h-np') }}
         </h2>
         <div class="summary-card__content" v-if="hasProblem">
-          <p>Your network might have some problems affecting your experience on Wikimedia sites.</p>
-          <p>You cannot access: {{ inaccessibleDomainsDesc }}</p>
-          <p>You cannot edit: {{ blockedDomainsDesc }}</p>
-          <h3>Why did this happen?</h3>
-          <p>First of all: It is not your fault!</p>
-          <p>For connection disruption, this may be due to faulty networks, company network policies
-            or government censorship.</p>
-          <p>For IP blocks, this may be because you are using a proxy or VPN service. Using such
-            services would change your IP address to theirs, which Wikimedia projects may block from
-            editing to prevent vandalism.</p>
-          <h3>What should I do?</h3>
-          <p>Try to use proxies or VPN services to connect.</p>
-          <p>To address IP blocks, please request IP block exemption rights for your account to get
-            bypassed.</p>
+          <p>{{ $i18n('sc-end-b-err') }}</p>
+          <p>{{ $i18n('sc-inaccessible', inaccessibleDomainsDesc) }}</p>
+          <p>{{ $i18n('sc-blocked', blockedDomainsDesc) }}</p>
+          <h3>{{ $i18n('sc-end-b-err-1t') }}</h3>
+          <p>{{ $i18n('sc-end-b-err-1p1') }}</p>
+          <p>{{ $i18n('sc-end-b-err-1p2') }}</p>
+          <p>{{ $i18n('sc-end-b-err-1p3') }}</p>
+          <h3>{{ $i18n('sc-end-b-err-2t') }}</h3>
+          <p>{{ $i18n('sc-end-b-err-2p1') }}</p>
+          <!-- Sanitization done by banana-i18n -->
+          <p v-html="$i18n('sc-end-b-err-2p2')"></p>
         </div>
         <div class="summary-card__content summary-card__content--no-problem" v-else>
-          <p>Congratulations, you are free as a bird!</p>
+          <p>{{ $i18n('sc-end-b-np') }}</p>
         </div>
         <div class="summary-card__action">
-          <SiteButton @click="isTableExpanded = !isTableExpanded">{{ isTableExpanded ? 'Hide data' :
-          'Show data' }}</SiteButton>
-          <SiteButton>Download data</SiteButton>
-          <SiteButton @click="reloadWindow()">Rerun check</SiteButton>
+          <SiteButton @click="isTableExpanded = !isTableExpanded">{{
+          $i18n(isTableExpanded ? 'sc-btn-hide' : 'sc-btn-show')
+          }}</SiteButton>
+          <SiteButton>{{ $i18n('sc-btn-dl') }}</SiteButton>
+          <SiteButton @click="reloadWindow()">{{ $i18n('sc-btn-recheck') }}</SiteButton>
         </div>
       </div>
 
@@ -144,6 +151,7 @@ const currentCheckingDomain = computed(() => (
 
       .summary-card__progressbar {
         position: absolute;
+        /** FIXME: Magic value */
         top: -20px;
       }
     }
@@ -159,8 +167,8 @@ const currentCheckingDomain = computed(() => (
 
   &__content {
 
-    ::v-deep(p),
-    ::v-deep(h3) {
+    p,
+    h3 {
       margin-bottom: 0.375em;
 
       @media screen and (max-width: @site-width-narrow) {
