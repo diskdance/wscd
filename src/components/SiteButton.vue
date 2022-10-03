@@ -13,10 +13,10 @@ defineProps<{
 <style scoped lang="less">
 @import '../styles/mixins.less';
 
-@normal-fg: #202122;
-@normal-bg: #bedfff;
-@normal-bg-hover: #95ccff;
-@normal-bg-active: #4ea8ff;
+@normal-fg: @color-text;
+@normal-bg: @color-button-normal;
+@normal-bg-hover: @color-button-normal-hover;
+@normal-bg-active: @color-button-normal-active;
 
 @major-fg: #fff;
 @major-bg: @color-major;

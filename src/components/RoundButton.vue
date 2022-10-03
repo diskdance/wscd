@@ -22,7 +22,7 @@ defineProps<{
 
 .round-button {
   .transition-ease-out-fast();
-  .button-shadow(20px, @shadow-color-normal);
+  .button-shadow(20px, @color-shadow-normal);
   transition-property: background-color, box-shadow;
   border: 0;
   background-color: @color-major;
@@ -55,19 +55,19 @@ defineProps<{
   }
 
   &:hover {
-    .button-shadow(30px, @shadow-color-normal);
+    .button-shadow(30px, @color-shadow-normal);
     background-color: #1976D2;
   }
 
   &:focus:not(:active) {
-    .button-shadow(30px, @shadow-color-normal);
+    .button-shadow(30px, @color-shadow-normal);
     outline: 0;
     background-color: #447ff5;
 
   }
 
   &:active {
-    .button-shadow(40px, @shadow-color-heavy);
+    .button-shadow(40px, @color-shadow-heavy);
     background-color: #2a4b8d;
   }
 }

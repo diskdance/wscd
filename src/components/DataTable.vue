@@ -123,7 +123,7 @@ export default defineComponent({
     margin-right: auto;
     width: 100%;
     line-height: 1.25;
-    border: 1px solid @border-color;
+    border: 1px solid @color-border;
     border-radius: 8px;
     border-spacing: 0;
     border-collapse: separate;
@@ -138,7 +138,7 @@ export default defineComponent({
     }
 
     tbody tr:nth-child(2n-1) {
-      background-color: @table-color-alt;
+      background-color: @color-table-alt;
     }
 
     td,
