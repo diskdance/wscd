@@ -1,5 +1,9 @@
 import { computed, WritableComputedRef } from 'vue';
 
+function resolveAfter(ms: number) {
+  return new Promise((resolve) => { setTimeout(resolve, ms); });
+}
+
 function getSignalAbortedAfter(ms: number): AbortSignal {
   const controller = new AbortController();
 
@@ -34,4 +38,4 @@ function useModelWrapper<T extends string, P extends Record<T, unknown>>(
   });
 }
 
-export { getSignalAbortedAfter, useModelWrapper };
+export { resolveAfter, getSignalAbortedAfter, useModelWrapper };
