@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"Veracious"
+		]
+	},
+	"name-wikitech-static.wikimedia.org": "Wikitech (Cadangan)",
+	"name-ar.planet.wikimedia.org": "Wikimedia Planet Arab",
+	"name-bg.planet.wikimedia.org": "Wikimedia Planet Bulgaria",
+	"name-cs.planet.wikimedia.org": "Wikimedia Planet Ceko",
+	"name-de.planet.wikimedia.org": "Wikimedia Planet Jerman",
+	"name-el.planet.wikimedia.org": "Wikimedia Planet Yunani",
+	"name-en.planet.wikimedia.org": "Wikimedia Planet Inggris",
+	"name-es.planet.wikimedia.org": "Wikimedia Planet Spanyol",
+	"name-fr.planet.wikimedia.org": "Wikimedia Planet Prancis",
+	"name-gmq.planet.wikimedia.org": "Wikimedia Planet Skandinavia",
+	"name-id.planet.wikimedia.org": "Wikimedia Planet Indonesia",
+	"name-it.planet.wikimedia.org": "Wikimedia Planet Italia",
+	"name-pl.planet.wikimedia.org": "Wikimedia Planet Polandia",
+	"name-pt.planet.wikimedia.org": "Wikimedia Planet Portugis",
+	"name-ro.planet.wikimedia.org": "Wikimedia Planet Rumania",
+	"name-ru.planet.wikimedia.org": "Wikimedia Planet Rusia",
+	"name-sq.planet.wikimedia.org": "Wikimedia Planet Albania",
+	"name-uk.planet.wikimedia.org": "Wikimedia Planet Ukraina",
+	"name-zh.planet.wikimedia.org": "Wikimedia Planet Cina",
+	"name-upload.wikimedia.org": "Penyimpanan Media Wikimedia",
+	"name-wikimediafoundation.org": "Yayasan Wikimedia",
+	"name-wikimedia.org": "Portal Wikimedia",
+	"name-wikipedia.org": "Portal Wikipedia",
+	"name-wiktionary.org": "Portal Wiktionary",
+	"name-wikibooks.org": "Portal Wikibooks",
+	"name-wikinews.org": "Portal Wikinews",
+	"name-wikiquote.org": "Portal Wikiquote",
+	"name-wikiversity.org": "Portal Wikiversity",
+	"name-wikivoyage.org": "Portal Wikivoyage",
+	"name-w.wiki": "Penyingkat URL Wikimedia",
+	"name-key-missing": "(tidak diketahui)"
+}

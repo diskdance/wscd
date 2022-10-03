@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hedda"
+			"Hedda",
+			"ToprakM"
 		]
 	},
 	"name-wikitech-static.wikimedia.org": "Wikitech (Yedekleme)",
@@ -34,22 +35,19 @@
 	"name-lists.wikimedia.org": "Wikimedia Posta Listeleri",
 	"name-diff.wikimedia.org": "Diff Blog",
 	"name-techblog.wikimedia.org": "Wikimedia Teknoloji Blogu",
-	"name-wikimedia.org": "Wikimedia Portalı",
-	"name-wikipedia.org": "Vikipedi Portalı",
-	"name-wiktionary.org": "Vikisözlük Portalı",
-	"name-wikibooks.org": "Vikikitap Portalı",
-	"name-wikinews.org": "Vikihaber Portalı",
-	"name-wikiquote.org": "Vikisöz Portalı",
-	"name-wikiversity.org": "Vikiversite Portalı",
-	"name-wikivoyage.org": "Wikigezgin Portalı",
+	"name-wikimedia.org": "Wikimedia Portali",
+	"name-wikipedia.org": "Vikipedi Portali",
+	"name-wiktionary.org": "Vikisözlük Portali",
+	"name-wikibooks.org": "Vikikitap Portali",
+	"name-wikinews.org": "Vikihaber Portali",
+	"name-wikiquote.org": "Vikisöz Portali",
+	"name-wikiversity.org": "Vikiversite Portali",
+	"name-wikivoyage.org": "Vikigezgin Portali",
 	"name-w.wiki": "Wikimedia URL Kısaltıcı",
 	"title": ">Wikimedia Sunucu Bağlanabilirlik Panosu",
-	"btn-std-chk": "Standart kontrol",
-	"btn-ext-chk": "Genişletilmiş kontrol",
 	"card-err-head": "Bir hata meydana geldi",
 	"card-err-desc": "Bunun nedeni, denetimi gerçekleştirmek için gereken temel kaynakların indirilememesi olabilir. Lütfen ağ bağlantınızı kontrol edin.",
 	"card-about-head": "Bu araç hakkında",
-	"card-about-desc": "<p>Wikimedia Sunucu Bağlanabilirlik Panosu, Wikimedia projelerini ağınızdan ziyaret edip düzenleyip düzenleyemeyeceğinizi kontrol etmenize yardımcı olur.</p><p>Hatalı ağlar, şirket ağ politikaları veya devlet sansürü nedeniyle bağlantı kesintisi meydana gelebilir.</p><p>IP engelleri; bir proxy veya VPN hizmeti kullandığınız için olabilir. Vandalizmi önlemek için Wikimedia projeleri proxy IP'lerinin düzenlenmesini engellemiştir. Bu tür kesintileri önlemek için hesabınız adına [https://en.wikipedia.org/wiki/Wikipedia:IP_block_exemption IP engelleme muafiyeti hakkı talep edebilirsiniz].</p>",
 	"tbl-h-name": "İsimler",
 	"tbl-h-domains": "Sunucular",
 	"tbl-h-available": "Uygunluk?",
