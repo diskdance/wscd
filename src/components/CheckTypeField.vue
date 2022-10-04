@@ -55,6 +55,14 @@ const modelValue = useModelWrapper(props, emit);
     /* Make toggle centered */
     min-width: min(256px, 20vw);
 
+    @supports not (min-width: $min-width) {
+      min-width: 256px;
+
+      @media screen and (max-width: @site-width-narrow) {
+        min-width: 20vw;
+      }
+    }
+
     &--active {
       opacity: 1;
     }
