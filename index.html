@@ -9,13 +9,20 @@
 </head>
 
 <body>
-  <noscript>Whoops, JavaScript is required for this app!</noscript>
-  <div id="legacy-notice" hidden>Whoa! Your browser is too old to run this app, please switch to a
-    modern one!</div>
+  <noscript>
+    <div id="noscript">
+      <p>Without <b>JavaScript</b>, your distance to free knowledge remains a mystery.</p>
+      <p>Please enable JavaScript to use this app.</p>
+    </div>
+  </noscript>
+  <div id="legacy" style="display:none">
+    <p>Your distance to free knowledge is just like that to the <b>modern Web</b>.</p>
+    <p>Please use a modern browser.</p>
+  </div>
   <div id="app"></div>
   <script type="module" src="/src/main.ts"></script>
   <script nomodule>
-    document.getElementById('legacy-notice').hidden = false;
+    document.getElementById('legacy').style.display = '';
   </script>
 </body>
 
