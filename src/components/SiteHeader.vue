@@ -1,6 +1,8 @@
 <template>
   <header class="site-header">
-    <div class="site-header__title">wscd</div>
+    <div class="site-header__title">
+      <a href=".">{{ $i18n('title-abbr') }}</a>
+    </div>
     <div class="site-header__desc">{{ $i18n('header-slogan') }}</div>
   </header>
 </template>
@@ -17,7 +19,13 @@
   &__title {
     font-weight: 700;
     flex: 1;
-    min-width: 50%
+
+    min-width: 50%;
+
+    a {
+      color: @color-text;
+      text-decoration: none;
+    }
   }
 
   &__desc {

@@ -42,6 +42,7 @@
   "name-wikivoyage.org": "{{ProjectNameDocumentation|url=https://wikivoyage.org|name=Wikivoyage Portal}}",
   "name-w.wiki": "{{ProjectNameDocumentation|url=https://w.wiki|name=Wikimedia URL Shortener}}",
   "title": "Website title",
+  "title-abbr": "{{Optional}}Abbreviation of the website title, displayed at the top of the page",
   "card-err-head": "Title of the error message when a check failed to start, used on the main page",
   "card-err-desc": "The error message when a check failed to start, used on the main page",
   "card-about-head": "Title of the about panel on the main page",

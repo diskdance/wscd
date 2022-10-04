@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
-import store, { DomainBlockingResult, DomainConnectivityResult, DomainDataView } from '../modules/store';
+import store, { DomainBlockingResult, DomainConnectivityResult } from '../modules/store';
 import SiteButton from './SiteButton.vue';
 
 const STEPPING = 20;

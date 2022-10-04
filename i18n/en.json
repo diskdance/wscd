@@ -39,6 +39,7 @@
   "name-wikivoyage.org": "Wikivoyage Portal",
   "name-w.wiki": "Wikimedia URL Shortener",
   "title": "Wikimedia Server Connectivity Dashboard",
+  "title-abbr": "wscd",
   "card-err-head": "An error occurred",
   "card-err-desc": "This may be because essential resources required to perform the check could not be downloaded. Please check your network connection.",
   "card-about-head": "About this tool",
