@@ -13,7 +13,7 @@ defineProps<{
   </button>
 </template>
 
-<style lang="less">
+<style scoped lang="less">
 @import '../styles/mixins.less';
 
 .button-shadow(@offset-y, @color) {

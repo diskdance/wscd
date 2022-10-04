@@ -1,0 +1,49 @@
+@import './mixins.less';
+
+:root {
+  --color-bg: #fff;
+  --color-text: #202122;
+  --color-link: @color-major;
+  --color-link-visited: #6b4ba1;
+  --color-link-active: #2a4b8d;
+  --color-text-secondary: #4e4e4e;
+  --color-card-bg: #f9f9f9;
+  --color-table-alt: #f2f2f2;
+  --color-border: #cdcdcd;
+
+  --color-shadow-normal: #a2a9b1;
+  --color-shadow-heavy: #72777d;
+
+  --color-switch-inactive: #79747E;
+  --color-switch-hover: #49454E;
+  --color-switch-indicator-focus: fade(#1C1B1F, @opacity-switch-indicator-focus);
+  --color-switch-indicator-active: fade(#1C1B1F, @opacity-switch-indicator-active);
+
+  --color-button-normal: #bedfff;
+  --color-button-normal-hover: #95ccff;
+  --color-button-normal-active: #4ea8ff;
+
+  @media (prefers-color-scheme: dark) {
+    --color-bg: #202122;
+    --color-text: #fff;
+    --color-link: #6bb8ff;
+    --color-link-visited: #c58af9;
+    --color-link-active: #3677de;
+    --color-text-secondary: #cdcdcd;
+    --color-card-bg: #343434;
+    --color-table-alt: #343434;
+    --color-border: #858585;
+
+    --color-shadow-normal: #000;
+    --color-shadow-heavy: #000;
+
+    --color-switch-inactive: #938F99;
+    --color-switch-hover: #CAC4D0;
+    --color-switch-indicator-focus: fade(#E6E1E5, @opacity-switch-indicator-focus);
+    --color-switch-indicator-active: fade(#E6E1E5, @opacity-switch-indicator-active);
+
+    --color-button-normal: #555555;
+    --color-button-normal-hover: #7b7b7b;
+    --color-button-normal-active: #434343;
+  }
+}
