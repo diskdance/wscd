@@ -12,7 +12,7 @@ import SiteMain from './components/SiteMain.vue';
   </div>
 </template>
 
-<style scoped lang="less">
+<style lang="less">
 .site-view {
   display: flex;
   flex-direction: column;
