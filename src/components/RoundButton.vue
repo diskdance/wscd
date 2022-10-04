@@ -32,20 +32,19 @@ defineProps<{
   font-size: 2em;
   user-select: none;
   color: #fff;
-  padding: max(7.5%, 1em) !important;
   cursor: pointer;
   position: relative;
   overflow: hidden;
   white-space: nowrap;
+  padding: max(7.5%, 1em);
 
-  /** Start: For old browser compatibility */
-  padding: 1em;
+  @supports not (padding: $padding) {
+    padding: 1em;
 
-  @media screen and (min-width: @site-width-narrow) {
-    padding: 7.5%;
+    @media screen and (min-width: @site-width-narrow) {
+      padding: 7.5%;
+    }
   }
-
-  /** End: For old browser compatibility */
 
   &__indicator {
     position: absolute;

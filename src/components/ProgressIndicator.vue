@@ -27,7 +27,6 @@
     stroke: currentColor;
     transition: all .2s ease-in-out, stroke-width 0s;
     z-index: 2;
-    animation: progress-indicator-dash 1.4s ease-in-out infinite;
   }
 
   @keyframes progress-indicator-dash {
