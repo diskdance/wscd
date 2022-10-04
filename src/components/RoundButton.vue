@@ -91,7 +91,7 @@ defineProps<{
     .absolutely-fill-parent();
     content: '';
     border-radius: 100%;
-    outline: 3px solid @color-major;
+    border: 3px solid @color-major;
     animation: glow 10s ease-out infinite;
   }
 
@@ -99,8 +99,8 @@ defineProps<{
 
     10%,
     to {
-      outline-color: fade(@color-major, 0%);
-      outline-offset: 3em;
+      transform: scale(175%);
+      opacity: 0;
     }
   }
 }
