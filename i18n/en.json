@@ -87,6 +87,7 @@
   "sc-end-b-err-2t": "What should I do?",
   "sc-end-b-err-2p1": "Try to use proxies or VPN services to connect.",
   "sc-end-b-err-2p2": "To address IP blocks, please [https://en.wikipedia.org/wiki/Wikipedia:IP_block_exemption request IP block exemption rights] for your account to get bypassed.",
+  "sc-total": "Total number of sites: $1",
   "sc-inaccessible": "You cannot access: $1",
   "sc-blocked": "You cannot edit: $1",
   "sc-domain-desc": "$1 and $2 more",

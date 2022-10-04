@@ -109,6 +109,7 @@ const currentCheckingDomain = computed(() => (
         </h2>
         <div class="summary-card__content" v-if="hasProblem">
           <p>{{ $i18n('sc-end-b-err') }}</p>
+          <p>{{ $i18n('sc-total', store.domainDataView.size) }}</p>
           <p>{{ $i18n('sc-inaccessible', inaccessibleDomainsDesc) }}</p>
           <p>{{ $i18n('sc-blocked', blockedDomainsDesc) }}</p>
           <h3>{{ $i18n('sc-end-b-err-1t') }}</h3>

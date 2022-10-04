@@ -92,6 +92,7 @@
   "sc-end-b-err-2t": "应该怎么做？",
   "sc-end-b-err-2p1": "请尝试使用代理或VPN来访问维基媒体项目以绕过封禁。",
   "sc-end-b-err-2p2": "为解决IP封禁问题，请为您的账号[https://zh.wikipedia.org/wiki/Wikipedia:IP%E5%B0%81%E7%A6%81%E4%BE%8B%E5%A4%96 申请IP封禁豁免权]来绕过封禁。",
+  "sc-total": "网站数量：共$1个",
   "sc-inaccessible": "无法访问的网站：$1",
   "sc-blocked": "无法编辑的网站：$1",
   "sc-domain-desc": "$1及其他$2个网站",
