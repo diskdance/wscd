@@ -77,7 +77,7 @@
   "sc-chk-desc": "Depending on your network condition, this may take up to several minutes.",
   "sc-chk-cur": "Currently checking: $1",
   "sc-end-h-np": "No issues detected",
-  "sc-end-b-np": "Congratulations, you are free as a bird!",
+  "sc-end-b-np": "Congratulations, free knowledge is at your fingertip!",
   "sc-end-h-err": "Some issues detected",
   "sc-end-b-err": "Your network might have some problems affecting your experience on Wikimedia sites.",
   "sc-end-b-err-1t": "Why did this happen?",
