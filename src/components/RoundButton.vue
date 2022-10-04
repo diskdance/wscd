@@ -9,7 +9,9 @@ defineProps<{
 <template>
   <button class="round-button">
     <slot />
-    <ProgressIndicator class="round-button__indicator" v-if="waiting"></ProgressIndicator>
+    <div class="round-button__indicator-container" v-if="waiting">
+      <ProgressIndicator></ProgressIndicator>
+    </div>
   </button>
 </template>
 
@@ -18,6 +20,14 @@ defineProps<{
 
 .button-shadow(@offset-y, @color) {
   box-shadow: 0 @offset-y 40px @color;
+}
+
+.absolutely-fill-parent() {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .round-button {
@@ -34,7 +44,6 @@ defineProps<{
   color: #fff;
   cursor: pointer;
   position: relative;
-  overflow: hidden;
   white-space: nowrap;
   padding: max(7.5%, 1em);
 
@@ -46,12 +55,11 @@ defineProps<{
     }
   }
 
-  &__indicator {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  &__indicator-container {
+    .absolutely-fill-parent();
+
+    /** Prevent Chrome showing weird focus indicators */
+    overflow: hidden;
   }
 
   /** Make it circular */
@@ -77,6 +85,23 @@ defineProps<{
   &:active {
     .button-shadow(40px, @color-shadow-heavy);
     background-color: #2a4b8d;
+  }
+
+  &::after {
+    .absolutely-fill-parent();
+    content: '';
+    border-radius: 100%;
+    outline: 3px solid @color-major;
+    animation: glow 10s ease-out infinite;
+  }
+
+  @keyframes glow {
+
+    10%,
+    to {
+      outline-color: fade(@color-major, 0%);
+      outline-offset: 3em;
+    }
   }
 }
 </style>
