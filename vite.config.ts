@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig, splitVendorChunkPlugin } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { execSync } from 'child_process';
 import { createHtmlPlugin } from 'vite-plugin-html';
@@ -10,6 +10,7 @@ export default defineConfig({
     createHtmlPlugin({
       minify: true,
     }),
+    splitVendorChunkPlugin(),
   ],
   define: {
     APP_VERSION: JSON.stringify(process.env.npm_package_version),
