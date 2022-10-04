@@ -29,6 +29,8 @@
 @opacity-switch-indicator-focus: 8%;
 @opacity-switch-indicator-active: 16%;
 
+@border-radius: 8px;
+
 .transition-ease-out-fast() {
   transition-duration: .1s;
   transition-timing-function: ease-out;
@@ -41,7 +43,7 @@
 
 .card-normal() {
   background-color: @color-card-bg;
-  border-radius: 8px;
+  border-radius: @border-radius;
   padding: 20px;
   width: 90%;
   margin: 0 auto;
