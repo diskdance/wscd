@@ -11,6 +11,7 @@
     "build": "pnpm run merge-i18n && vue-tsc --noEmit && vite build",
     "build:gh-pages": "pnpm run merge-i18n && vue-tsc --noEmit && vite build --base /wscd/",
     "preview": "vite preview",
+    "preview:host": "vite preview --host",
     "test": "vitest",
     "lint": "eslint . --ext .js,.vue,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.vue,.ts,.tsx --fix"

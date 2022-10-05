@@ -75,11 +75,13 @@ defineProps<{
     background-color: #1976D2;
   }
 
-  &:focus:not(:active) {
-    .button-shadow(30px, @color-shadow-normal);
+  &:focus {
     outline: 0;
-    background-color: #447ff5;
 
+    &:not(:active) {
+      .button-shadow(30px, @color-shadow-normal);
+      background-color: #447ff5;
+    }
   }
 
   &:active {
@@ -90,6 +92,7 @@ defineProps<{
   &::after {
     .absolutely-fill-parent();
     content: '';
+    pointer-events: none;
     border-radius: 100%;
     border: 3px solid @color-major;
     animation: glow 10s ease-out infinite;
@@ -97,9 +100,13 @@ defineProps<{
 
   @keyframes glow {
 
-    10%,
+    10% {
+      transform: scale(1.75);
+    }
+
+    11%,
     to {
-      transform: scale(175%);
+      transform: none;
       opacity: 0;
     }
   }
