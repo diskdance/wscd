@@ -1,0 +1,40 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"name-upload.wikimedia.org": "Predstavnostna shramba Wikimedia",
+	"card-about-desc-1": "Nadzorna plošča povezljivosti strežnikov Wikimedie vam pomaga preveriti, ali lahko v vašem omrežju obiskujete in urejate projekte Wikimedie.",
+	"card-about-desc-2": "Do prekinitve povezave lahko pride zaradi omrežnih napak, omrežnih pravil podjetja ali vladne cenzure.",
+	"card-about-desc-3": "Vaš IP je morda blokiran, ker uporabljate posredniški strežnik ali storitev VPN. Zaradi preprečevanja vandalizma so projekti Wikimedie IP-jem posredniških strežnikov preprečili urejanje. Da se izognete taki prekinitvi, lahko za svoj račun [https://en.wikipedia.org/wiki/Wikipedia:IP_block_exemption zahtevate pravico izvzetja iz blokiranja IP-jev].",
+	"footer-badge-alt": "Omogoča Toolforge",
+	"ct-field-ext-check": "Preveri vse projekte",
+	"ct-field-type": "Vrsta preverjanja",
+	"ct-field-std": "Priljubljeni projekti",
+	"ct-field-ext": "Vsi projekti",
+	"btn-chk": "Preveri",
+	"sc-chk-h": "Preverjanje ... ($1/$2)",
+	"sc-chk-h-err": "Zaznane so bile nekatere težave. Preverjanje ... ($1/$2)",
+	"sc-chk-desc": "Glede na stanje omrežja lahko to traja do nekaj minut.",
+	"sc-chk-cur": "Trenutno preverjam: $1",
+	"sc-end-h-np": "Ni zaznanih težav",
+	"sc-end-b-np": "Čestitamo, svobodni ste kot ptica!",
+	"sc-end-h-err": "Zaznanih je bilo nekaj težav",
+	"sc-end-b-err": "Vaše omrežje ima morda težave, ki vplivajo na vašo izkušnjo na straneh Wikimedie.",
+	"sc-end-b-err-1t": "Zakaj se je to zgodilo?",
+	"sc-end-b-err-1p1": "Najprej, niste krivi vi!",
+	"sc-end-b-err-1p2": "Do prekinitve povezave lahko pride zaradi omrežnih napak, omrežnih pravil podjetja ali vladne cenzure.",
+	"sc-end-b-err-1p3": "Pri blokiranju IP-jev je to morda zato, ker uporabljate posredniški strežnik ali storitev VPN. Uporaba takšnih storitev spremeni vaš IP-naslov v njihovega, ki so mu projekti Wikimedie zaradi preprečevanja vandalizma morda preprečili urejanje.",
+	"sc-end-b-err-2t": "Kaj naj naredim?",
+	"sc-end-b-err-2p1": "Za povezavo poskusite uporabiti posredniške strežnike ali storitve VPN.",
+	"sc-end-b-err-2p2": "Če želite obravnavati blokiranja IP-jev, [https://en.wikipedia.org/wiki/Wikipedia:IP_block_exemption zahtevajte pravice izvzetja iz blokiranja IP.jev], da bo zaobšlo vaš račun.",
+	"sc-inaccessible": "Ne morete dostopati do: $1",
+	"sc-blocked": "Ne morete urejati: $1",
+	"sc-domain-desc": "$1 in še $2",
+	"sc-domain-desc-none": "nobena",
+	"sc-btn-hide": "Skrij podatke",
+	"sc-btn-show": "Prikaži podatke",
+	"sc-btn-recheck": "Ponovi preverjanje",
+	"sc-btn-dl": "Prenesi podatke"
+}
