@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mainframe98"
+			"Mainframe98",
+			"McDutchie"
 		]
 	},
 	"name-wikitech-static.wikimedia.org": "Wikitech (back-up)",
@@ -9,11 +10,15 @@
 	"card-err-head": "Er is een fout opgetreden",
 	"card-err-desc": "Dit kan zijn omdat essentiële bronnen die nodig zijn om de controle uit te voeren, niet konden worden gedownload. Controleer uw netwerkverbinding.",
 	"card-about-head": "Over dit hulpmiddel",
+	"card-about-desc-1": "Met Wikimedia Server Connectivity Dashboard controleert u of u Wikimedia-projecten vanuit uw netwerk kunt bezoeken en bewerken.",
+	"card-about-desc-2": "Verstoring van de verbinding kan optreden als gevolg van defecte netwerken, bedrijfsnetwerkbeleid of overheidscensuur.",
+	"card-about-desc-3": "IP-blokkeringen kunnen komen omdat u een proxy- of VPN-dienst gebruikt. Om vandalisme te voorkomen, hebben Wikimedia-projecten het bewerken via proxy-IP's geblokkeerd. U kunt [https://nl.wikipedia.org/wiki/Wikipedia:Uitgezonderden_van_IP-adresblokkades een uitzondering aanvragen] voor uw account om een dergelijke verstoring te vermijden.",
 	"tbl-h-name": "Namen",
 	"tbl-h-domains": "Domeinen",
 	"tbl-h-available": "Beschikbaar?",
 	"tbl-h-conn": "Verbinding",
 	"tbl-h-block": "Bewerkbaar?",
+	"footer-badge-alt": "Mogelijk gemaakt door Toolforge",
 	"footer-code": "Broncode",
 	"footer-license": "Licentie",
 	"header-slogan": "Hoe ver bent u verwijderd van vrije kennis?",
@@ -28,5 +33,33 @@
 	"rtt-excellent": "⚡ Uitstekend",
 	"rtt-good": "🚀 Goed",
 	"rtt-bad": "🐌 Niet goed",
-	"rtt-title": "$1 ms"
+	"rtt-title": "$1 ms",
+	"ct-field-ext-check": "Alle sites controleren",
+	"ct-field-type": "Controletype",
+	"ct-field-std": "Populaire sites",
+	"ct-field-ext": "Alle bestanden",
+	"btn-chk": "Controleren",
+	"sc-chk-h": "Controle… ($1/$2)",
+	"sc-chk-h-err": "Er zijn problemen ontdekt. Controle… ($1/$2)",
+	"sc-chk-desc": "Afhankelijk van de toestand van uw netwerk kan dit meerdere minuten duren.",
+	"sc-chk-cur": "Wordt nu gecontroleerd: $1",
+	"sc-end-h-np": "Geen problemen ontdekt",
+	"sc-end-b-np": "Gefeliciteerd, u bent zo vrij als een vogel!",
+	"sc-end-h-err": "Problemen ontdekt",
+	"sc-end-b-err": "Uw netwerk kan problemen hebben die uw gebruik van Wikimedia-sites beïnvloeden.",
+	"sc-end-b-err-1t": "Waarom is dit gebeurd?",
+	"sc-end-b-err-1p1": "Uw schuld is het alvast niet!",
+	"sc-end-b-err-1p2": "Verstoringen van de verbinding kunnen te wijten zijn aan defecte netwerken, bedrijfsnetwerkbeleid of overheidscensuur.",
+	"sc-end-b-err-1p3": "Voor IP-blokkades kan dit zijn omdat u een proxy- of VPN-dienst gebruikt. Zulke diensten veranderen uw IP-adres in dat van hen. Dat kan door Wikimedia-projecten worden geblokkeerd voor het bewerken om vandalisme te voorkomen.",
+	"sc-end-b-err-2t": "Wat moet ik doen?",
+	"sc-end-b-err-2p1": "Probeer proxy's of VPN-services te gebruiken om verbinding te maken.",
+	"sc-end-b-err-2p2": "Om IP-adresblokkades aan te pakken, verzoeken wij u [https://nl.wikipedia.org/wiki/Wikipedia:Uitgezonderden_van_IP-adresblokkades een uitzondering aan te vragen] zodat uw account de blokkade omzeilt.",
+	"sc-inaccessible": "U heeft geen toegang tot: $1",
+	"sc-blocked": "U kunt niet bewerken: $1",
+	"sc-domain-desc": "$1 en nog $2",
+	"sc-domain-desc-none": "geen",
+	"sc-btn-hide": "Gegevens verbergen",
+	"sc-btn-show": "Gegevens tonen",
+	"sc-btn-recheck": "Controle opnieuw uitvoeren",
+	"sc-btn-dl": "Gegevens downloaden"
 }

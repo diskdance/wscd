@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"McDutchie",
 			"Verdy p"
 		]
 	},
@@ -49,7 +50,7 @@
 	"card-about-head": "À propos de cet outil",
 	"card-about-desc-1": "Le tableau de bord de connectivité des serveurs Wikimedia vous aide à vérifier si vous pouvez visiter et modifier les projets Wikimedia depuis votre réseau.",
 	"card-about-desc-2": "Une interruption de la connexion peut survenir en raison de réseaux défectueux, des politiques de réseau de l’entreprise ou d’une censure gouvernementale.",
-	"card-about-desc-3": "Les blocages IP peuvent être dus au fait que vous utilisez un service mandataire ou VPN. Pour éviter le vandalisme, les projets Wikimedia ont bloqué la modification depuis des IP de mandataires. Vous pouvez [https://en.wikipedia.org/wiki/Wikipedia:IP_block_exemption demander des droits d’exemption de blocage IP] pour votre compte afin d’éviter une telle interruption.",
+	"card-about-desc-3": "Les blocages IP peuvent être dus au fait que vous utilisez un service mandataire ou VPN. Pour éviter le vandalisme, les projets Wikimedia ont bloqué la modification depuis des IP de mandataires. Vous pouvez [https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Exemption_de_blocage_d%27IP demander des droits d’exemption de blocage IP] pour votre compte afin d’éviter une telle interruption.",
 	"tbl-h-name": "Noms",
 	"tbl-h-domains": "Domaines",
 	"tbl-h-available": "Disponible ?",
@@ -91,7 +92,7 @@
 	"sc-end-b-err-1p3": "Pour les blocages IP, cela peut être dû au fait que vous utilisez un service mandataire ou un VPN. L’utilisation de ces services change votre adresse IP en la leur, ce que les projets Wikimedia peuvent bloquer pour prévenir le vandalisme.",
 	"sc-end-b-err-2t": "Que dois-je faire ?",
 	"sc-end-b-err-2p1": "Essayez d’utiliser des mandataires ou des services VPN pour vous connecter.",
-	"sc-end-b-err-2p2": "Pour résoudre les blocages d’adresse IP, veuillez [https://en.wikipedia.org/wiki/Wikipedia:IP_block_exemption demander les droits d’exemption de blocage d’adresse IP] pour que votre compte autorise leur contournement.",
+	"sc-end-b-err-2p2": "Pour résoudre les blocages d’adresse IP, veuillez [https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Exemption_de_blocage_d%27IP demander les droits d’exemption de blocage d’adresse IP] pour que votre compte autorise leur contournement.",
 	"sc-inaccessible": "Vous ne pouvez pas accéder à : $1",
 	"sc-blocked": "Vous ne pouvez pas modifier : $1",
 	"sc-domain-desc": "$1 et $2 de plus",
