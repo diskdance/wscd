@@ -41,6 +41,7 @@ defineProps<{
   font-weight: 700;
   font-size: 2em;
   user-select: none;
+  touch-action: manipulation;
   color: #fff;
   cursor: pointer;
   position: relative;

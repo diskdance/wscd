@@ -39,6 +39,7 @@ defineProps<{
   min-height: 40px;
   outline: 0;
   user-select: none;
+  touch-action: manipulation;
 
   &:hover {
     .shadow();
