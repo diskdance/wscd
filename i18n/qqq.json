@@ -98,6 +98,7 @@
 	"sc-end-b-err-2t": "Descriptive text of the summary card when issues are found after the check",
 	"sc-end-b-err-2p1": "Descriptive text of the summary card when issues are found after the check",
 	"sc-end-b-err-2p2": "{{doc-important|Please replace the link with the corresponding one of your language's Wikipedia.}}Descriptive text of the summary card when issues are found after the check",
+	"sc-total": "Descriptive text with $1 replaced with the total number of sites checked",
 	"sc-inaccessible": "Descriptive text with $1 replaced with inaccessible/unavailable domains",
 	"sc-blocked": "Descriptive text with $1 replaced with uneditable/blocked domains",
 	"sc-domain-desc": "Outline of a list of domains, e.g. en.wikipedia.org and 2 more",
