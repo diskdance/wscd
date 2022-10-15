@@ -27,7 +27,6 @@ const VUE_GIT_HASH = GIT_HASH;
   justify-content: space-evenly;
   flex-wrap: wrap-reverse;
   margin: 30px 0 10px;
-  border-top: 1px solid @color-border;
   font-size: 0.8em;
 
   &__text {

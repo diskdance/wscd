@@ -18,7 +18,7 @@ const modelValue = useModelWrapper(props, emit);
       <span :class="['type-label', 'type-label--left', { 'type-label--active': !modelValue }]">{{
       $i18n('ct-field-std') }}</span>
       <ToggleSwitch class="ct-field__toggle" v-model="modelValue"
-        :aria-label="$i18n('ct-field-ext-check')"></ToggleSwitch>
+        :ariaLabel="$i18n('ct-field-ext-check')"></ToggleSwitch>
       <span :class="['type-label', 'type-label--right', { 'type-label--active': modelValue }]">{{
       $i18n('ct-field-ext') }}</span>
     </div>
