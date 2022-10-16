@@ -2,7 +2,7 @@
   "name": "wscd",
   "description": "Wikimedia Server Connectivity Dashboard",
   "private": true,
-  "version": "0.2.7",
+  "version": "0.2.8",
   "license": "MIT",
   "type": "module",
   "scripts": {
