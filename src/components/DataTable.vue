@@ -62,10 +62,10 @@ export default defineComponent({
       if (ping === undefined) {
         return '';
       }
-      if (ping <= 500) {
+      if (ping <= 1000) {
         return this.$i18n('rtt-excellent');
       }
-      if (ping > 500 && ping <= 1000) {
+      if (ping > 1000 && ping <= 2000) {
         return this.$i18n('rtt-good');
       }
       return this.$i18n('rtt-bad');
