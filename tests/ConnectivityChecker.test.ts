@@ -81,30 +81,56 @@ test('ConnectivityCheck', async () => {
   expect(mockedFetch).nthCalledWith(
     1,
     'https://test.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&meta=userinfo&uiprop=blockinfo&origin=*',
-    { method: 'GET', headers: { 'Api-User-Agent': `wscd/${APP_VERSION}` }, signal: expect.any(AbortSignal) },
+    {
+      method: 'GET',
+      cache: 'no-store',
+      headers: { 'Api-User-Agent': `wscd/${APP_VERSION}` },
+      signal: expect.any(AbortSignal),
+    },
   );
 
   expect(mockedFetch).nthCalledWith(
     2,
-    `https://test2.wikipedia.org/favicon.ico?wscd=${APP_VERSION}&nocache=1`,
-    { method: 'HEAD', mode: 'no-cors', signal: expect.any(AbortSignal) },
+    'https://test2.wikipedia.org/',
+    {
+      method: 'GET',
+      cache: 'no-store',
+      headers: { 'Api-User-Agent': `wscd/${APP_VERSION}` },
+      mode: 'no-cors',
+      signal: expect.any(AbortSignal),
+    },
   );
 
   expect(mockedFetch).nthCalledWith(
     3,
     'https://test.wikidata.org/w/api.php?action=query&format=json&formatversion=2&meta=userinfo&uiprop=blockinfo&origin=*',
-    { method: 'GET', headers: { 'Api-User-Agent': `wscd/${APP_VERSION}` }, signal: expect.any(AbortSignal) },
+    {
+      method: 'GET',
+      cache: 'no-store',
+      headers: { 'Api-User-Agent': `wscd/${APP_VERSION}` },
+      signal: expect.any(AbortSignal),
+    },
   );
 
   expect(mockedFetch).nthCalledWith(
     4,
     'https://test.wikidata.org/w/api.php?action=query&list=globalblocks&bgip=127.0.0.1&bgprop=address&format=json&formatversion=2&origin=*',
-    { method: 'GET', headers: { 'Api-User-Agent': `wscd/${APP_VERSION}` }, signal: expect.any(AbortSignal) },
+    {
+      method: 'GET',
+      cache: 'no-store',
+      headers: { 'Api-User-Agent': `wscd/${APP_VERSION}` },
+      signal: expect.any(AbortSignal),
+    },
   );
 
   expect(mockedFetch).nthCalledWith(
     5,
     'https://private.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&meta=userinfo&uiprop=blockinfo&origin=*',
-    { method: 'GET', headers: { 'Api-User-Agent': `wscd/${APP_VERSION}` }, signal: expect.any(AbortSignal) },
+    {
+      method: 'GET',
+      cache: 'no-store',
+      headers: { 'Api-User-Agent': `wscd/${APP_VERSION}` },
+      signal: expect.any(AbortSignal),
+    },
   );
 });
