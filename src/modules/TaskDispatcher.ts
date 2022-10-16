@@ -20,6 +20,10 @@ class TaskDispatcher {
     }
   }
 
+  /**
+   * Instantiate a {@link TaskDispatcher} object.
+   * @param concurrency max numbers of tasks to run at the same time
+   */
   public constructor(concurrency: number) {
     this.queue = [];
     this.workers = [];
@@ -34,6 +38,10 @@ class TaskDispatcher {
     this.queue.push(task);
   }
 
+  /**
+   * Start executing the task queue.
+   * @return a promise that is resolved when all tasks have completed.
+   */
   public async run(): Promise<unknown> {
     this.workers = [];
     for (let i = 0; i < this.concurrency; i++) {

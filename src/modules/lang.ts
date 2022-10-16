@@ -1,6 +1,14 @@
 import { MessageSource } from 'banana-i18n';
 import EnMessageSource from '../../i18n-merged/en.json';
 
+interface I18nInfo {
+  /** Selected primary language, falls back to `en` */
+  lang: string,
+
+  /** Banana message source */
+  messageSource: MessageSource,
+}
+
 const MAPPINGS: Record<string, string> = {
   zh: 'zh-hans',
   'zh-cn': 'zh-hans',
@@ -21,7 +29,7 @@ function getCurrentLang(): string {
   return lang;
 }
 
-async function getI18nInfo(): Promise<{ lang: string, messageSource: MessageSource }> {
+async function getI18nInfo(): Promise<I18nInfo> {
   const lang = getCurrentLang();
   const messageSource: Record<string, Record<string, string>> = {
     en: EnMessageSource,

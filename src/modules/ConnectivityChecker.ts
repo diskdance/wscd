@@ -32,7 +32,11 @@ type DomainList = Array<[string, boolean]>;
 
 const CONCURRENCY = 15;
 const TIMEOUT_MS = 30 * 1000;
-const FETCH_OPT = { method: 'GET', headers: { 'Api-User-Agent': `wscd/${APP_VERSION}` } };
+const FETCH_OPT: RequestInit = {
+  method: 'GET',
+  headers: { 'Api-User-Agent': `wscd/${APP_VERSION}` },
+  cache: 'no-store',
+};
 
 class ConnectivityChecker {
   private readonly domainList: DomainList;
@@ -65,14 +69,14 @@ class ConnectivityChecker {
   public async check(): Promise<unknown> {
     this.domainList.forEach(([domain, isWiki]) => {
       this.taskDispatcher.enqueue(() => {
+        this.perDomainCheckStarted(domain);
+
         const domainData: DomainData = {
           domain,
           isWiki,
           isSuccessful: false,
         };
-        this.perDomainCheckStarted(domain);
         const startTime = performance.now();
-
         const fetchPromise = isWiki
           ? fetch(
             `https://${domain}/w/api.php?action=query&format=json&formatversion=2&meta=userinfo&uiprop=blockinfo&origin=*`,
@@ -80,6 +84,7 @@ class ConnectivityChecker {
           )
             .then((resp) => resp.json())
             .then((respJson: MwQueryUserInfoApiResult) => {
+              // Check if it is a private wiki
               if (respJson.query === undefined) {
                 return null;
               }
@@ -87,8 +92,8 @@ class ConnectivityChecker {
               return respJson.query.userinfo.name;
             })
           : fetch(
-            `https://${domain}/favicon.ico?wscd=${APP_VERSION}&nocache=${Date.now()}`,
-            { method: 'HEAD', mode: 'no-cors', signal: getSignalAbortedAfter(TIMEOUT_MS) },
+            `https://${domain}/`,
+            { ...FETCH_OPT, mode: 'no-cors', signal: getSignalAbortedAfter(TIMEOUT_MS) },
           );
 
         return fetchPromise
@@ -107,7 +112,9 @@ class ConnectivityChecker {
                 if (gbRespJson.query !== undefined) {
                   domainData.isBlocked = gbRespJson.query.globalblocks.length > 0;
                 }
-              } catch { }
+              } catch {
+                // FIXME: Better error handling here, consider not catching exceptions?
+              }
             }
           })
           .catch(() => { domainData.isSuccessful = false; })
