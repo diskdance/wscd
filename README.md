@@ -18,8 +18,7 @@ This tool allows:
 2. This tool checks blocks regardless of the rights of the logged-in accounts.
 
 ## Todo
-- [ ] RTL support (PRs are welcomed)
-- [ ] Performance issue of large tables
+- [ ] RTL support (PRs are welcome)
 
 ## Credits
 The tool is licensed under the MIT License. See `LICENSE` for more info.
