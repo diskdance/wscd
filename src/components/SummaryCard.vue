@@ -7,6 +7,8 @@ import store, {
 import SiteButton from './SiteButton.vue';
 import ProgressBar from './ProgressBar.vue';
 import { useModelWrapper } from '../modules/utils';
+import DataExporter from '../modules/DataExporter';
+import downloadFile from '../modules/downloadFile';
 
 const props = defineProps<{
   isTableExpanded: boolean
@@ -30,6 +32,15 @@ function getDomainsFriendlyDesc(domains: string[]): string {
     return domains[0];
   }
   return banana.i18n('sc-domain-desc', domains[0], domains.length - 1);
+}
+
+function getDownloadFileName(): string {
+  return `CheckReport_${Date.now()}.txt`;
+}
+
+function downloadData() {
+  const dataExporter = new DataExporter(store.domainDataView);
+  downloadFile(getDownloadFileName(), dataExporter.export());
 }
 
 const inaccessibleDomains = computed(
@@ -130,7 +141,7 @@ const currentCheckingDomain = computed(() => (
           <SiteButton @click="isTableExpanded = !isTableExpanded">{{
           $i18n(isTableExpanded ? 'sc-btn-hide' : 'sc-btn-show')
           }}</SiteButton>
-          <!-- <SiteButton>{{ $i18n('sc-btn-dl') }}</SiteButton> -->
+          <SiteButton @click="downloadData()">{{ $i18n('sc-btn-dl') }}</SiteButton>
         </div>
       </div>
 

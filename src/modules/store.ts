@@ -1,17 +1,19 @@
 import { reactive } from 'vue';
 
+// Give them string values for the convenience of logging
+
 enum DomainConnectivityResult {
-  PENDING,
-  CHECKING,
-  SUCCESS,
-  FAILURE,
+  PENDING = 'Pending',
+  CHECKING = 'Checking',
+  SUCCESS = 'Success',
+  FAILURE = 'Failure',
 }
 
 enum DomainBlockingResult {
-  NOT_BLOCKED,
-  BLOCKED,
-  UNKNOWN,
-  NOT_A_WIKI,
+  NOT_BLOCKED = 'Not blocked',
+  BLOCKED = 'Blocked',
+  UNKNOWN = 'Unknown',
+  NOT_A_WIKI = 'Not a wiki',
 }
 
 enum CheckStatus {
