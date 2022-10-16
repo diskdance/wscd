@@ -9,7 +9,7 @@
     "dev": "vite",
     "merge-i18n": "git submodule update && ts-node-esm ./scripts/merge-i18n.ts",
     "build": "pnpm run merge-i18n && vue-tsc --noEmit && vite build",
-    "build:gh-pages": "pnpm run merge-i18n && vue-tsc --noEmit && vite build --base /wscd/",
+    "build:gh-pages": "pnpm run merge-i18n && vue-tsc --noEmit && vite build --config vite.config.ghpages.ts",
     "preview": "vite preview",
     "preview:host": "vite preview --host",
     "test": "vitest",
