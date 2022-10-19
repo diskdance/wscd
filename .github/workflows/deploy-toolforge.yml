@@ -2,7 +2,8 @@ name: Deploy to Toolforge
 
 on:
   push:
-    branches: [ "master" ]
+    tags:
+      - v0.*
 
 jobs:
   deploy-toolforge:
