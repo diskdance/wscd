@@ -92,7 +92,7 @@ class ConnectivityChecker {
               return respJson.query.userinfo.name;
             })
           : fetch(
-            `https://${domain}/`,
+            `https://${domain}/favicon.ico`,
             { ...FETCH_OPT, mode: 'no-cors', signal: getSignalAbortedAfter(TIMEOUT_MS) },
           );
 

@@ -91,7 +91,7 @@ test('ConnectivityCheck', async () => {
 
   expect(mockedFetch).nthCalledWith(
     2,
-    'https://test2.wikipedia.org/',
+    'https://test2.wikipedia.org/favicon.ico',
     {
       method: 'GET',
       cache: 'no-store',
