@@ -16,7 +16,7 @@ This tool allows:
 ## Caveats
 1. This tool is not aware of blocks by [TorBlock](https://www.mediawiki.org/wiki/Extension:TorBlock) extension due to API limitations.
 2. This tool checks blocks regardless of the rights of the logged-in accounts.
-3. `w.wiki` cannot be check because it is not whitelisted in Toolforge's CSP config.
+3. `w.wiki` cannot be checked because it is not whitelisted in Toolforge's CSP config.
 
 ## Todo
 - [ ] RTL support (PRs are welcome)
