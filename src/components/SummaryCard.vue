@@ -7,8 +7,7 @@ import store, {
 import SiteButton from './SiteButton.vue';
 import ProgressBar from './ProgressBar.vue';
 import { useModelWrapper } from '../modules/utils';
-import DataExporter from '../modules/DataExporter';
-import downloadFile from '../modules/downloadFile';
+import ReportGenerator from '../modules/ReportGenerator';
 
 const props = defineProps<{
   isTableExpanded: boolean
@@ -34,13 +33,9 @@ function getDomainsFriendlyDesc(domains: string[]): string {
   return banana.i18n('sc-domain-desc', domains[0], domains.length - 1);
 }
 
-function getDownloadFileName(): string {
-  return `CheckReport_${Date.now()}.txt`;
-}
-
 function downloadData() {
-  const dataExporter = new DataExporter(store.domainDataView);
-  downloadFile(getDownloadFileName(), dataExporter.export());
+  const reportGenerator = new ReportGenerator(store.domainDataView);
+  reportGenerator.download();
 }
 
 const inaccessibleDomains = computed(

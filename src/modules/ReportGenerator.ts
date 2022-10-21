@@ -2,7 +2,7 @@ import { DomainBlockingResult, DomainConnectivityResult, DomainDataView } from '
 
 const JOIN_PATTERN = '\n - ';
 const EMPTY_FALLBACK = 'none';
-const PADDING = ' ';
+const PADDING_CHAR = ' ';
 const TABLE_HEADER_ROW = ['Domains', 'Status', 'Blocked?', 'RTT (ms)'];
 
 const PADDING_DOMAINS = 30;
@@ -11,13 +11,13 @@ const PADDING_BLOCKED = 15;
 const PADDING_PING = 8;
 
 /**
- * Helper class to export check data to a string.
+ * Helper class to generate check reports.
  */
-class DataExporter {
+class ReportGenerator {
   private checkData: Map<string, DomainDataView>;
 
   /**
-   * Instantiate a {@link DataExporter} instance.
+   * Instantiate a {@link ReportGenerator} instance.
    * @param checkData check data
    */
   constructor(checkData: Map<string, DomainDataView>) {
@@ -58,10 +58,10 @@ class DataExporter {
     ]
       .map(
         ([domain, status, blocked, ping]) => [
-          domain.padEnd(PADDING_DOMAINS, PADDING),
-          status.padEnd(PADDING_STATUS, PADDING),
-          blocked.padEnd(PADDING_BLOCKED, PADDING),
-          ping.padStart(PADDING_PING, PADDING),
+          domain.padEnd(PADDING_DOMAINS, PADDING_CHAR),
+          status.padEnd(PADDING_STATUS, PADDING_CHAR),
+          blocked.padEnd(PADDING_BLOCKED, PADDING_CHAR),
+          ping.padStart(PADDING_PING, PADDING_CHAR),
         ].join(''),
       )
       .join('\n');
@@ -69,12 +69,13 @@ class DataExporter {
 
   /**
    * Export all check data to a string.
+   * @param date date
    * @return the string
    */
-  public export(): string {
+  private generateReport(date: Date): string {
     let result = 'Check result';
     result += '\n------------';
-    result += `\nGenerated at: ${new Date().toUTCString()}`;
+    result += `\nGenerated at: ${date}`;
     result += `\nUnavailable domains: ${this.renderSiteList(
       ({ connectivity }) => connectivity === DomainConnectivityResult.FAILURE,
     )}`;
@@ -85,6 +86,26 @@ class DataExporter {
     result += `\n${this.renderTable()}`;
     return result;
   }
+
+  /**
+   * Download the report.
+   */
+  public download(): void {
+    const date = new Date();
+    const filename = `CheckReport_${date.getTime()}.txt`;
+    const report = this.generateReport(date);
+
+    const anchor = document.createElement('a');
+    anchor.setAttribute('href', `data:text/plain;charset=utf-8,${encodeURIComponent(report)}`);
+    anchor.setAttribute('download', filename);
+
+    anchor.style.display = 'none';
+    document.body.appendChild(anchor);
+
+    anchor.click();
+
+    document.body.removeChild(anchor);
+  }
 }
 
-export default DataExporter;
+export default ReportGenerator;
