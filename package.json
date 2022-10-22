@@ -1,6 +1,6 @@
 {
   "name": "wscd",
-  "description": "Wikimedia Server Connectivity Dashboard",
+  "description": "Tool telling your connectivity to Wikimedia servers",
   "private": true,
   "version": "0.2.13",
   "license": "MIT",
