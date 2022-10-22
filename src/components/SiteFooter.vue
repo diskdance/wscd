@@ -1,4 +1,6 @@
 <script setup lang="ts">
+// Assign them to local variables to avoid TS errors
+// FIXME: use a better approach
 const VUE_APP_VERSION = APP_VERSION;
 const VUE_GIT_HASH = GIT_HASH;
 </script>
