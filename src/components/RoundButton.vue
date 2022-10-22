@@ -32,6 +32,7 @@ defineProps<{
 
 .round-button {
   .transition-ease-out-fast();
+  .android-chrome-no-tap-highlight();
   .button-shadow(20px, @color-shadow-normal);
   transition-property: background-color, box-shadow;
   border: 0;
@@ -96,16 +97,16 @@ defineProps<{
     pointer-events: none;
     border-radius: 100%;
     border: 3px solid @color-major;
-    animation: glow 10s ease-out infinite;
+    animation: glow 5s ease-out infinite;
   }
 
   @keyframes glow {
 
-    10% {
+    20% {
       transform: scale(1.75);
     }
 
-    11%,
+    21%,
     to {
       transform: none;
       opacity: 0;

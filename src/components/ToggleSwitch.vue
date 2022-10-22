@@ -44,6 +44,8 @@ const modelValue = useModelWrapper(props, emit);
 @selector-thumb: .toggle-switch__switch .toggle-switch__thumb;
 
 .toggle-switch {
+  .android-chrome-no-tap-highlight();
+
   /* Enable 3D acceleration */
   transform: translateZ(0);
   position: relative;
