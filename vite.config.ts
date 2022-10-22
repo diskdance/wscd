@@ -16,7 +16,6 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png'],
       manifest: {
-        theme_color: '#ffffff',
         icons: [
           {
             src: 'pwa-192x192.png',
