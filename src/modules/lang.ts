@@ -36,9 +36,11 @@ async function getI18nInfo(): Promise<I18nInfo> {
   };
 
   let selectedLang = 'en';
+  // Treat en-xx as en
   if (!lang.startsWith('en')) {
     for (const currentLang of [lang, lang.split('-')[0]]) {
       try {
+        // Will throw exception when i18n file does not exist
         messageSource[currentLang] = (await import(`../../i18n-merged/${currentLang}.json`)).default;
         selectedLang = currentLang;
         break;

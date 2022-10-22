@@ -1,5 +1,7 @@
 import { DomainBlockingResult, DomainConnectivityResult, DomainDataView } from './store';
 
+// No need to support i18n, English only
+
 const JOIN_PATTERN = '\n - ';
 const EMPTY_FALLBACK = 'none';
 const PADDING_CHAR = ' ';

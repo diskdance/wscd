@@ -1,5 +1,5 @@
 import TaskDispatcher from './TaskDispatcher';
-import { getSignalAbortedAfter } from './utils';
+import { getTimeoutSignal } from './utils';
 
 interface DomainData {
   domain: string,
@@ -80,7 +80,7 @@ class ConnectivityChecker {
         const fetchPromise = isWiki
           ? fetch(
             `https://${domain}/w/api.php?action=query&format=json&formatversion=2&meta=userinfo&uiprop=blockinfo&origin=*`,
-            { ...FETCH_OPT, signal: getSignalAbortedAfter(TIMEOUT_MS) },
+            { ...FETCH_OPT, signal: getTimeoutSignal(TIMEOUT_MS) },
           )
             .then((resp) => resp.json())
             .then((respJson: MwQueryUserInfoApiResult) => {
@@ -89,11 +89,11 @@ class ConnectivityChecker {
                 return null;
               }
               domainData.isBlocked = 'blockid' in respJson.query.userinfo;
-              return respJson.query.userinfo.name;
+              return respJson.query.userinfo.name; // IP address
             })
           : fetch(
             `https://${domain}/favicon.ico`,
-            { ...FETCH_OPT, mode: 'no-cors', signal: getSignalAbortedAfter(TIMEOUT_MS) },
+            { ...FETCH_OPT, mode: 'no-cors', signal: getTimeoutSignal(TIMEOUT_MS) },
           );
 
         return fetchPromise
@@ -106,7 +106,7 @@ class ConnectivityChecker {
               try {
                 const gbRespJson: MwQueryGlobalBlocksApiResult = await fetch(
                   `https://${domain}/w/api.php?action=query&list=globalblocks&bgip=${ip}&bgprop=address&format=json&formatversion=2&origin=*`,
-                  { ...FETCH_OPT, signal: getSignalAbortedAfter(TIMEOUT_MS) },
+                  { ...FETCH_OPT, signal: getTimeoutSignal(TIMEOUT_MS) },
                 ).then((resp) => resp.json());
 
                 if (gbRespJson.query !== undefined) {

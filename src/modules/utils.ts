@@ -4,9 +4,11 @@ function resolveAfter(ms: number) {
   return new Promise((resolve) => { setTimeout(resolve, ms); });
 }
 
-function getSignalAbortedAfter(ms: number): AbortSignal {
+function getTimeoutSignal(ms: number): AbortSignal {
   const controller = new AbortController();
 
+  // AbortSignal.timeout() is not preferred due to its browser support
+  // https://caniuse.com/?search=AbortSignal.timeout
   setTimeout(() => {
     controller.abort();
   }, ms);
@@ -38,4 +40,4 @@ function useModelWrapper<T extends string, P extends Record<T, unknown>>(
   });
 }
 
-export { resolveAfter, getSignalAbortedAfter, useModelWrapper };
+export { resolveAfter, getTimeoutSignal, useModelWrapper };

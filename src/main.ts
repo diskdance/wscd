@@ -10,6 +10,7 @@ import '@fontsource/inter/700.css';
 import App from './App.vue';
 import getI18nInfo from './modules/lang';
 
+// Avoid top-level await for better browser support
 (async () => {
   const app = createApp(App);
 
