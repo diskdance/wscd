@@ -28,12 +28,14 @@ function handleError() {
 
 async function check(domainList: Array<[string, boolean]>) {
   store.checkStatus = CheckStatus.RUNNING;
+
   domainList.forEach(([domain]) => {
     store.domainDataView.set(
       domain,
       { connectivity: DomainConnectivityResult.PENDING },
     );
   });
+
   const checker = new ConnectivityChecker(
     domainList,
     (domain) => {
@@ -44,18 +46,17 @@ async function check(domainList: Array<[string, boolean]>) {
     (data) => {
       // dataView cannot be undefined in this case
       const dataView = store.domainDataView.get(data.domain)!;
+
       dataView.connectivity = data.isSuccessful
         ? DomainConnectivityResult.SUCCESS : DomainConnectivityResult.FAILURE;
       dataView.ping = data.ping;
+
       if (!data.isSuccessful) {
         dataView.blocking = DomainBlockingResult.UNKNOWN;
       } else if (data.isWiki) {
         if (data.isBlocked !== undefined) {
-          if (data.isBlocked) {
-            dataView.blocking = DomainBlockingResult.BLOCKED;
-          } else {
-            dataView.blocking = DomainBlockingResult.NOT_BLOCKED;
-          }
+          dataView.blocking = data.isBlocked
+            ? DomainBlockingResult.BLOCKED : DomainBlockingResult.NOT_BLOCKED;
         } else {
           dataView.blocking = DomainBlockingResult.UNKNOWN;
         }
@@ -64,6 +65,7 @@ async function check(domainList: Array<[string, boolean]>) {
       }
     },
   );
+
   await checker.check();
   store.checkStatus = CheckStatus.ENDED;
 }
