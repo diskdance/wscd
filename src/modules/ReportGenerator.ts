@@ -97,16 +97,15 @@ class ReportGenerator {
     const filename = `CheckReport_${date.getTime()}.txt`;
     const report = this.generateReport(date);
 
-    const anchor = document.createElement('a');
-    anchor.setAttribute('href', `data:text/plain;charset=utf-8,${encodeURIComponent(report)}`);
-    anchor.setAttribute('download', filename);
+    const blob = new Blob([report], { type: 'text/plain' });
 
-    anchor.style.display = 'none';
-    document.body.appendChild(anchor);
+    const hiddenAnchor = document.createElement('a');
+    hiddenAnchor.href = URL.createObjectURL(blob);
+    hiddenAnchor.download = filename;
+    document.body.appendChild(hiddenAnchor);
 
-    anchor.click();
-
-    document.body.removeChild(anchor);
+    hiddenAnchor.click();
+    document.body.removeChild(hiddenAnchor);
   }
 }
 
