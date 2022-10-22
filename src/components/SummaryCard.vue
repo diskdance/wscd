@@ -6,7 +6,7 @@ import store, {
 } from '../modules/store';
 import SiteButton from './SiteButton.vue';
 import ProgressBar from './ProgressBar.vue';
-import { useModelWrapper } from '../modules/utils';
+import { useModelWrapper, reloadWindow } from '../modules/utils';
 import ReportGenerator from '../modules/ReportGenerator';
 
 const props = defineProps<{
@@ -18,10 +18,6 @@ const emit = defineEmits(['update:isTableExpanded']);
 const banana = inject<Banana>('banana')!;
 
 const isTableExpanded = useModelWrapper(props, emit, 'isTableExpanded');
-
-function reloadWindow() {
-  window.location.reload();
-}
 
 function getDomainsFriendlyDesc(domains: string[]): string {
   if (domains.length === 0) {

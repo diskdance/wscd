@@ -16,6 +16,10 @@ function getTimeoutSignal(ms: number): AbortSignal {
   return controller.signal;
 }
 
+function reloadWindow() {
+  window.location.reload();
+}
+
 /**
  * Return a computed property that returns the corresponding prop value when is accessed
  * and fires an event when is set. Used with v-model.
@@ -40,4 +44,6 @@ function useModelWrapper<T extends string, P extends Record<T, unknown>>(
   });
 }
 
-export { resolveAfter, getTimeoutSignal, useModelWrapper };
+export {
+  resolveAfter, reloadWindow, getTimeoutSignal, useModelWrapper,
+};

@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import store, {
   DomainConnectivityResult, DomainBlockingResult, CheckStatus,
 } from '../modules/store';
+import { reloadWindow } from '../modules/utils';
 
 import SiteCard from './SiteCard.vue';
 import ConnectivityChecker from '../modules/ConnectivityChecker';
@@ -10,6 +11,7 @@ import DataTable from './DataTable.vue';
 import RoundButton from './RoundButton.vue';
 import CheckTypeField from './CheckTypeField.vue';
 import SummaryCard from './SummaryCard.vue';
+import SiteButton from './SiteButton.vue';
 
 type RawDomainList = Array<string | [string, boolean]>;
 
@@ -113,7 +115,13 @@ async function prepareAndCheck(prefetchAll: boolean) {
         v-else-if="store.checkStatus === CheckStatus.ENDED_ERROR" type="error">
         <template #header>{{ $i18n('card-err-head') }}</template>
         <template #default>
-          {{ $i18n('card-err-desc') }}
+          <div>
+            {{ $i18n('card-err-desc') }}
+          </div>
+          <div class="error-card__buttons">
+            <SiteButton :major="true" @click="reloadWindow()">{{ $i18n('sc-btn-recheck') }}
+            </SiteButton>
+          </div>
         </template>
       </SiteCard>
     </Transition>
@@ -168,6 +176,11 @@ async function prepareAndCheck(prefetchAll: boolean) {
     @media screen and (max-width: @site-width-narrow) {
       margin: 1em auto;
     }
+  }
+
+  .error-card__buttons {
+    margin-top: 1em;
+    text-align: center;
   }
 
   &__data-table {
