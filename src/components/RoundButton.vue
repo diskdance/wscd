@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <button class="round-button">
+  <button :class="['round-button', { 'round-button--waiting': waiting }]" :disabled="waiting">
     <slot />
     <div class="round-button__indicator-container" v-if="waiting">
       <ProgressIndicator></ProgressIndicator>
@@ -91,7 +91,7 @@ defineProps<{
     background-color: #2a4b8d;
   }
 
-  &::after {
+  &:not(&--waiting)::after {
     .absolutely-fill-parent();
     content: '';
     pointer-events: none;

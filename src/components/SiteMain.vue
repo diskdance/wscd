@@ -92,7 +92,6 @@ async function prepareAndCheck(prefetchAll: boolean) {
       <div class="site-main__check-panel"
         v-if="[CheckStatus.NOT_RUN, CheckStatus.PREPARING].includes(store.checkStatus)">
         <RoundButton class="check-panel__button" @click="prepareAndCheck(isExtendedCheck)"
-          :disabled="store.checkStatus === CheckStatus.PREPARING"
           :waiting="store.checkStatus === CheckStatus.PREPARING">{{ $i18n('btn-chk') }}
         </RoundButton>
 
