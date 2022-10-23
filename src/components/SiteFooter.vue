@@ -7,7 +7,10 @@ const VUE_GIT_HASH = GIT_HASH;
 
 <template>
   <footer class="site-footer">
-    <img class="site-footer__badge" src="../assets/toolforge.svg" :alt="$i18n('footer-badge-alt')">
+    <picture class="site-footer__badge">
+      <source srcset="../assets/toolforge-dark.svg" media="(prefers-color-scheme: dark)">
+      <img class="badge__image" src="../assets/toolforge.svg" :alt="$i18n('footer-badge-alt')">
+    </picture>
     <div class="site-footer__text">
       <a class="site-footer__src" target="_blank" href="https://github.com/diskdance/wscd">{{
       $i18n('footer-code') }}</a>
@@ -22,6 +25,8 @@ const VUE_GIT_HASH = GIT_HASH;
 
 <style scoped lang="less">
 @import '../styles/mixins.less';
+
+@image-height: 30px;
 
 .site-footer {
   display: flex;
@@ -51,12 +56,15 @@ const VUE_GIT_HASH = GIT_HASH;
   }
 
   &__badge {
-    .svg-invent-on-dark();
     margin-top: 10px;
     flex: 1;
-    display: block;
-    height: 30px;
-    width: 90px;
+    text-align: center;
+    height: @image-height;
+
+    .badge__image {
+      display: inline-block;
+      height: @image-height;
+    }
   }
 }
 </style>
