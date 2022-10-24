@@ -4,6 +4,8 @@
 			"Пан Хаунд"
 		]
 	},
+	"name-cs.planet.wikimedia.org": "Чеська Планета Wikimedia",
+	"name-de.planet.wikimedia.org": "Німецька Планета Wikimedia",
 	"name-fr.planet.wikimedia.org": "Французька Планета Вікімедіа",
 	"name-gmq.planet.wikimedia.org": "Скандинавська Планета Вікімедіа",
 	"name-id.planet.wikimedia.org": "Індонезійська Планета Wikimedia",
@@ -13,6 +15,8 @@
 	"name-uk.planet.wikimedia.org": "Українська Планета Вікімедіа",
 	"name-zh.planet.wikimedia.org": "Китайська Планета Вікімедіа",
 	"card-about-head": "Про цей засіб",
+	"tbl-h-name": "Назви",
+	"tbl-h-available": "Доступно?",
 	"tbl-btn-jts": "Перейти до початку",
 	"footer-license": "Ліцензія",
 	"avl-yes": "✔️ Доступно",
