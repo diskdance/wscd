@@ -5,7 +5,7 @@ defineProps<{
 </script>
 
 <template>
-  <button :class="[ 'site-button', { 'site-button--major': major } ]">
+  <button :class="['site-button', { 'site-button--major': major }]">
     <slot />
   </button>
 </template>

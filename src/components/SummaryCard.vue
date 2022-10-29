@@ -88,10 +88,11 @@ const currentCheckingDomain = computed(() => (
         </ProgressBar>
         <h2 class="summary-card__heading">
           {{ $i18n(
-          hasProblem ? 'sc-chk-h-err' : 'sc-chk-h',
-          checkedDomainsCount,
-          store.domainDataView.size
-          ) }}
+              hasProblem ? 'sc-chk-h-err' : 'sc-chk-h',
+              checkedDomainsCount,
+              store.domainDataView.size
+            )
+          }}
         </h2>
         <div class="summary-card__content">
           <p>{{ $i18n('sc-chk-desc') }}</p>
@@ -101,8 +102,9 @@ const currentCheckingDomain = computed(() => (
         </div>
         <div class="summary-card__action">
           <SiteButton :major="true" @click="isTableExpanded = !isTableExpanded">{{
-          $i18n(isTableExpanded
-          ? 'sc-btn-hide' : 'sc-btn-show') }}</SiteButton>
+              $i18n(isTableExpanded
+                ? 'sc-btn-hide' : 'sc-btn-show')
+          }}</SiteButton>
         </div>
       </div>
 
@@ -130,7 +132,7 @@ const currentCheckingDomain = computed(() => (
           <SiteButton :major="true" @click="reloadWindow()">{{ $i18n('sc-btn-recheck') }}
           </SiteButton>
           <SiteButton @click="isTableExpanded = !isTableExpanded">{{
-          $i18n(isTableExpanded ? 'sc-btn-hide' : 'sc-btn-show')
+              $i18n(isTableExpanded ? 'sc-btn-hide' : 'sc-btn-show')
           }}</SiteButton>
           <SiteButton @click="downloadData()">{{ $i18n('sc-btn-dl') }}</SiteButton>
         </div>

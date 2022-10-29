@@ -146,7 +146,8 @@ function toEnd() {
         :title="$i18n('tbl-btn-prev')">&lt;
       </SiteButton>
       <div>{{ $i18n('tbl-page-info', start + 1, isAtEnd ? store.domainDataView.size : start +
-      STEPPING, store.domainDataView.size) }}</div>
+          STEPPING, store.domainDataView.size)
+      }}</div>
       <SiteButton @click="nextPage()"
         :class="['page__button', { 'pager__button--hidden': isAtEnd }]"
         :title="$i18n('tbl-btn-next')">&gt;
