@@ -4,6 +4,8 @@ on:
   push:
     tags:
       - v0.*
+  schedule:
+    - cron:  '30 12 * * MON'
 
 jobs:
   deploy-toolforge:
