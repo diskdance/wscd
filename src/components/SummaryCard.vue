@@ -19,6 +19,8 @@ const banana = inject<Banana>('banana')!;
 
 const isTableExpanded = useModelWrapper(props, emit, 'isTableExpanded');
 
+const reportGenerator = new ReportGenerator(store.domainDataView);
+
 function getDomainsFriendlyDesc(domains: string[]): string {
   if (domains.length === 0) {
     return banana.i18n('sc-domain-desc-none');
@@ -30,7 +32,6 @@ function getDomainsFriendlyDesc(domains: string[]): string {
 }
 
 function downloadData() {
-  const reportGenerator = new ReportGenerator(store.domainDataView);
   reportGenerator.download();
 }
 

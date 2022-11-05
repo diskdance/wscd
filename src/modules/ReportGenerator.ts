@@ -12,11 +12,25 @@ const PADDING_STATUS = 10;
 const PADDING_BLOCKED = 15;
 const PADDING_PING = 8;
 
+function download(url: string, filename: string) {
+  const hiddenAnchor = document.createElement('a');
+  hiddenAnchor.href = url;
+  hiddenAnchor.download = filename;
+  document.body.appendChild(hiddenAnchor);
+
+  hiddenAnchor.click();
+  document.body.removeChild(hiddenAnchor);
+}
+
 /**
  * Helper class to generate check reports.
  */
 class ReportGenerator {
-  private checkData: Map<string, DomainDataView>;
+  private readonly checkData: Map<string, DomainDataView>;
+
+  private url?: string;
+
+  private firstGeneratedTime?: Date;
 
   /**
    * Instantiate a {@link ReportGenerator} instance.
@@ -93,19 +107,17 @@ class ReportGenerator {
    * Download the report.
    */
   public download(): void {
-    const date = new Date();
-    const filename = `CheckReport_${date.getTime()}.txt`;
-    const report = this.generateReport(date);
+    if (this.firstGeneratedTime === undefined) {
+      this.firstGeneratedTime = new Date();
+    }
+    const filename = `CheckReport_${this.firstGeneratedTime.getTime()}.txt`;
 
-    const blob = new Blob([report], { type: 'text/plain' });
-
-    const hiddenAnchor = document.createElement('a');
-    hiddenAnchor.href = URL.createObjectURL(blob);
-    hiddenAnchor.download = filename;
-    document.body.appendChild(hiddenAnchor);
-
-    hiddenAnchor.click();
-    document.body.removeChild(hiddenAnchor);
+    if (this.url === undefined) {
+      const report = this.generateReport(this.firstGeneratedTime);
+      const blob = new Blob([report], { type: 'text/plain' });
+      this.url = URL.createObjectURL(blob);
+    }
+    download(this.url, filename);
   }
 }
 
