@@ -4,8 +4,12 @@
 			"Пан Хаунд"
 		]
 	},
+	"name-wikitech-static.wikimedia.org": "Wikitech (Резервне копіювання)",
+	"name-ar.planet.wikimedia.org": "Арабська Планета Вікімедіа",
+	"name-bg.planet.wikimedia.org": "Болгарська Планета Вікімедіа",
 	"name-cs.planet.wikimedia.org": "Чеська Планета Wikimedia",
 	"name-de.planet.wikimedia.org": "Німецька Планета Wikimedia",
+	"name-el.planet.wikimedia.org": "Грецька Планета Вікімедіа",
 	"name-fr.planet.wikimedia.org": "Французька Планета Вікімедіа",
 	"name-gmq.planet.wikimedia.org": "Скандинавська Планета Вікімедіа",
 	"name-id.planet.wikimedia.org": "Індонезійська Планета Wikimedia",
@@ -30,5 +34,6 @@
 	"rtt-excellent": "⚡ Відмінно",
 	"rtt-good": "🚀 Добре",
 	"rtt-bad": "🐌 Не добре",
-	"btn-chk": "Перевірити"
+	"btn-chk": "Перевірити",
+	"sc-domain-desc-none": "немає"
 }
