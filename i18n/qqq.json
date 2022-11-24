@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Diskdance"
+			"Diskdance",
+			"Verdy p"
 		]
 	},
 	"name-wikitech-static.wikimedia.org": "{{ProjectNameDocumentation|url=https://wikitech-static.wikimedia.org|name=Wikitech (Backup)}}",
@@ -75,7 +76,7 @@
 	"pending": "Text indicating that a project is yet to be checked",
 	"checking": "Text indicated that a check is in progress",
 	"rtt-excellent": "Text indicating that the connectivity is excellent (very good), or the round-trip time (ping) is extremely low",
-	"rtt-good": "Text indicating that the connectivity is good, or the round-trip time (ping) is low",
+	"rtt-good": "Text indicating that the connectivity is \"good\", or the round-trip time (ping) is low.\n{{Identical|Good}}",
 	"rtt-bad": "Text indicating that the connectivity is bad, or the round-trip time (ping) is high",
 	"rtt-title": "Exact round-trip time a.k.a. ping in milliseconds.\nThis is displayed as tooltip of connectivity field",
 	"ct-field-ext-check": "Text indicating that this check would be an extended check (all Wikimedia domains are checked), displayed as alt text for the ToggleSwitch on the main page",
