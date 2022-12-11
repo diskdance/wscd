@@ -2,7 +2,7 @@
   "name": "wscd",
   "description": "Tool telling your connectivity to Wikimedia servers",
   "private": true,
-  "version": "0.2.19",
+  "version": "0.2.20",
   "license": "MIT",
   "type": "module",
   "scripts": {
