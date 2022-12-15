@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Kly",
-			"SunAfterRain"
+			"SunAfterRain",
+			"捍粵者"
 		]
 	},
 	"name-wikitech-static.wikimedia.org": "Wikitech（備份）",
@@ -69,7 +70,7 @@
 	"name-key-missing": "（未知）",
 	"avl-yes": "✔️ 可存取",
 	"avl-no": "❌ 不可存取",
-	"blk-yes": "🚫 被封鎖",
+	"blk-yes": "🚫已封鎖",
 	"blk-no": "✔️ 可編輯",
 	"blk-unknown": "❔ 未知",
 	"blk-non-wiki": "✔️ 非Wiki",
