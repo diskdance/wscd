@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Brettchenweber",
 			"Justman10000"
 		]
 	},
@@ -98,7 +99,7 @@
 	"sc-end-b-err-2p1": "Versuche, Proxys oder VPN-Dienste für die Verbindung zu verwenden.",
 	"sc-end-b-err-2p2": "Um IP-Sperren zu umgehen, beantrage bitte [https://en.wikipedia.org/wiki/Wikipedia:IP_block_exemption Rechte zur Ausnahme von IP-Sperren], damit dein Konto umgangen werden kann.",
 	"sc-total": "Gesamtzahl der Websites: $1",
-	"sc-inaccessible": "Du kannst nicht zugreifen: $1",
+	"sc-inaccessible": "Du kannst nicht zugreifen auf: $1",
 	"sc-blocked": "Du kannst nicht bearbeiten: $1",
 	"sc-domain-desc": "$1 und $2 mehr",
 	"sc-domain-desc-none": "keine",
