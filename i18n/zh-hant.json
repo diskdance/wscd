@@ -54,7 +54,7 @@
 	"card-about-desc-2": "若無法連接，則可能由網路組態出錯、企業網路審計或政府網路審查導致。",
 	"card-about-desc-3": "IP封鎖則可能由於您正在使用代理及VPN服務。為防止破壞，維基媒體計畫阻止了來自代理IP的編輯。您可以為您的帳號[https://zh.wikipedia.org/wiki/Wikipedia:IP%E5%B0%81%E7%A6%81%E4%BE%8B%E5%A4%96 申請IP封鎖例外權]以防止類似情況再次發生。",
 	"tbl-h-name": "名稱",
-	"tbl-h-domains": "域名",
+	"tbl-h-domains": "網域",
 	"tbl-h-available": "可存取？",
 	"tbl-h-conn": "連通性",
 	"tbl-h-block": "可編輯？",
