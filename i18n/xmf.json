@@ -1,0 +1,43 @@
+{
+	"@metadata": {
+		"authors": [
+			"Narazeni"
+		]
+	},
+	"name-wikitech-static.wikimedia.org": "ვიკიტექი (სარეზერვე ანგი)",
+	"name-ar.planet.wikimedia.org": "ვიკიმედიაშ ბლოგეფიშ აგრეგატორი არაბულ ნინაშა",
+	"name-bg.planet.wikimedia.org": "ვიკიმედიაშ ბლოგეფიშ აგრეგატორი ბულგარულ ნინაშა",
+	"name-cs.planet.wikimedia.org": "ვიკიმედიაშ ბლოგეფიშ აგრეგატორი ჩეხურ ნინაშა",
+	"name-de.planet.wikimedia.org": "ვიკიმედიაშ ბლოგეფიშ აგრეგატორი გერმანულ ნინაშა",
+	"name-el.planet.wikimedia.org": "ვიკიმედიაშ ბლოგეფიშ აგრეგატორი ბერძენულ ნინაშა",
+	"name-en.planet.wikimedia.org": "ვიკიმედიაშ ბლოგეფიშ აგრეგატორი ინგლისურ ნინაშა",
+	"name-es.planet.wikimedia.org": "ვიკიმედიაშ ბლოგეფიშ აგრეგატორი ესპანურ ნინაშა",
+	"name-fr.planet.wikimedia.org": "ვიკიმედიაშ ბლოგეფიშ აგრეგატორი ფრანგულ ნინაშა",
+	"name-gmq.planet.wikimedia.org": "ვიკიმედიაშ ბლოგეფიშ აგრეგატორი სკანდინავიურ ნინაშა",
+	"name-id.planet.wikimedia.org": "ვიკიმედიაშ ბლოგეფიშ აგრეგატორი ინდონეზიურ ნინაშა",
+	"name-it.planet.wikimedia.org": "ვიკიმედიაშ ბლოგეფიშ აგრეგატორი იტალიურ ნინაშა",
+	"name-pl.planet.wikimedia.org": "ვიკიმედიაშ ბლოგეფიშ აგრეგატორი პოლონურ ნინაშა",
+	"name-pt.planet.wikimedia.org": "ვიკიმედიაშ ბლოგეფიშ აგრეგატორი პორტუგალიურ ნინაშა",
+	"name-ro.planet.wikimedia.org": "ვიკიმედიაშ ბლოგეფიშ აგრეგატორი რუმინულ ნინაშა",
+	"name-ru.planet.wikimedia.org": "ვიკიმედიაშ ბლოგეფიშ აგრეგატორი რუსულ ნინაშა",
+	"name-sq.planet.wikimedia.org": "ვიკიმედიაშ ბლოგეფიშ აგრეგატორი ალბანურ ნინაშა",
+	"name-uk.planet.wikimedia.org": "ვიკიმედიაშ ბლოგეფიშ აგრეგატორი უკრაინულ ნინაშა",
+	"name-zh.planet.wikimedia.org": "ვიკიმედიაშ ბლოგეფიშ აგრეგატორი ჩინურ ნინაშა",
+	"name-upload.wikimedia.org": "ვიკიმედიაშ მედიაფაილეფიშ ოჩუაშე",
+	"name-wikimediafoundation.org": "ფონდი ვიკიმედია",
+	"name-phabricator.wikimedia.org": "ფაბრიკატორი ვიკიმედია",
+	"name-gerrit.wikimedia.org": "ვიკიმედიაშ კოდიშ გინოჯინა",
+	"name-gitlab.wikimedia.org": "GitLab ვიკიმედია",
+	"name-dumps.wikimedia.org": "ვიომედია გჷმოხარგუეფი",
+	"card-err-head": "ჩილათაქ მოხვადჷ",
+	"card-about-head": "ათე ხეჭკუდიშ გეშა",
+	"tbl-h-name": "ჯოხოეფი",
+	"tbl-h-domains": "დომენეფი",
+	"tbl-btn-jts": "დაჭყაფუშა გინულა",
+	"tbl-btn-jte": "დათებუშა გინულა",
+	"tbl-btn-next": "გეჸვენჯი ხასჷლა",
+	"tbl-btn-prev": "კინოხიანი ხასჷლა",
+	"footer-code": "წყუშ კოდი",
+	"footer-license": "ლიცენზია",
+	"name-key-missing": "(უჩინებუ)"
+}
