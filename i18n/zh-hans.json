@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Anterdc99",
 			"Lakejason0"
 		]
 	},
@@ -44,6 +45,7 @@
 	"name-wikivoyage.org": "维基导游门户",
 	"name-w.wiki": "维基媒体短网址生成器",
 	"title": "维基媒体服务器连通性面板",
+	"title-abbr": "wscd",
 	"card-err-head": "发生错误",
 	"card-err-desc": "此错误可能由于无法获取运行检查所必需的资源导致。请检查您的网络环境。",
 	"card-about-head": "关于本工具",

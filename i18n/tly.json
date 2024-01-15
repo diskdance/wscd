@@ -1,0 +1,41 @@
+{
+	"@metadata": {
+		"authors": [
+			"Гусейн"
+		]
+	},
+	"name-w.wiki": "URL-adreson kyrt kardejdə",
+	"card-err-head": "Xəto beše",
+	"card-about-head": "Ce ym dilәgi barədә",
+	"tbl-h-name": "Nomon",
+	"tbl-h-domains": "Domen",
+	"tbl-h-available": "Dastrəse?",
+	"tbl-h-conn": "Əloǧə",
+	"tbl-h-block": "Sərost karde?",
+	"tbl-btn-jts": "Bə əvvəl dəvarde",
+	"tbl-btn-jte": "Bə oxoj dəvarde",
+	"tbl-btn-next": "Dumotono šə səhifə",
+	"tbl-btn-prev": "Navynəni səhifə",
+	"footer-license": "Lisenzijə",
+	"name-key-missing": "(Noməlume)",
+	"avl-yes": "✔️ Dastrəse",
+	"avl-no": "❌ Dastrəs ni",
+	"blk-yes": "🚫 Dəbastə byə",
+	"blk-no": "✔️ Sərost kardə bejdə",
+	"blk-unknown": "❔ Noməlume",
+	"blk-non-wiki": "✔️ Viki ni",
+	"pending": "🕒 Caš kardə bejdə…",
+	"checking": "🔍 Osə kardə bejdə…",
+	"rtt-excellent": "⚡ Əla",
+	"rtt-good": "🚀 Cok",
+	"rtt-bad": "🐌 Bevəče",
+	"rtt-title": "$1 ms",
+	"ct-field-ext": "Həmmə sajton",
+	"btn-chk": "Osə kardej",
+	"sc-chk-h": "Osə kardə bejdə… ($1/$2)",
+	"sc-end-b-err-1t": "Buci žygo be?",
+	"sc-total": "Sajton umumi ašmard: $1",
+	"sc-domain-desc": "$1 ijən $2 hənijən",
+	"sc-btn-hide": "Məlumoti nijon karde",
+	"sc-btn-show": "Məlumoti nišon doj"
+}
