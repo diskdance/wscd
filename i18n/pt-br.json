@@ -99,7 +99,7 @@
 	"sc-end-b-err-2t": "O que devo fazer?",
 	"sc-end-b-err-2p1": "Tente usar proxies ou serviços de VPN para se conectar.",
 	"sc-end-b-err-2p2": "Para tratar de bloqueios de IP, por favor [https://en.wikipedia.org/wiki/Wikipedia:IP_block_exemption solicite direitos de isenção de bloqueio de IP] para que sua conta seja contornada.",
-	"sc-total": "Número total de sites: US$ 1",
+	"sc-total": "Número total de sites: $1",
 	"sc-inaccessible": "Não é possível acessar: $1",
 	"sc-blocked": "Não é possível editar: $1",
 	"sc-domain-desc": "$1 e $2 a mais",
