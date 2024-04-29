@@ -1,0 +1,36 @@
+{
+	"@metadata": {
+		"authors": [
+			"Chqaz",
+			"Lakejason0",
+			"MathXplore",
+			"Tmv"
+		]
+	},
+	"name-wikitech-static.wikimedia.org": "ウィキテック (バックアップ)",
+	"name-wikimediafoundation.org": "ウィキメディア財団",
+	"name-ticket.wikimedia.org": "ボランティア対応チーム",
+	"card-err-head": "エラーが発生しました",
+	"tbl-h-name": "名前",
+	"tbl-btn-next": "次のページ",
+	"tbl-btn-prev": "前のページ",
+	"footer-badge-alt": "Toolforge 提供",
+	"footer-code": "ソースコード",
+	"footer-license": "ライセンス",
+	"name-key-missing": "不明",
+	"avl-yes": "✔️ 利用可能",
+	"avl-no": "❌ 利用不可",
+	"blk-no": "✔️ 編集可能",
+	"blk-unknown": "❔ 不明",
+	"pending": "🕒 待ってます…",
+	"checking": "🔍 確認中…",
+	"ct-field-ext-check": "すべてのサイトをチェック",
+	"ct-field-std": "人気のサイト",
+	"btn-chk": "チェック",
+	"sc-end-h-np": "問題は検出されませんでした",
+	"sc-end-h-err": "いくつかの問題が検出されました",
+	"sc-domain-desc-none": "なし",
+	"sc-btn-hide": "データを非表示にする",
+	"sc-btn-show": "データを表示",
+	"sc-btn-dl": "データをダウンロード"
+}
