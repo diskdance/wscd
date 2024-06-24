@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Cookai1205",
 			"Kly",
 			"SunAfterRain",
 			"Winston Sung",
@@ -34,7 +35,7 @@
 	"name-ticket.wikimedia.org": "志工回覆團隊",
 	"name-idp.wikimedia.org": "維基媒體開發者單一登入",
 	"name-dumps.wikimedia.org": "維基媒體下載",
-	"name-lists.wikimedia.org": "維基媒體郵件清單",
+	"name-lists.wikimedia.org": "維基媒體郵寄清單",
 	"name-diff.wikimedia.org": "Diff 部落格",
 	"name-techblog.wikimedia.org": "維基媒體技術部落格",
 	"name-wikimedia.org": "維基媒體入口",
