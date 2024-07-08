@@ -29,7 +29,7 @@ jobs:
           pnpm install --frozen-lockfile
           pnpm run build
       - name: Copy build file to production env
-        uses: appleboy/scp-action@v0.1
+        uses: appleboy/scp-action@v0.1.7
         with:
           host: login.toolforge.org
           username: ${{ secrets.TOOLFORGE_USERNAME }}
@@ -37,7 +37,7 @@ jobs:
           source: './dist'
           target: '~/.'
       - name: Deploy
-        uses: appleboy/ssh-action@v0.1
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: login.toolforge.org
           username: ${{ secrets.TOOLFORGE_USERNAME }}
