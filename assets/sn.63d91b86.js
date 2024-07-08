@@ -1,0 +1,2 @@
+const i={"name-cdo.wikipedia.org":"Wikipidhiya ye Chimindon'u","name-gan.wikipedia.org":"Wikipidhiya ye Chigani-chayina","name-hak.wikipedia.org":"Wikipidhiya ye Chihaka-chayina","name-wuu.wikipedia.org":"Wikipidhiya ye Chiwuu-chayina","name-zh-classical.wikipedia.org":"Wikipidhiya ye Chichayina Chekare","name-zh.wikipedia.org":"Wikipidhiya ye Chichayina","name-zh.wikinews.org":"Wikinhau ye Chichayina","name-zh.wikisource.org":"Wikimabviro ye Chichayina","name-zh.wikivoyage.org":"Wikirwendo ye Chichayina"};export{i as default};
+//# sourceMappingURL=sn.63d91b86.js.map

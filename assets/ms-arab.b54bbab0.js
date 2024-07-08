@@ -1,2 +1,0 @@
-const a={"name-ms.wikipedia.org":"\u0648\u064A\u06A9\u064A\u06A4\u064A\u062F\u064A\u0627 \u0628\u0647\u0627\u0633 \u0645\u0644\u0627\u064A\u0648","name-ms.wiktionary.org":"\u0648\u064A\u06A9\u064A\u0642\u0627\u0645\u0648\u0633 \u0628\u0647\u0627\u0633 \u0645\u0644\u0627\u064A\u0648","name-wikidata.org":"\u0648\u064A\u06A9\u064A\u062F\u0627\u062A\u0627"};export{a as default};
-//# sourceMappingURL=ms-arab.b54bbab0.js.map

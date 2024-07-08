@@ -1,2 +1,0 @@
-const i={"name-alt.wikipedia.org":"Wikipedia Altai","name-bcl.wiktionary.org":"Wikikamus Bikol Pusat","name-diq.wiktionary.org":"Wikikamus Zazaki","name-kcg.wikipedia.org":"Wikipedia Tyap","name-mad.wikipedia.org":"Wikipedia Madura","name-ng.wikimedia.org":"Wikimedia Nigeria","name-nia.wikipedia.org":"Wikipedia Nias","name-nia.wiktionary.org":"Wikikamus Nias","name-tr.wikivoyage.org":"Wikilayar Turki","name-uz.wikimedia.org":"Kumpulan Pengguna Wikimediawan bahasa Uzbek"};export{i as default};
-//# sourceMappingURL=ms.00370841.js.map
