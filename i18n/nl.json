@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Mainframe98",
-			"McDutchie"
+			"McDutchie",
+			"Siebrand"
 		]
 	},
 	"name-wikitech-static.wikimedia.org": "Wikitech (back-up)",
@@ -104,7 +105,7 @@
 	"sc-domain-desc": "$1 en nog $2",
 	"sc-domain-desc-none": "geen",
 	"sc-btn-hide": "Gegevens verbergen",
-	"sc-btn-show": "Gegevens tonen",
+	"sc-btn-show": "Gegevens weergeven",
 	"sc-btn-recheck": "Controle opnieuw uitvoeren",
 	"sc-btn-dl": "Gegevens downloaden"
 }
