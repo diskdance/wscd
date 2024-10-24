@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"McDutchie",
+			"Oujon",
 			"Thibaut120094",
 			"Verdy p"
 		]
@@ -81,7 +82,7 @@
 	"rtt-bad": "🐌 Mauvais",
 	"rtt-title": "$1 ms",
 	"ct-field-ext-check": "Vérifier tous les sites",
-	"ct-field-type": "Type de vérification",
+	"ct-field-type": "Verifier le type",
 	"ct-field-std": "Sites populaires",
 	"ct-field-ext": "Tous les sites",
 	"btn-chk": "Vérifier",
@@ -98,13 +99,13 @@
 	"sc-end-b-err-1p2": "Pour les interruptions de connexion, cela peut être dû à des réseaux défectueux, aux politiques de réseau de l’entreprise ou à une censure gouvernementale.",
 	"sc-end-b-err-1p3": "Pour les blocages IP, cela peut être dû au fait que vous utilisez un serveur mandataire ou un service VPN. L’utilisation de ces services change votre adresse IP en la leur, ce que les projets Wikimedia peuvent bloquer pour prévenir le vandalisme.",
 	"sc-end-b-err-2t": "Que dois-je faire ?",
-	"sc-end-b-err-2p1": "Essayez d’utiliser des serveurs mandataires ou des services VPN pour vous connecter.",
+	"sc-end-b-err-2p1": "Essayez d'utiliser des proxys ou des services VPN pour vous connecter.",
 	"sc-end-b-err-2p2": "Pour résoudre les blocages d’adresse IP, veuillez [https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Exemption_de_blocage_d%27IP demander les droits d’exemption de blocage d’adresse IP] pour que votre compte autorise leur contournement.",
 	"sc-total": "Nombre total de sites : $1",
 	"sc-inaccessible": "Vous ne pouvez pas accéder à : $1",
 	"sc-blocked": "Vous ne pouvez pas modifier : $1",
 	"sc-domain-desc": "$1 et $2 de plus",
-	"sc-domain-desc-none": "néant",
+	"sc-domain-desc-none": "Aucun",
 	"sc-btn-hide": "Masquer les données",
 	"sc-btn-show": "Afficher les données",
 	"sc-btn-recheck": "Relancer la vérification",
