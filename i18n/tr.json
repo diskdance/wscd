@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Hedda",
+			"Leo",
 			"ToprakM"
 		]
 	},
@@ -45,6 +46,7 @@
 	"name-wikivoyage.org": "Vikigezgin Portali",
 	"name-w.wiki": "Wikimedia URL Kısaltıcı",
 	"title": ">Wikimedia Sunucu Bağlanabilirlik Panosu",
+	"title-abbr": "wscd",
 	"card-err-head": "Bir hata meydana geldi",
 	"card-err-desc": "Bunun nedeni, denetimi gerçekleştirmek için gereken temel kaynakların indirilememesi olabilir. Lütfen ağ bağlantınızı kontrol edin.",
 	"card-about-head": "Bu araç hakkında",
