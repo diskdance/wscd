@@ -20,6 +20,8 @@
 	"tbl-h-available": "Disponibel?",
 	"tbl-h-conn": "Konnektivitéit",
 	"tbl-h-block": "Ännerbar?",
+	"tbl-btn-jts": "Op den Ufank sprangen",
+	"tbl-btn-jte": "Op de Schluss sprangen",
 	"tbl-btn-next": "Nächst Säit",
 	"tbl-btn-prev": "Vireg Säit",
 	"footer-code": "Quelltext",
@@ -40,8 +42,12 @@
 	"ct-field-ext-check": "All Säiten iwwerpréiwen",
 	"ct-field-std": "Beléift Säiten",
 	"ct-field-ext": "All Säiten",
+	"sc-end-h-np": "Keng Problemer fonnt",
 	"sc-end-b-err-1t": "Firwat ass dat geschitt?",
 	"sc-end-b-err-1p1": "Als alleréischt: Et ass net Är Schold!",
 	"sc-end-b-err-2t": "Wat soll ech maachen?",
-	"sc-total": "Gesamtzuel vun de Säiten: $1"
+	"sc-total": "Gesamtzuel vun de Säiten: $1",
+	"sc-btn-hide": "Donnéeë verstoppen",
+	"sc-btn-show": "Donnéeë weisen",
+	"sc-btn-dl": "Donnéeën eroflueden"
 }
