@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Caden99",
-			"Minh Nguyen"
+			"Minh Nguyen",
+			"Yuki Shiromita"
 		]
 	},
 	"name-wikitech-static.wikimedia.org": "Wikitech (Sao lưu)",
@@ -45,6 +46,7 @@
 	"name-wikivoyage.org": "Cổng Wikivoyage",
 	"name-w.wiki": "Công cụ rút ngắn URL Wikimedia",
 	"title": "Bảng điều khiển kết nối máy chủ Wikimedia",
+	"title-abbr": "wscd",
 	"card-err-head": "Đã xuất hiện lỗi",
 	"card-err-desc": "Lỗi này có thể xảy ra vì không thể tải về một số tài nguyên cần thiết để thực hiện quá trình kiểm tra. Xin hãy kiểm tra kết nối mạng của bạn.",
 	"card-about-head": "Giới thiệu về công cụ này",
