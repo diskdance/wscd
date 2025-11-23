@@ -6,6 +6,10 @@ on:
       - v0.*
   schedule:
     - cron: '30 12 * * MON'
+  workflow_run:
+    workflows: ['Release']
+    types: [completed]
+  workflow_dispatch:
 
 jobs:
   deploy-toolforge:
