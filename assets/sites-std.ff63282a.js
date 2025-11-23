@@ -1,0 +1,2 @@
+const i=["zh.wikipedia.org","en.wikipedia.org","zh.wiktionary.org","zh.wikibooks.org","zh.wikinews.org","zh.wikiquote.org","zh.wikisource.org","zh.wikiversity.org","zh.wikivoyage.org","en.wikinews.org","en.wiktionary.org","en.wikibooks.org","en.wikiquote.org","en.wikisource.org","en.wikiversity.org","en.wikivoyage.org","commons.wikimedia.org","www.mediawiki.org","www.wikidata.org","meta.wikimedia.org",["upload.wikimedia.org",!1]];export{i as default};
+//# sourceMappingURL=sites-std.ff63282a.js.map
