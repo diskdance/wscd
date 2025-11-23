@@ -8,7 +8,9 @@ const dirname = path.dirname(fileURLToPath(import.meta.url));
 const I18N_DIR = path.join(dirname, '../i18n/');
 const WIKIMEDIA_MSG_DIR = path.join(dirname, '../wikimedia-messages/i18n/wikimediaprojectnames/');
 const OUTPUT_DIR = path.join(dirname, '../i18n-merged/');
-const KEY_MAPPING: [RegExp, string][] = [
+
+/** @type {[RegExp, string][]} */
+const KEY_MAPPING = [
   [/^project-localized-name-wikidatawiki$/, 'wikidata.org'],
   [/^project-localized-name-mediawikiwiki$/, 'mediawiki.org'],
   [/^project-localized-name-sourceswiki$/, 'wikisource.org'],
@@ -30,7 +32,11 @@ const KEY_MAPPING: [RegExp, string][] = [
   [/^project-localized-name-(\w+)wiki$/, '$1.wikimedia.org'],
 ];
 
-function transformWikimediaMessageKeys(data: Record<string, string>) {
+/**
+ * @param {Object.<string,string>} data
+ * @returns {Object.<string,string>}
+ */
+function transformWikimediaMessageKeys(data) {
   return Object.fromEntries(
     Object.entries(data).map(([key, item]) => {
       let transformedKey = KEY_MAPPING.reduce(
@@ -47,13 +53,16 @@ function transformWikimediaMessageKeys(data: Record<string, string>) {
   );
 }
 
-function logWithCaption(str: string) {
+function logWithCaption(str) {
   console.log(`\x1b[33mmerge-i18n\x1b[0m: ${str}`);
 }
 
-const localeRegistry: Record<string, Record<string, string>> = {};
+/** @type {Object.<string, Object.<string,string>>} */
+const localeRegistry = {};
 
+/** @type {string[]} */
 const wikimediaMessageFiles = await fs.readdir(WIKIMEDIA_MSG_DIR);
+/** @type {string[]} */
 const filesI18n = await fs.readdir(I18N_DIR);
 
 await Promise.all([
@@ -61,7 +70,8 @@ await Promise.all([
     if (filename !== 'qqq.json') {
       const filePath = path.join(WIKIMEDIA_MSG_DIR, filename);
 
-      const data: Record<string, string> = JSON.parse((await fs.readFile(filePath)).toString());
+      /** @type {Object.<string,string>} */
+      const data = JSON.parse((await fs.readFile(filePath)).toString());
       delete data['@metadata'];
       const transformedData = transformWikimediaMessageKeys(data);
 
@@ -73,7 +83,8 @@ await Promise.all([
     if (filename !== 'qqq.json') {
       const filePath = path.join(I18N_DIR, filename);
 
-      const data: Record<string, string> = JSON.parse((await fs.readFile(filePath)).toString());
+      /** @type {Object.<string,string>} */
+      const data = JSON.parse((await fs.readFile(filePath)).toString());
       delete data['@metadata'];
 
       localeRegistry[filename] = localeRegistry[filename] ?? {};

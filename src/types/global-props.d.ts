@@ -1,6 +1,6 @@
 declare module 'vue' {
   interface ComponentCustomProperties {
-    $i18n: (msg: string, ...params?: Array<string | number>) => string,
+    $i18n(key: string, ...params: import('banana-i18n').ParameterType[]): string,
   }
 }
 

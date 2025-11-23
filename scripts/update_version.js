@@ -1,4 +1,5 @@
 // @ts-check
+/* eslint-disable no-console */
 import { readFile, writeFile } from 'fs/promises';
 import fg from 'fast-glob';
 
