@@ -32,14 +32,11 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add package.json gadgets/*/package.json
+          git add --all
           git commit -m "chore: release ${{ inputs.tag }}"
           git push
-      - name: Build
-        run: pnpm run build
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ inputs.tag }}
-          files: dist/*
+          tag_name: v${{ inputs.tag }}
           generate_release_notes: true
