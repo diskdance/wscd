@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Penyuwangi",
 			"Veracious"
 		]
 	},
@@ -22,7 +23,7 @@
 	"name-ru.planet.wikimedia.org": "Wikimedia Planet Rusia",
 	"name-sq.planet.wikimedia.org": "Wikimedia Planet Albania",
 	"name-uk.planet.wikimedia.org": "Wikimedia Planet Ukraina",
-	"name-zh.planet.wikimedia.org": "Wikimedia Planet Cina",
+	"name-zh.planet.wikimedia.org": "Wikimedia Planet Tionghoa",
 	"name-upload.wikimedia.org": "Penyimpanan Media Wikimedia",
 	"name-wikimediafoundation.org": "Yayasan Wikimedia",
 	"name-phabricator.wikimedia.org": "Wikimedia Phabricator",
