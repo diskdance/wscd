@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bayahiu",
 			"Penyuwangi",
 			"Veracious"
 		]
@@ -27,7 +28,9 @@
 	"name-upload.wikimedia.org": "Penyimpanan Media Wikimedia",
 	"name-wikimediafoundation.org": "Yayasan Wikimedia",
 	"name-phabricator.wikimedia.org": "Wikimedia Phabricator",
+	"name-gerrit.wikimedia.org": "Tinjauan Kode Wikimedia",
 	"name-gitlab.wikimedia.org": "Wikimedia GitLab",
+	"name-ticket.wikimedia.org": "Tim Tanggapan Relawan",
 	"name-wikimedia.org": "Portal Wikimedia",
 	"name-wikipedia.org": "Portal Wikipedia",
 	"name-wiktionary.org": "Portal Wiktionary",
