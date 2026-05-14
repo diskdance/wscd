@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Suleiman the Magnificent Television",
+			"Tensama0415",
 			"YeBoy371",
 			"Ykhwong"
 		]
@@ -27,7 +28,9 @@
 	"name-upload.wikimedia.org": "위키미디어 저장소",
 	"name-wikimediafoundation.org": "위키미디어 재단",
 	"name-phabricator.wikimedia.org": "위키미디어 파브리케이터",
+	"name-gerrit.wikimedia.org": "위키미디어 코드 리뷰",
 	"name-gitlab.wikimedia.org": "위키미디어 GitLab",
+	"name-ticket.wikimedia.org": "VRT",
 	"name-dumps.wikimedia.org": "위키미디어 다운로드",
 	"name-techblog.wikimedia.org": "위키미디어 기술 블로그",
 	"name-wikimedia.org": "위키미디어 포털",
@@ -39,6 +42,7 @@
 	"name-wikiversity.org": "위키배움터 포털",
 	"name-wikivoyage.org": "위키여행 포털",
 	"name-w.wiki": "위키미디어 URL 단축기",
+	"card-about-head": "이 도구에 관해",
 	"tbl-h-name": "이름",
 	"tbl-h-domains": "도메인",
 	"tbl-btn-next": "다음 페이지",
@@ -58,7 +62,12 @@
 	"rtt-excellent": "⚡ 훌륭해요",
 	"rtt-good": "🚀 좋아요",
 	"rtt-bad": "🐌 좋지 않아요",
+	"rtt-title": "$1 ms",
+	"ct-field-ext-check": "모든 사이트를 검사",
+	"ct-field-type": "검사 유형",
 	"ct-field-ext": "모든 사이트",
+	"btn-chk": "검사",
+	"sc-chk-h": "검사 중... ($1/$2)",
 	"sc-chk-desc": "네트워크 상태에 따라 최대 몇 분이 소요될 수 있습니다.",
 	"sc-chk-cur": "현재 확인 중: $1",
 	"sc-end-b-np": "축하합니다! 무료로 지식을 얻을 수 있게 되었습니다!",
@@ -66,5 +75,6 @@
 	"sc-domain-desc-none": "없음",
 	"sc-btn-hide": "데이터 숨김",
 	"sc-btn-show": "데이터 표시",
+	"sc-btn-recheck": "검사 재시작",
 	"sc-btn-dl": "데이터 다운로드"
 }
