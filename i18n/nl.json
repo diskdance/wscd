@@ -95,7 +95,7 @@
 	"sc-end-b-err-1t": "Waarom is dit gebeurd?",
 	"sc-end-b-err-1p1": "Uw schuld is het alvast niet!",
 	"sc-end-b-err-1p2": "Verstoringen van de verbinding kunnen te wijten zijn aan defecte netwerken, bedrijfsnetwerkbeleid of overheidscensuur.",
-	"sc-end-b-err-1p3": "Voor IP-blokkades kan dit zijn omdat u een proxy- of VPN-dienst gebruikt. Zulke diensten veranderen uw IP-adres in dat van hen. Dat kan door Wikimedia-projecten worden geblokkeerd voor het bewerken om vandalisme te voorkomen.",
+	"sc-end-b-err-1p3": "Voor IP-blokkades kan dit zijn omdat u een proxy- of VPN-dienst gebruikt. Zulke diensten wijzigen uw IP-adres in dat van hen. Dat kan door Wikimedia-projecten worden geblokkeerd voor het bewerken om vandalisme te voorkomen.",
 	"sc-end-b-err-2t": "Wat moet ik doen?",
 	"sc-end-b-err-2p1": "Probeer proxy's of VPN-services te gebruiken om verbinding te maken.",
 	"sc-end-b-err-2p2": "Om IP-adresblokkades aan te pakken, verzoeken wij u [https://nl.wikipedia.org/wiki/Wikipedia:Uitgezonderden_van_IP-adresblokkades een uitzondering aan te vragen] zodat uw account de blokkade omzeilt.",
