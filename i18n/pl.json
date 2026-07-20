@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"PanWor",
 			"Woytecr"
 		]
 	},
@@ -48,7 +49,7 @@
 	"sc-end-h-err": "Wykryto kilka problemów",
 	"sc-end-b-err": "W Twojej sieci mogą występować problemy, które mogą mieć wpływ na korzystanie z witryn Wikimedia.",
 	"sc-end-b-err-1t": "Dlaczego tak się stało?",
-	"sc-end-b-err-1p1": "Po pierwsze, to nie jest twoja wina!",
+	"sc-end-b-err-1p1": "Po pierwsze, to nie jest Twoja wina!",
 	"sc-end-b-err-1p2": "Jeśli chodzi o zakłócenia w połączeniu, przyczyną mogą być wadliwe sieci, polityka sieciowa firmy lub cenzura rządowa.",
 	"sc-end-b-err-1p3": "W przypadku blokad IP może to wynikać z korzystania z serwera proxy lub usługi VPN. Korzystanie z takich usług spowodowałoby zmianę Twojego adresu IP na używany przez te usługi, któremu projekty Wikimedia mogą zablokować możliwość edytowania, aby zapobiec aktom wandalizmu.",
 	"sc-end-b-err-2t": "Co powinienem zrobić?",
